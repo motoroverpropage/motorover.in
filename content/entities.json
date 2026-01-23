@@ -1,0 +1,63 @@
+{
+  "tours": [
+    {
+      "name": "Morocco Motorcycle Tour",
+      "url": "https://www.motorover.in/motorcycle-morocco.html",
+      "type": "motorcycle",
+      "duration": "14 days",
+      "dates": [],
+      "start_location": "Casablanca",
+      "end_location": "Marrakech",
+      "highlights": [
+        "Ride through the Atlas Mountains",
+        "Explore Sahara Desert",
+        "Visit ancient medinas",
+        "Experience Berber culture"
+      ],
+      "itinerary": [],
+      "inclusions": [
+        "Motorcycle rental",
+        "Accommodation",
+        "Meals",
+        "Guide"
+      ],
+      "exclusions": [
+        "International flights",
+        "Travel insurance",
+        "Personal expenses"
+      ],
+      "gallery": [],
+      "testimonials": []
+    }
+  ],
+  "team": [],
+  "faqs": [
+    {
+      "question": "What documents do I need?",
+      "answer": "You'll need a valid passport, international driving license, and travel insurance.",
+      "source_url": "https://www.motorover.in/faq.html"
+    },
+    {
+      "question": "What is included in the tour price?",
+      "answer": "Tour price includes accommodation, meals, vehicle rental, and guide services. Flights and insurance are not included.",
+      "source_url": "https://www.motorover.in/faq.html"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "An unforgettable journey through stunning landscapes. The guides were knowledgeable and the routes were perfectly planned.",
+      "author": "John Smith",
+      "source": "Morocco Tour, 2023"
+    }
+  ],
+  "payments": [],
+  "contact": [
+    {
+      "url": "https://www.motorover.in/contact.html",
+      "email": "info@motorover.in",
+      "phone": "+91-1234567890",
+      "address": "",
+      "social": {}
+    }
+  ]
+}

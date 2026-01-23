@@ -1,0 +1,33 @@
+{
+  "pages": [
+    {
+      "url": "https://www.motorover.in/",
+      "slug": "index",
+      "title": "MotoRover - Motorcycle Tours & Self-Drive Road Trips",
+      "metaDescription": "Adventure motorcycle tours and self-drive road trips across the world. Explore exotic destinations on two wheels or four.",
+      "canonical": "https://www.motorover.in/",
+      "lang": "en-IN",
+      "headings": {
+        "h1": ["Adventure Awaits"],
+        "h2": ["Featured Tours", "Why Choose MotoRover", "What Our Travelers Say"]
+      },
+      "contentBlocks": [
+        {
+          "type": "hero",
+          "content": {
+            "text": "Adventure Awaits",
+            "html": "<div class=\"hero\"><h1>Adventure Awaits</h1><p>Motorcycle tours and self-drive road trips across the world</p></div>"
+          }
+        }
+      ],
+      "images": [],
+      "forms": [],
+      "internalLinks": [
+        {"anchor": "Tours", "target": "https://www.motorover.in/tours/"},
+        {"anchor": "About", "target": "https://www.motorover.in/about/"},
+        {"anchor": "Contact", "target": "https://www.motorover.in/contact.html"}
+      ],
+      "structuredDataHints": []
+    }
+  ]
+}

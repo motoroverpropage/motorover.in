@@ -1,0 +1,19 @@
+{
+  "urls": [
+    "https://www.motorover.in/",
+    "https://www.motorover.in/tours/",
+    "https://www.motorover.in/about/",
+    "https://www.motorover.in/contact.html",
+    "https://www.motorover.in/faq.html",
+    "https://www.motorover.in/team.html"
+  ],
+  "hierarchy": {
+    "tours": {
+      "_url": "https://www.motorover.in/tours/"
+    },
+    "about": {
+      "_url": "https://www.motorover.in/about/"
+    }
+  },
+  "redirects": {}
+}

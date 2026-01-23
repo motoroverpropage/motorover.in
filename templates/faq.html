@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {% if faqs %}
+  <!-- JSON-LD FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for faq in faqs %}
+      {
+        "@type": "Question",
+        "name": "{{ faq.question }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ faq.answer }}"
+        }
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+  
+  {% if breadcrumbs %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {% for crumb in breadcrumbs %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": "{{ crumb.name }}",
+        "item": "{{ crumb.url }}"
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if breadcrumbs %}
+  <nav aria-label="Breadcrumb" class="container">
+    <ol class="breadcrumbs">
+      {% for crumb in breadcrumbs %}
+      <li class="breadcrumbs__item">
+        {% if not loop.last %}
+        <a href="{{ crumb.url }}" class="breadcrumbs__link">{{ crumb.name }}</a>
+        {% else %}
+        <span class="breadcrumbs__current">{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+  
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <header class="mb-12">
+        <h1>{{ title|default('Frequently Asked Questions') }}</h1>
+      </header>
+      
+      {% if faqs %}
+      <div class="faq-list">
+        {% for faq in faqs %}
+        <details class="faq">
+          <summary class="faq__question">
+            <span>{{ faq.question }}</span>
+            <svg class="faq__icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="faq__answer">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </details>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </article>
+{% endblock %}
