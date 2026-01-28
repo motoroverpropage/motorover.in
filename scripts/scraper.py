@@ -4,11 +4,13 @@ MotoRover.in Web Scraper
 Scrapes all content from motorover.in and extracts structured data.
 """
 
+import argparse
 import json
 import re
 import time
 import urllib.parse
 import urllib.robotparser
+import xml.etree.ElementTree as ET
 from collections import deque
 from pathlib import Path
 from typing import Dict, List, Set, Optional, Any
@@ -54,6 +56,34 @@ class MotoRoverScraper:
             self.robots_parser.read()
         except:
             pass  # Continue if robots.txt is not accessible
+    
+    def load_urls_from_sitemap(self, sitemap_path: str = "sitemap.xml") -> List[str]:
+        """Load all URLs from sitemap.xml file."""
+        sitemap_file = Path(sitemap_path)
+        if not sitemap_file.exists():
+            print(f"Sitemap file not found: {sitemap_path}")
+            return []
+        
+        try:
+            tree = ET.parse(sitemap_file)
+            root = tree.getroot()
+            ns = {"ns": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            
+            urls = []
+            for url_elem in root.findall("ns:url", ns):
+                loc_elem = url_elem.find("ns:loc", ns)
+                if loc_elem is not None and loc_elem.text:
+                    url = loc_elem.text.strip()
+                    # Normalize URL
+                    normalized = self.normalize_url(url)
+                    if normalized:
+                        urls.append(normalized)
+            
+            print(f"Loaded {len(urls)} URLs from sitemap.xml")
+            return urls
+        except Exception as e:
+            print(f"Error parsing sitemap.xml: {e}")
+            return []
     
     def is_allowed(self, url: str) -> bool:
         """Check if URL is allowed by robots.txt."""
@@ -162,8 +192,19 @@ class MotoRoverScraper:
             if not src:
                 continue
             
-            # Normalize image URL
+            # Normalize image URL - allow external URLs for images
             img_url = self.normalize_url(src, base_url)
+            # If normalize_url returns None (external domain), try to use the original URL
+            if not img_url:
+                # For images, allow external URLs (CDN, etc.)
+                if src.startswith("http://") or src.startswith("https://"):
+                    img_url = src
+                elif src.startswith("//"):
+                    img_url = "https:" + src
+                else:
+                    # Relative URL
+                    img_url = urljoin(base_url, src)
+            
             if not img_url:
                 continue
             
@@ -558,12 +599,17 @@ class MotoRoverScraper:
         
         return contact if contact["email"] or contact["phone"] else None
     
-    def scrape_page(self, url: str) -> Optional[Dict]:
-        """Scrape a single page."""
+    def scrape_page(self, url: str, check_robots: bool = True) -> Optional[Dict]:
+        """Scrape a single page.
+        
+        Args:
+            url: URL to scrape
+            check_robots: Whether to check robots.txt (default: True)
+        """
         if url in self.visited_urls:
             return None
         
-        if not self.is_allowed(url):
+        if check_robots and not self.is_allowed(url):
             print(f"Skipping {url} (robots.txt disallowed)")
             return None
         
@@ -623,8 +669,26 @@ class MotoRoverScraper:
         
         return slug or "index"
     
-    def crawl(self, start_url: str = None):
-        """Crawl the entire site."""
+    def crawl(self, start_url: str = None, url_list: List[str] = None, ignore_robots: bool = False):
+        """Crawl the entire site.
+        
+        Args:
+            start_url: Single URL to start crawling from (uses link-following)
+            url_list: List of URLs to scrape directly (no link-following)
+            ignore_robots: If True, skip robots.txt checks (default: False)
+        """
+        # If URL list provided, scrape those directly
+        if url_list:
+            print(f"Scraping {len(url_list)} URLs from provided list")
+            for url in url_list:
+                page_data = self.scrape_page(url, check_robots=not ignore_robots)
+                if page_data:
+                    self.pages_data.append(page_data)
+                # Rate limiting
+                time.sleep(self.RATE_LIMIT)
+            return
+        
+        # Otherwise use link-following crawl
         if start_url is None:
             start_url = f"{self.BASE_URL}/"
         
@@ -710,8 +774,45 @@ class MotoRoverScraper:
 
 def main():
     """Main entry point."""
+    parser = argparse.ArgumentParser(description="Scrape motorover.in website")
+    parser.add_argument(
+        "--sitemap",
+        type=str,
+        default="sitemap.xml",
+        help="Path to sitemap.xml file (default: sitemap.xml)"
+    )
+    parser.add_argument(
+        "--use-sitemap",
+        action="store_true",
+        help="Use URLs from sitemap.xml instead of link-following crawl"
+    )
+    parser.add_argument(
+        "--start-url",
+        type=str,
+        help="Start URL for link-following crawl (default: homepage)"
+    )
+    parser.add_argument(
+        "--ignore-robots",
+        action="store_true",
+        help="Ignore robots.txt restrictions (use with caution)"
+    )
+    
+    args = parser.parse_args()
+    
     scraper = MotoRoverScraper()
-    scraper.crawl()
+    
+    if args.use_sitemap:
+        # Load URLs from sitemap and scrape them
+        urls = scraper.load_urls_from_sitemap(args.sitemap)
+        if urls:
+            scraper.crawl(url_list=urls, ignore_robots=args.ignore_robots)
+        else:
+            print("No URLs found in sitemap. Exiting.")
+            return
+    else:
+        # Use link-following crawl
+        scraper.crawl(start_url=args.start_url, ignore_robots=args.ignore_robots)
+    
     scraper.save()
 
 

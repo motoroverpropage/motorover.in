@@ -167,6 +167,127 @@
     });
   }
 
+  // Carousel functionality
+  function initCarousel() {
+    const carousel = document.querySelector('.carousel');
+    if (!carousel) {
+      return;
+    }
+    
+    const track = carousel.querySelector('.carousel__track');
+    const prevButton = carousel.querySelector('.carousel__button--prev');
+    const nextButton = carousel.querySelector('.carousel__button--next');
+    const cards = carousel.querySelectorAll('.card--tour');
+    
+    if (!track || !prevButton || !nextButton || cards.length === 0) {
+      return;
+    }
+    
+    let currentIndex = 0;
+    
+    function calculateDimensions() {
+      const cardWidth = cards[0].offsetWidth;
+      const gap = parseInt(getComputedStyle(track).gap) || 24;
+      const cardWidthWithGap = cardWidth + gap;
+      const containerWidth = carousel.querySelector('.carousel__container').offsetWidth;
+      const visibleCards = Math.floor(containerWidth / cardWidthWithGap);
+      const maxIndex = Math.max(0, cards.length - visibleCards);
+      
+      return { cardWidthWithGap, maxIndex };
+    }
+    
+    function updateCarousel() {
+      const { cardWidthWithGap, maxIndex } = calculateDimensions();
+      const translateX = -currentIndex * cardWidthWithGap;
+      track.style.transform = `translateX(${translateX}px)`;
+      
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex >= maxIndex || maxIndex === 0;
+    }
+    
+    function scrollToIndex(index) {
+      const { maxIndex } = calculateDimensions();
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      updateCarousel();
+    }
+    
+    prevButton.addEventListener('click', function() {
+      scrollToIndex(currentIndex - 1);
+    });
+    
+    nextButton.addEventListener('click', function() {
+      scrollToIndex(currentIndex + 1);
+    });
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        const { maxIndex } = calculateDimensions();
+        if (currentIndex > maxIndex) {
+          currentIndex = maxIndex;
+        }
+        updateCarousel();
+      }, 250);
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    track.addEventListener('touchend', function(event) {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+      const { maxIndex } = calculateDimensions();
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentIndex < maxIndex) {
+          scrollToIndex(currentIndex + 1);
+        } else if (diff < 0 && currentIndex > 0) {
+          scrollToIndex(currentIndex - 1);
+        }
+      }
+    }
+    
+    // Initialize after a short delay to ensure layout is complete
+    setTimeout(function() {
+      updateCarousel();
+    }, 100);
+  }
+  
+  // Card favorite functionality
+  function initCardFavorites() {
+    const favoriteButtons = document.querySelectorAll('.card__favorite');
+    
+    favoriteButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const isPressed = this.getAttribute('aria-pressed') === 'true';
+        this.setAttribute('aria-pressed', !isPressed);
+        
+        // Visual feedback
+        if (!isPressed) {
+          this.style.transform = 'scale(1.2)';
+          setTimeout(function() {
+            button.style.transform = '';
+          }, 200);
+        }
+      });
+    });
+  }
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -174,11 +295,15 @@
       initFAQAccordion();
       initLightbox();
       initSmoothScroll();
+      initCarousel();
+      initCardFavorites();
     });
   } else {
     initMobileNav();
     initFAQAccordion();
     initLightbox();
     initSmoothScroll();
+    initCarousel();
+    initCardFavorites();
   }
 })();

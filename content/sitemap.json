@@ -1,18 +1,378 @@
 {
   "urls": [
     "https://www.motorover.in/",
-    "https://www.motorover.in/tours/",
-    "https://www.motorover.in/about/",
-    "https://www.motorover.in/contact.html",
-    "https://www.motorover.in/faq.html",
-    "https://www.motorover.in/team.html"
+    "https://www.motorover.in/404.html",
+    "https://www.motorover.in/contactus.html",
+    "https://www.motorover.in/the-team.html",
+    "https://www.motorover.in/why-us.html",
+    "https://www.motorover.in/FAQ.html",
+    "https://www.motorover.in/blog/riga-was-rocking.html",
+    "https://www.motorover.in/blog.html",
+    "https://www.motorover.in/privacy-terms-refund-pricing.html",
+    "https://www.motorover.in/payment.html",
+    "https://www.motorover.in/tours.html",
+    "https://www.motorover.in/media.html",
+    "https://www.motorover.in/motorcycle-silk-route.html",
+    "https://www.motorover.in/motorcycle-silk-route-brochure.html",
+    "https://www.motorover.in/motorcycle-silk-route-booking-policy.html",
+    "https://www.motorover.in/motorcycle-northern-europe-brochure.html",
+    "https://www.motorover.in/motorcycle-northern-europe-booking-policy.html",
+    "https://www.motorover.in/motorcycle-scotland-booking-policy.html",
+    "https://www.motorover.in/car-silk-route.html",
+    "https://www.motorover.in/car-silk-route-brochure.html",
+    "https://www.motorover.in/car-silk-route-booking-policy.html",
+    "https://www.motorover.in/motorcycle-northern-europe.html",
+    "https://www.motorover.in/motorcycle-scotland.html",
+    "https://www.motorover.in/car-scotland.html",
+    "https://www.motorover.in/car-scotland-booking-policy.html",
+    "https://www.motorover.in/car-scotland-coming-soon.html",
+    "https://www.motorover.in/motorcycle-spain-and-france-booking-policy.html",
+    "https://www.motorover.in/motorcycle-spain-and-france.html",
+    "https://www.motorover.in/motorcycle-spain-and-france-brochure.html",
+    "https://www.motorover.in/car-spain-and-france-brochure.html",
+    "https://www.motorover.in/car-spain-and-france-booking-policy.html",
+    "https://www.motorover.in/car-spain-and-france.html",
+    "https://www.motorover.in/motorcycle-morocco.html",
+    "https://www.motorover.in/motorcycle-morocco-brochure.html",
+    "https://www.motorover.in/motorcycle-morocco-booking-policy.html",
+    "https://www.motorover.in/car-morocco.html",
+    "https://www.motorover.in/car-morocco-brochure.html",
+    "https://www.motorover.in/car-morocco-booking-policy.html",
+    "https://www.motorover.in/car-silk-route-snow-drive.html",
+    "https://www.motorover.in/car-silk-route-snow-drive-brochure.html",
+    "https://www.motorover.in/car-silk-route-snow-drive-booking-policy.html",
+    "https://www.motorover.in/silk-route-brochure-thank-you.html",
+    "https://www.motorover.in/silk-route-enquiry-may-thank-you.html",
+    "https://www.motorover.in/motorcycle-spain--france-brochure-thanks.html",
+    "https://www.motorover.in/motorcycle-spain--france-enquiry-thanks.html",
+    "https://www.motorover.in/russia-winter-adventure.html",
+    "https://www.motorover.in/russia-winter-adventure-brochure.html",
+    "https://www.motorover.in/russia-winter-adventure-booking-policy.html",
+    "https://www.motorover.in/car-northeast-india.html",
+    "https://www.motorover.in/car-northeast-india-brochure.html",
+    "https://www.motorover.in/car-northeast-india-booking-policy.html",
+    "https://www.motorover.in/motorcycle-andalucia.html",
+    "https://www.motorover.in/motorcycle-andalucia-brochure.html",
+    "https://www.motorover.in/motorcycle-andalucia-booking-policy.html",
+    "https://www.motorover.in/motorcycle-balkan.html",
+    "https://www.motorover.in/motorcycle-balkan-brochure.html",
+    "https://www.motorover.in/motorcycle-balkan-booking-policy.html",
+    "https://www.motorover.in/car-balkan.html",
+    "https://www.motorover.in/car-balkan-brochure.html",
+    "https://www.motorover.in/car-balkan-booking-policy.html",
+    "https://www.motorover.in/car-silk-route-autumn-edition.html",
+    "https://www.motorover.in/car-silk-route-autumn-edition-brochure.html",
+    "https://www.motorover.in/car-silk-route-autumn-edition-booking-policy.html",
+    "https://www.motorover.in/car-northern-europe.html",
+    "https://www.motorover.in/car-northern-europe-brochure.html",
+    "https://www.motorover.in/car-northern-europe-booking-policy.html",
+    "https://www.motorover.in/motorcycle-ultimate-alps.html",
+    "https://www.motorover.in/motorcycle-ultimate-alps-brochure.html",
+    "https://www.motorover.in/motorcycle-ultimate-alps-booking-policy.html",
+    "https://www.motorover.in/car-new-zealand.html",
+    "https://www.motorover.in/car-new-zealand-brochure.html",
+    "https://www.motorover.in/car-new-zealand-booking-policy.html",
+    "https://www.motorover.in/motorcycle-new-zealand.html",
+    "https://www.motorover.in/motorcycle-new-zealand-brochure.html",
+    "https://www.motorover.in/motorcycle-new-zealand-booking-policy.html",
+    "https://www.motorover.in/car-silk-route-spring-edition.html",
+    "https://www.motorover.in/car-silk-route-spring-edition-brochure.html",
+    "https://www.motorover.in/car-silk-route-spring-edition-booking-policy.html",
+    "https://www.motorover.in/motorcycle-south-africa.html",
+    "https://www.motorover.in/motorcycle-south-africa-brochure.html",
+    "https://www.motorover.in/motorcycle-south-africa-booking-policy.html",
+    "https://www.motorover.in/car-south-africa.html",
+    "https://www.motorover.in/car-south-africa-brochure.html",
+    "https://www.motorover.in/car-south-africa-booking-policy.html",
+    "https://www.motorover.in/car-georgia.html",
+    "https://www.motorover.in/car-georgia-brochure.html",
+    "https://www.motorover.in/car-georgia-booking-policy.html",
+    "https://www.motorover.in/car-georgia-winter-adventure.html",
+    "https://www.motorover.in/car-georgia-winter-adventure-brochure.html",
+    "https://www.motorover.in/car-georgia-winter-adventure-booking-policy.html",
+    "https://www.motorover.in/car-kyrgyzstan-spring-edition.html",
+    "https://www.motorover.in/car-kyrgyzstan-spring-edition-brochure.html",
+    "https://www.motorover.in/car-kyrgyzstan-spring-edition-booking-policy.html"
   ],
   "hierarchy": {
-    "tours": {
-      "_url": "https://www.motorover.in/tours/"
+    "_url": "https://www.motorover.in/",
+    "404.html": {
+      "_url": "https://www.motorover.in/404.html"
     },
-    "about": {
-      "_url": "https://www.motorover.in/about/"
+    "contactus.html": {
+      "_url": "https://www.motorover.in/contactus.html"
+    },
+    "the-team.html": {
+      "_url": "https://www.motorover.in/the-team.html"
+    },
+    "why-us.html": {
+      "_url": "https://www.motorover.in/why-us.html"
+    },
+    "FAQ.html": {
+      "_url": "https://www.motorover.in/FAQ.html"
+    },
+    "blog": {
+      "riga-was-rocking.html": {
+        "_url": "https://www.motorover.in/blog/riga-was-rocking.html"
+      }
+    },
+    "blog.html": {
+      "_url": "https://www.motorover.in/blog.html"
+    },
+    "privacy-terms-refund-pricing.html": {
+      "_url": "https://www.motorover.in/privacy-terms-refund-pricing.html"
+    },
+    "payment.html": {
+      "_url": "https://www.motorover.in/payment.html"
+    },
+    "tours.html": {
+      "_url": "https://www.motorover.in/tours.html"
+    },
+    "media.html": {
+      "_url": "https://www.motorover.in/media.html"
+    },
+    "motorcycle-silk-route.html": {
+      "_url": "https://www.motorover.in/motorcycle-silk-route.html"
+    },
+    "motorcycle-silk-route-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-silk-route-brochure.html"
+    },
+    "motorcycle-silk-route-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-silk-route-booking-policy.html"
+    },
+    "motorcycle-northern-europe-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-northern-europe-brochure.html"
+    },
+    "motorcycle-northern-europe-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-northern-europe-booking-policy.html"
+    },
+    "motorcycle-scotland-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-scotland-booking-policy.html"
+    },
+    "car-silk-route.html": {
+      "_url": "https://www.motorover.in/car-silk-route.html"
+    },
+    "car-silk-route-brochure.html": {
+      "_url": "https://www.motorover.in/car-silk-route-brochure.html"
+    },
+    "car-silk-route-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-silk-route-booking-policy.html"
+    },
+    "motorcycle-northern-europe.html": {
+      "_url": "https://www.motorover.in/motorcycle-northern-europe.html"
+    },
+    "motorcycle-scotland.html": {
+      "_url": "https://www.motorover.in/motorcycle-scotland.html"
+    },
+    "car-scotland.html": {
+      "_url": "https://www.motorover.in/car-scotland.html"
+    },
+    "car-scotland-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-scotland-booking-policy.html"
+    },
+    "car-scotland-coming-soon.html": {
+      "_url": "https://www.motorover.in/car-scotland-coming-soon.html"
+    },
+    "motorcycle-spain-and-france-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-spain-and-france-booking-policy.html"
+    },
+    "motorcycle-spain-and-france.html": {
+      "_url": "https://www.motorover.in/motorcycle-spain-and-france.html"
+    },
+    "motorcycle-spain-and-france-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-spain-and-france-brochure.html"
+    },
+    "car-spain-and-france-brochure.html": {
+      "_url": "https://www.motorover.in/car-spain-and-france-brochure.html"
+    },
+    "car-spain-and-france-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-spain-and-france-booking-policy.html"
+    },
+    "car-spain-and-france.html": {
+      "_url": "https://www.motorover.in/car-spain-and-france.html"
+    },
+    "motorcycle-morocco.html": {
+      "_url": "https://www.motorover.in/motorcycle-morocco.html"
+    },
+    "motorcycle-morocco-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-morocco-brochure.html"
+    },
+    "motorcycle-morocco-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-morocco-booking-policy.html"
+    },
+    "car-morocco.html": {
+      "_url": "https://www.motorover.in/car-morocco.html"
+    },
+    "car-morocco-brochure.html": {
+      "_url": "https://www.motorover.in/car-morocco-brochure.html"
+    },
+    "car-morocco-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-morocco-booking-policy.html"
+    },
+    "car-silk-route-snow-drive.html": {
+      "_url": "https://www.motorover.in/car-silk-route-snow-drive.html"
+    },
+    "car-silk-route-snow-drive-brochure.html": {
+      "_url": "https://www.motorover.in/car-silk-route-snow-drive-brochure.html"
+    },
+    "car-silk-route-snow-drive-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-silk-route-snow-drive-booking-policy.html"
+    },
+    "silk-route-brochure-thank-you.html": {
+      "_url": "https://www.motorover.in/silk-route-brochure-thank-you.html"
+    },
+    "silk-route-enquiry-may-thank-you.html": {
+      "_url": "https://www.motorover.in/silk-route-enquiry-may-thank-you.html"
+    },
+    "motorcycle-spain--france-brochure-thanks.html": {
+      "_url": "https://www.motorover.in/motorcycle-spain--france-brochure-thanks.html"
+    },
+    "motorcycle-spain--france-enquiry-thanks.html": {
+      "_url": "https://www.motorover.in/motorcycle-spain--france-enquiry-thanks.html"
+    },
+    "russia-winter-adventure.html": {
+      "_url": "https://www.motorover.in/russia-winter-adventure.html"
+    },
+    "russia-winter-adventure-brochure.html": {
+      "_url": "https://www.motorover.in/russia-winter-adventure-brochure.html"
+    },
+    "russia-winter-adventure-booking-policy.html": {
+      "_url": "https://www.motorover.in/russia-winter-adventure-booking-policy.html"
+    },
+    "car-northeast-india.html": {
+      "_url": "https://www.motorover.in/car-northeast-india.html"
+    },
+    "car-northeast-india-brochure.html": {
+      "_url": "https://www.motorover.in/car-northeast-india-brochure.html"
+    },
+    "car-northeast-india-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-northeast-india-booking-policy.html"
+    },
+    "motorcycle-andalucia.html": {
+      "_url": "https://www.motorover.in/motorcycle-andalucia.html"
+    },
+    "motorcycle-andalucia-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-andalucia-brochure.html"
+    },
+    "motorcycle-andalucia-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-andalucia-booking-policy.html"
+    },
+    "motorcycle-balkan.html": {
+      "_url": "https://www.motorover.in/motorcycle-balkan.html"
+    },
+    "motorcycle-balkan-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-balkan-brochure.html"
+    },
+    "motorcycle-balkan-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-balkan-booking-policy.html"
+    },
+    "car-balkan.html": {
+      "_url": "https://www.motorover.in/car-balkan.html"
+    },
+    "car-balkan-brochure.html": {
+      "_url": "https://www.motorover.in/car-balkan-brochure.html"
+    },
+    "car-balkan-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-balkan-booking-policy.html"
+    },
+    "car-silk-route-autumn-edition.html": {
+      "_url": "https://www.motorover.in/car-silk-route-autumn-edition.html"
+    },
+    "car-silk-route-autumn-edition-brochure.html": {
+      "_url": "https://www.motorover.in/car-silk-route-autumn-edition-brochure.html"
+    },
+    "car-silk-route-autumn-edition-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-silk-route-autumn-edition-booking-policy.html"
+    },
+    "car-northern-europe.html": {
+      "_url": "https://www.motorover.in/car-northern-europe.html"
+    },
+    "car-northern-europe-brochure.html": {
+      "_url": "https://www.motorover.in/car-northern-europe-brochure.html"
+    },
+    "car-northern-europe-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-northern-europe-booking-policy.html"
+    },
+    "motorcycle-ultimate-alps.html": {
+      "_url": "https://www.motorover.in/motorcycle-ultimate-alps.html"
+    },
+    "motorcycle-ultimate-alps-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-ultimate-alps-brochure.html"
+    },
+    "motorcycle-ultimate-alps-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-ultimate-alps-booking-policy.html"
+    },
+    "car-new-zealand.html": {
+      "_url": "https://www.motorover.in/car-new-zealand.html"
+    },
+    "car-new-zealand-brochure.html": {
+      "_url": "https://www.motorover.in/car-new-zealand-brochure.html"
+    },
+    "car-new-zealand-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-new-zealand-booking-policy.html"
+    },
+    "motorcycle-new-zealand.html": {
+      "_url": "https://www.motorover.in/motorcycle-new-zealand.html"
+    },
+    "motorcycle-new-zealand-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-new-zealand-brochure.html"
+    },
+    "motorcycle-new-zealand-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-new-zealand-booking-policy.html"
+    },
+    "car-silk-route-spring-edition.html": {
+      "_url": "https://www.motorover.in/car-silk-route-spring-edition.html"
+    },
+    "car-silk-route-spring-edition-brochure.html": {
+      "_url": "https://www.motorover.in/car-silk-route-spring-edition-brochure.html"
+    },
+    "car-silk-route-spring-edition-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-silk-route-spring-edition-booking-policy.html"
+    },
+    "motorcycle-south-africa.html": {
+      "_url": "https://www.motorover.in/motorcycle-south-africa.html"
+    },
+    "motorcycle-south-africa-brochure.html": {
+      "_url": "https://www.motorover.in/motorcycle-south-africa-brochure.html"
+    },
+    "motorcycle-south-africa-booking-policy.html": {
+      "_url": "https://www.motorover.in/motorcycle-south-africa-booking-policy.html"
+    },
+    "car-south-africa.html": {
+      "_url": "https://www.motorover.in/car-south-africa.html"
+    },
+    "car-south-africa-brochure.html": {
+      "_url": "https://www.motorover.in/car-south-africa-brochure.html"
+    },
+    "car-south-africa-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-south-africa-booking-policy.html"
+    },
+    "car-georgia.html": {
+      "_url": "https://www.motorover.in/car-georgia.html"
+    },
+    "car-georgia-brochure.html": {
+      "_url": "https://www.motorover.in/car-georgia-brochure.html"
+    },
+    "car-georgia-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-georgia-booking-policy.html"
+    },
+    "car-georgia-winter-adventure.html": {
+      "_url": "https://www.motorover.in/car-georgia-winter-adventure.html"
+    },
+    "car-georgia-winter-adventure-brochure.html": {
+      "_url": "https://www.motorover.in/car-georgia-winter-adventure-brochure.html"
+    },
+    "car-georgia-winter-adventure-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-georgia-winter-adventure-booking-policy.html"
+    },
+    "car-kyrgyzstan-spring-edition.html": {
+      "_url": "https://www.motorover.in/car-kyrgyzstan-spring-edition.html"
+    },
+    "car-kyrgyzstan-spring-edition-brochure.html": {
+      "_url": "https://www.motorover.in/car-kyrgyzstan-spring-edition-brochure.html"
+    },
+    "car-kyrgyzstan-spring-edition-booking-policy.html": {
+      "_url": "https://www.motorover.in/car-kyrgyzstan-spring-edition-booking-policy.html"
     }
   },
   "redirects": {}

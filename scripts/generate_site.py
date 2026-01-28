@@ -32,10 +32,8 @@ class SiteGenerator:
         self.entities = self._load_json("entities.json")
         self.sitemap_data = self._load_json("sitemap.json")
         
-        # Create output directories
+        # Create output directory
         self.output_dir.mkdir(exist_ok=True)
-        (self.output_dir / "tours").mkdir(exist_ok=True)
-        (self.output_dir / "about").mkdir(exist_ok=True)
     
     def _load_json(self, filename: str) -> Dict:
         """Load JSON file."""
@@ -179,15 +177,9 @@ class SiteGenerator:
         slug = page.get("slug", "index")
         url = page.get("url", "")
         
-        # Determine directory
+        # All HTML files go to root directory
         if slug == "index" or url.endswith("/") or url.endswith("/index.html"):
             return self.output_dir / "index.html"
-        elif "tour" in url.lower() or "motorcycle" in url.lower() or "self-drive" in url.lower():
-            filename = f"{slug}.html"
-            return self.output_dir / "tours" / filename
-        elif "about" in url.lower() or "why" in url.lower():
-            filename = f"{slug}.html"
-            return self.output_dir / "about" / filename
         else:
             filename = f"{slug}.html"
             return self.output_dir / filename
