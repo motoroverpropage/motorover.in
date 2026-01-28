@@ -1713,7 +1713,7 @@ li {
 
 .gallery-lightbox__caption {
   margin-top: var(--space-3);
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.9);
   font-size: var(--font-size-sm);
   text-align: center;
 }
@@ -1780,9 +1780,9 @@ li {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: var(--border-width) solid var(--border);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
-  color: var(--fg);
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1793,11 +1793,11 @@ li {
 
 .gallery-lightbox__play-pause:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .gallery-lightbox__play-pause:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -1814,14 +1814,14 @@ li {
   height: 0;
   margin-left: 4px;
   border-width: 8px 0 8px 14px;
-  border-color: transparent transparent transparent currentColor;
+  border-color: transparent transparent transparent #ffffff;
 }
 
 .gallery-lightbox__pause-icon {
   width: 3px;
   height: 14px;
-  background: currentColor;
-  box-shadow: 6px 0 0 currentColor;
+  background: #ffffff;
+  box-shadow: 6px 0 0 #ffffff;
   display: none;
 }
 
@@ -1837,9 +1837,9 @@ li {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: var(--border-width) solid var(--border);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
-  color: var(--fg);
+  color: #ffffff;
   cursor: pointer;
   font-size: 1.5rem;
   line-height: 1;
@@ -1852,10 +1852,10 @@ li {
 
 .gallery-lightbox__exit:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .gallery-lightbox__exit:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
