@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-IN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  
-  <title></title>
-  
-  
-  <link rel="canonical" href="https://www.motorover.in/404.html">
-  
-  
-  <!-- OpenGraph -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.motorover.in/404.html">
-  
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
-  
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="/css/styles.css">
-  
-  <!-- Manifest -->
-  <link rel="manifest" href="/manifest.webmanifest">
-  
-  
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <header class="header" role="banner">
-    <div class="container">
-      <div class="header__inner">
-        <a href="/" class="header__logo">MotoRover</a>
-        
-        <nav class="nav" role="navigation" aria-label="Main navigation" id="main-nav" aria-expanded="false">
-          <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="main-nav" aria-expanded="false">
-            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 12h18M3 6h18M3 18h18"/>
-            </svg>
-          </button>
-          
-                    <ul class="nav__list">
+#!/usr/bin/env python3
+"""
+Script to standardize header and footer navigation across all HTML files.
+"""
+
+import os
+import re
+from pathlib import Path
+
+# Standard header navigation (full dropdown version)
+STANDARD_HEADER_NAV = '''          <ul class="nav__list">
             <li class="nav__item">
               <a href="/" class="nav__link">Home</a>
             </li>
@@ -122,48 +83,22 @@
             <li class="nav__item">
               <a href="/FAQ.html" class="nav__link">FAQ</a>
             </li>
-          </ul>
-        </nav>
-        
-        <div class="header__actions">
+          </ul>'''
+
+STANDARD_HEADER_ACTIONS = '''        <div class="header__actions">
           <a href="/contactus.html" class="btn btn--primary btn--small">Contact Us</a>
-          <button class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" id="theme-toggle">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="theme-icon-light">
-            <circle cx="12" cy="12" r="5"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-          </svg>
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="theme-icon-dark" style="display: none;">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-  
-  <main id="main-content" role="main">
-    
-  </main>
-  
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <h3 class="footer__section-title">MotoRover</h3>
-          <p class="footer__content" style="color: var(--muted); font-size: var(--font-size-sm);">
-            Adventure motorcycle tours and self-drive road trips across the world.
-          </p>
-        </div>
-        
-        <div>
+          <button class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" id="theme-toggle">'''
+
+STANDARD_FOOTER_TOURS = '''        <div>
           <h3 class="footer__section-title">Tours</h3>
           <ul class="footer__list">
             <li class="footer__item"><a href="/tours.html" class="footer__link">All Tours</a></li>
             <li class="footer__item"><a href="/tours.html" class="footer__link">Motorcycle Tours</a></li>
             <li class="footer__item"><a href="/tours.html" class="footer__link">Self-Drive Tours</a></li>
           </ul>
-        </div>
-        
-        <div>
+        </div>'''
+
+STANDARD_FOOTER_COMPANY = '''        <div>
           <h3 class="footer__section-title">Company</h3>
           <ul class="footer__list">
             <li class="footer__item"><a href="/about.html" class="footer__link">About Us</a></li>
@@ -171,28 +106,126 @@
             <li class="footer__item"><a href="/FAQ.html" class="footer__link">FAQ</a></li>
             <li class="footer__item"><a href="/contactus.html" class="footer__link">Contact</a></li>
           </ul>
-        </div>
-        
-        <div>
+        </div>'''
+
+STANDARD_FOOTER_LEGAL = '''        <div>
           <h3 class="footer__section-title">Legal</h3>
           <ul class="footer__list">
             <li class="footer__item"><a href="/privacy-terms-refund-pricing.html" class="footer__link">Terms</a></li>
             <li class="footer__item"><a href="/privacy-terms-refund-pricing.html" class="footer__link">Privacy</a></li>
           </ul>
-        </div>
-      </div>
-      
-      <div class="footer__copyright">
-        <p>&copy; 2024 MotoRover. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Scripts -->
-  <script src="/js/theme.js" defer></script>
-  <script src="/js/main.js" defer></script>
-  
-  
-  
-</body>
-</html>
+        </div>'''
+
+
+def fix_header_navigation(content):
+    """Replace simple navigation with standard dropdown navigation."""
+    # Pattern to match simple navigation
+    simple_nav_pattern = r'<ul class="nav__list">\s*<li class="nav__item"><a href="/" class="nav__link">Home</a></li>\s*<li class="nav__item"><a href="/tours/" class="nav__link">Tours</a></li>\s*<li class="nav__item"><a href="/about/" class="nav__link">About</a></li>\s*<li class="nav__item"><a href="/contact\.html" class="nav__link">Contact</a></li>\s*</ul>'
+    
+    if re.search(simple_nav_pattern, content):
+        content = re.sub(simple_nav_pattern, STANDARD_HEADER_NAV, content)
+    
+    # Also handle variations
+    simple_nav_pattern2 = r'<ul class="nav__list">.*?<li class="nav__item"><a href="/" class="nav__link">Home</a></li>.*?<li class="nav__item"><a href="/tours/" class="nav__link">Tours</a></li>.*?<li class="nav__item"><a href="/about/" class="nav__link">About</a></li>.*?<li class="nav__item"><a href="/contact\.html" class="nav__link">Contact</a></li>.*?</ul>'
+    content = re.sub(simple_nav_pattern2, STANDARD_HEADER_NAV, content, flags=re.DOTALL)
+    
+    # Fix header actions - add if missing, or fix contact link
+    if '<div class="header__actions">' not in content:
+        # Check if there's a theme-toggle button that needs header__actions wrapper
+        theme_toggle_pattern = r'(<button class="theme-toggle[^>]*>.*?</button>\s*</div>\s*</div>\s*</header>)'
+        if re.search(theme_toggle_pattern, content, re.DOTALL):
+            # Insert header__actions before theme-toggle
+            content = re.sub(
+                r'(<button class="theme-toggle)',
+                STANDARD_HEADER_ACTIONS.replace('<button class="theme-toggle', r'\1'),
+                content,
+                count=1
+            )
+    
+    # Fix contact link in header actions
+    content = re.sub(
+        r'<a href="/contact\.html" class="btn btn--primary btn--small">Contact Us</a>',
+        '<a href="/contactus.html" class="btn btn--primary btn--small">Contact Us</a>',
+        content
+    )
+    
+    return content
+
+
+def fix_footer_navigation(content):
+    """Standardize footer navigation links."""
+    # Fix Tours section
+    tours_pattern = r'<div>\s*<h3 class="footer__section-title">Tours</h3>\s*<ul class="footer__list">.*?</ul>\s*</div>'
+    content = re.sub(tours_pattern, STANDARD_FOOTER_TOURS, content, flags=re.DOTALL)
+    
+    # Fix Company section
+    company_pattern = r'<div>\s*<h3 class="footer__section-title">Company</h3>\s*<ul class="footer__list">.*?</ul>\s*</div>'
+    content = re.sub(company_pattern, STANDARD_FOOTER_COMPANY, content, flags=re.DOTALL)
+    
+    # Fix Legal section
+    legal_pattern = r'<div>\s*<h3 class="footer__section-title">Legal</h3>\s*<ul class="footer__list">.*?</ul>\s*</div>'
+    content = re.sub(legal_pattern, STANDARD_FOOTER_LEGAL, content, flags=re.DOTALL)
+    
+    # Fix individual links
+    replacements = [
+        (r'href="/tours/"', 'href="/tours.html"'),
+        (r'href="/about/"', 'href="/about.html"'),
+        (r'href="/contact\.html"', 'href="/contactus.html"'),
+        (r'href="/faq\.html"', 'href="/FAQ.html"'),
+        (r'href="/FAQ\.html"', 'href="/FAQ.html"'),
+        (r'href="/team\.html"', 'href="/the-team.html"'),
+        (r'href="/terms\.html"', 'href="/privacy-terms-refund-pricing.html"'),
+        (r'href="/privacy\.html"', 'href="/privacy-terms-refund-pricing.html"'),
+        (r'href="/tours/motorcycle\.html"', 'href="/tours.html"'),
+        (r'href="/tours/self-drive\.html"', 'href="/tours.html"'),
+    ]
+    
+    for pattern, replacement in replacements:
+        content = re.sub(pattern, replacement, content)
+    
+    return content
+
+
+def process_html_file(file_path):
+    """Process a single HTML file."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        original_content = content
+        
+        # Fix header navigation
+        content = fix_header_navigation(content)
+        
+        # Fix footer navigation
+        content = fix_footer_navigation(content)
+        
+        # Only write if content changed
+        if content != original_content:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            return True
+        return False
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        return False
+
+
+def main():
+    """Main function to process all HTML files."""
+    base_dir = Path(__file__).parent.parent
+    html_files = list(base_dir.glob('*.html'))
+    
+    print(f"Found {len(html_files)} HTML files")
+    
+    fixed_count = 0
+    for html_file in html_files:
+        if process_html_file(html_file):
+            print(f"Fixed: {html_file.name}")
+            fixed_count += 1
+    
+    print(f"\nFixed {fixed_count} files")
+
+
+if __name__ == '__main__':
+    main()
