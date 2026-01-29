@@ -258,7 +258,7 @@
       if (lightboxEl.requestFullscreen) {
         lightboxEl.requestFullscreen().catch(function() {});
       }
-      lightboxEl.addEventListener('keydown', handleLightboxKeydown);
+      document.addEventListener('keydown', handleLightboxKeydown);
     }
 
     function closeLightbox() {
@@ -271,15 +271,20 @@
       lightboxEl.classList.remove('gallery-lightbox--open');
       document.body.style.overflow = '';
       stopSlideshow();
-      lightboxEl.removeEventListener('keydown', handleLightboxKeydown);
+      document.removeEventListener('keydown', handleLightboxKeydown);
     }
 
     function handleLightboxKeydown(e) {
+      if (!lightboxEl || !lightboxEl.classList.contains('gallery-lightbox--open')) {
+        return;
+      }
       if (e.key === 'Escape') {
         closeLightbox();
       } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
         prev();
       } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
         next();
       }
     }
