@@ -1823,6 +1823,7 @@ li {
   background: #ffffff;
   box-shadow: 6px 0 0 #ffffff;
   display: none;
+  margin-left: -6px; /* center the two-bar graphic (layout width is 3px, visual width is 9px) */
 }
 
 .gallery-lightbox__play-pause--playing .gallery-lightbox__play-icon {
@@ -1847,6 +1848,7 @@ li {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 48px;
   transition: background var(--transition-base), border-color var(--transition-base);
 }
 
