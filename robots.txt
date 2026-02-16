@@ -1,4 +1,5 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.motorover.in/sitemap.xml
+<html>
+ <body>
+  User-agent: * Sitemap: http://www.motorover.in
+ </body>
+</html>
