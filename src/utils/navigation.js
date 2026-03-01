@@ -110,7 +110,7 @@ export function renderNavigation(navData) {
       </li>
       
       <li class="nav__item">
-        <a href="/FAQ.html" class="nav__link" aria-current="${window.location.pathname.includes('FAQ') ? 'page' : 'false'}">FAQ</a>
+        <a href="/faq.html" class="nav__link" aria-current="${window.location.pathname.includes('FAQ') ? 'page' : 'false'}">FAQ</a>
       </li>
     </ul>
   `;
