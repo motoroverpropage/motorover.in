@@ -1615,7 +1615,7 @@ input, textarea, select {
 [data-theme="light"] .nav__hamburger span { background-color: var(--text); }
 
 /* Light mode — Logo */
-[data-theme="light"] .nav__logo-img { filter: none; }
+[data-theme="light"] .nav__logo-img { /* filter: none; */ }
 
 /* Light mode — Button outlines */
 [data-theme="light"] .btn--outline {
@@ -1666,13 +1666,13 @@ input, textarea, select {
   width: auto;
   display: block;
   /* Invert logo for dark backgrounds (logo is dark on transparent) */
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s ease;
+  /* filter: brightness(0) invert(1); */
+  /* transition: filter 0.3s ease; */
 }
 
 [data-theme="light"] .nav__logo-img {
   /* Keep natural logo colors on light background */
-  filter: none;
+  /* filter: none; */
 }
 
 /* ============================================================

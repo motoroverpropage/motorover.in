@@ -126,28 +126,62 @@
     }
   }
 
-  /* === FAQ ACCORDION === */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer   = item.querySelector('.faq-answer');
-    if (!question || !answer) return;
+  /* === FAQ ACCORDION — scroll-reveal + individual toggle === */
+  const faqItems = document.querySelectorAll('.faq-item');
 
-    question.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
+  if (faqItems.length) {
 
-      // Close all
-      document.querySelectorAll('.faq-item.open').forEach(openItem => {
-        openItem.classList.remove('open');
-        openItem.querySelector('.faq-answer').style.maxHeight = null;
+    // Open a single item
+    const openFaq = (item) => {
+      const answer = item.querySelector('.faq-answer');
+      const btn    = item.querySelector('.faq-question');
+      if (!answer || item.classList.contains('open')) return;
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+    };
+
+    // Close a single item
+    const closeFaq = (item) => {
+      const answer = item.querySelector('.faq-answer');
+      const btn    = item.querySelector('.faq-question');
+      if (!answer || !item.classList.contains('open')) return;
+      item.classList.remove('open');
+      answer.style.maxHeight = null;
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    };
+
+    // Click: individual toggle (does not close siblings)
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      if (!question) return;
+      question.addEventListener('click', () => {
+        item.classList.contains('open') ? closeFaq(item) : openFaq(item);
+      });
+    });
+
+    // Scroll: auto-open with cascade stagger as items enter viewport
+    if ('IntersectionObserver' in window) {
+      const faqObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter(e => e.isIntersecting);
+        visible.forEach((entry, i) => {
+          setTimeout(() => {
+            openFaq(entry.target);
+            faqObserver.unobserve(entry.target);
+          }, i * 90); // 90 ms cascade between simultaneous entries
+        });
+      }, {
+        threshold: 0.22,
+        rootMargin: '0px 0px -48px 0px'
       });
 
-      // Open clicked if it was closed
-      if (!isOpen) {
-        item.classList.add('open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
-  });
+      faqItems.forEach(item => faqObserver.observe(item));
+
+    } else {
+      // Fallback: open all immediately (no IntersectionObserver support)
+      faqItems.forEach(item => openFaq(item));
+    }
+  }
 
   /* === GALLERY LIGHTBOX === */
   const galleryItems = document.querySelectorAll('.gallery-item');
