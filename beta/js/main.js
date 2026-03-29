@@ -32,6 +32,49 @@
     });
   });
 
+  /* === ACCENT PICKER: Orange / Gold === */
+  const ACCENT_KEY = 'mr-accent';
+
+  const applyAccent = (accent) => {
+    if (accent === 'gold') {
+      document.documentElement.setAttribute('data-accent', 'gold');
+    } else {
+      document.documentElement.removeAttribute('data-accent');
+    }
+    localStorage.setItem(ACCENT_KEY, accent);
+    // Sync all swatch buttons
+    document.querySelectorAll('.accent-swatch').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.accentValue === accent);
+      btn.setAttribute('aria-pressed', btn.dataset.accentValue === accent ? 'true' : 'false');
+    });
+  };
+
+  // Load saved accent preference; default to orange
+  const savedAccent = localStorage.getItem(ACCENT_KEY) || 'orange';
+  applyAccent(savedAccent);
+
+  // Inject picker UI into .nav__cta (before hamburger)
+  const navCta = document.querySelector('.nav__cta');
+  if (navCta) {
+    const picker = document.createElement('div');
+    picker.className = 'accent-picker';
+    picker.setAttribute('aria-label', 'Accent colour');
+    picker.innerHTML = `
+      <button class="accent-swatch" data-accent-value="orange" aria-label="Orange accent" aria-pressed="false" title="Orange"></button>
+      <button class="accent-swatch" data-accent-value="gold"   aria-label="Gold accent"   aria-pressed="false" title="Gold"></button>
+    `;
+    // Insert before hamburger (last child)
+    const hamburger = navCta.querySelector('.nav__hamburger');
+    navCta.insertBefore(picker, hamburger);
+
+    picker.querySelectorAll('.accent-swatch').forEach(btn => {
+      btn.addEventListener('click', () => applyAccent(btn.dataset.accentValue));
+    });
+
+    // Set initial active state
+    applyAccent(savedAccent);
+  }
+
   /* === NAV: Scroll behaviour === */
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -363,6 +406,44 @@
       .lb-prev  { left: 8px; }
       .lb-next  { right: 8px; }
       .lb-close { top: 8px; right: 8px; }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
+/* === ACCENT PICKER STYLES injected by JS === */
+(function () {
+  const style = document.createElement('style');
+  style.textContent = `
+    .accent-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: 4px;
+    }
+    .accent-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+      outline: none;
+      flex-shrink: 0;
+    }
+    .accent-swatch[data-accent-value="orange"] { background: #E05A00; }
+    .accent-swatch[data-accent-value="gold"]   { background: #ffc512; }
+    .accent-swatch:hover {
+      transform: scale(1.25);
+    }
+    .accent-swatch.active {
+      border-color: var(--text);
+      box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text);
+      transform: scale(1.15);
+    }
+    @media (max-width: 768px) {
+      .accent-picker { display: none; }
     }
   `;
   document.head.appendChild(style);

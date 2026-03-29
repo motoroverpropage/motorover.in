@@ -1595,6 +1595,29 @@ input, textarea, select {
   --shadow-accent: 0 0 24px rgba(208, 82, 0, 0.20);
 }
 
+/* ============================================================
+   ACCENT THEME — Gold  (data-accent="gold")
+   Toggle between orange (default) and gold
+   ============================================================ */
+
+/* Gold — dark mode (default) */
+[data-accent="gold"] {
+  --accent:        #ffc512;
+  --accent-light:  #FFD44D;
+  --accent-dim:    rgba(255, 197, 18, 0.12);
+  --accent-glow:   rgba(255, 197, 18, 0.25);
+  --shadow-accent: 0 0 24px rgba(255, 197, 18, 0.22);
+}
+
+/* Gold — light mode (deeper for contrast on light bg) */
+[data-theme="light"][data-accent="gold"] {
+  --accent:        #C8960A;
+  --accent-light:  #E0AA14;
+  --accent-dim:    rgba(200, 150, 10, 0.10);
+  --accent-glow:   rgba(200, 150, 10, 0.20);
+  --shadow-accent: 0 0 24px rgba(200, 150, 10, 0.20);
+}
+
 /* Light mode — Nav adjustments */
 [data-theme="light"] .nav.scrolled {
   background-color: rgba(248, 246, 242, 0.96);
