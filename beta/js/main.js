@@ -443,7 +443,8 @@
       transform: scale(1.15);
     }
     @media (max-width: 768px) {
-      .accent-picker { display: none; }
+      .accent-picker { gap: 5px; margin-right: 2px; }
+      .accent-swatch { width: 14px; height: 14px; }
     }
   `;
   document.head.appendChild(style);
