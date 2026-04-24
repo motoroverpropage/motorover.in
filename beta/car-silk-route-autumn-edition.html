@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Silk Route Autumn Drive — Kyrgyzstan | MotoRover</title>
-  <meta name="description" content="9-day autumn self-drive car tour through Kyrgyzstan — Issyk-Kul in golden autumn colours, Tash Rabat Silk Road caravanserai, Sary-Chelek UNESCO lake. Toyota Sequoia. USD 2,690 per person." />
+  <meta name="description"
+    content="9-day autumn self-drive car tour through Kyrgyzstan — Issyk-Kul in golden autumn colours, Tash Rabat Silk Road caravanserai, Sary-Chelek UNESCO lake. Toyota Sequoia. USD 2,690 per person." />
   <meta name="keywords" content="Kyrgyzstan autumn car tour, Silk Route autumn drive, Tash Rabat caravanserai, Issyk-Kul autumn, Sary-Chelek lake, MotoRover Kyrgyzstan, Tian Shan autumn road trip India" />
   <meta property="og:title" content="Silk Route Autumn Drive — Kyrgyzstan | MotoRover" />
   <meta property="og:description" content="9 days through autumn Kyrgyzstan — golden Tian Shan, Tash Rabat Silk Road caravanserai, Sary-Chelek UNESCO lake, eagle hunters, and empty mountain roads." />
@@ -24,70 +26,200 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout{display:grid;grid-template-columns:1fr 360px;gap:var(--sp-8);align-items:start}
-    .tour-sidebar{position:sticky;top:calc(var(--nav-height) + 24px)}
-    .booking-card{background-color:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .booking-card__header{background:linear-gradient(135deg,var(--accent) 0%,#c04d00 100%);padding:var(--sp-4);text-align:center}
-    .booking-card__price{font-family:var(--font-display);font-size:var(--text-4xl);font-weight:800;color:var(--white);line-height:1}
-    .booking-card__price-note{font-size:var(--text-sm);color:rgba(255,255,255,0.8);margin-top:4px}
-    .booking-card__body{padding:var(--sp-4)}
-    .booking-card__facts{display:flex;flex-direction:column;gap:12px;margin-bottom:var(--sp-4);padding-bottom:var(--sp-4);border-bottom:1px solid var(--border)}
-    .booking-fact{display:flex;align-items:center;gap:10px;font-size:var(--text-sm);color:var(--text-muted)}
-    .booking-fact i{color:var(--accent);width:16px;text-align:center}
-    .booking-fact strong{color:var(--text);margin-left:auto}
-    .booking-card__actions{display:flex;flex-direction:column;gap:var(--sp-2)}
-    .booking-card__actions .btn{width:100%;justify-content:center}
-    .booking-card__note{font-size:var(--text-xs);color:var(--text-faint);text-align:center;margin-top:var(--sp-2)}
-    .highlights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);margin-bottom:var(--sp-6)}
-    .highlight-item{display:flex;align-items:flex-start;gap:10px;font-size:var(--text-base);color:var(--text-muted)}
-    .highlight-item i{color:var(--accent);flex-shrink:0;margin-top:3px}
-    @media(max-width:1024px){.tour-layout{grid-template-columns:1fr}.tour-sidebar{position:static}}
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px)
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4)
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted)
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2)
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2)
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6)
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted)
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px
+    }
+
+    @media(max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr
+      }
+
+      .tour-sidebar {
+        position: static
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="car-silk-route-autumn-edition.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Silk Route Autumn</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -95,7 +227,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -137,10 +271,12 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Kyrgyzstan in autumn is the Silk Route at its most cinematic. The Tian Shan mountain forests turn amber and gold, Issyk-Kul lake reflects the changing peaks in total stillness, and nomadic families are returning from summer pastures to valley villages. The crowds of summer are gone. The roads are empty and perfect. This is the connoisseur's version of the Kyrgyzstan Silk Route experience.
+              Kyrgyzstan in autumn is the Silk Route at its most cinematic. The Tian Shan mountain forests turn amber and gold, Issyk-Kul lake reflects the changing peaks in total stillness, and nomadic families are
+              returning from summer pastures to valley villages. The crowds of summer are gone. The roads are empty and perfect. This is the connoisseur's version of the Kyrgyzstan Silk Route experience.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              This 9-day Toyota Sequoia convoy reaches places the summer tours can't — Tash Rabat, a perfectly preserved 15th-century Silk Road caravanserai near the Chinese border; Sary-Chelek, a UNESCO-protected walnut forest lake of heartbreaking autumn beauty; and the Karkara Valley, where eagles still hunt in the ancient way. Autumn in Kyrgyzstan rewards those who arrive at the right time.
+              This 9-day Toyota Sequoia convoy reaches places the summer tours can't — Tash Rabat, a perfectly preserved 15th-century Silk Road caravanserai near the Chinese border; Sary-Chelek, a UNESCO-protected walnut
+              forest lake of heartbreaking autumn beauty; and the Karkara Valley, where eagles still hunt in the ancient way. Autumn in Kyrgyzstan rewards those who arrive at the right time.
             </p>
           </section>
 
@@ -189,49 +325,56 @@
                     <td><span class="day-badge">Day 2</span></td>
                     <td>—</td>
                     <td>Bishkek → Issyk-Kul North Shore</td>
-                    <td>The drive east along Issyk-Kul's north shore in autumn is one of Central Asia's great road experiences. Golden poplars line the highway, the lake glitters below, and the Tian Shan rises sharp and snow-capped on the far shore. Cholpon Ata petroglyphs in the afternoon.</td>
+                    <td>The drive east along Issyk-Kul's north shore in autumn is one of Central Asia's great road experiences. Golden poplars line the highway, the lake glitters below, and the Tian Shan rises sharp and
+                      snow-capped on the far shore. Cholpon Ata petroglyphs in the afternoon.</td>
                     <td>280 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 3</span></td>
                     <td>—</td>
                     <td>Issyk-Kul → Karkara Valley</td>
-                    <td>Leave the main road behind. Drive off-tarmac into the remote Karkara Valley near the Kazakhstan border — wide open steppe, eagles overhead, nomadic families driving horses to lower pastures for winter. Eagle hunter visit arranged with a local family.</td>
+                    <td>Leave the main road behind. Drive off-tarmac into the remote Karkara Valley near the Kazakhstan border — wide open steppe, eagles overhead, nomadic families driving horses to lower pastures for
+                      winter. Eagle hunter visit arranged with a local family.</td>
                     <td>160 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 4</span></td>
                     <td>—</td>
                     <td>Karkara → Naryn</td>
-                    <td>The ancient Silk Route highway in its full autumn glory. Cross the Dolon Pass at 3,030m — ringed by nomadic camps and golden valleys — descending to the regional capital of Naryn, a town the tourist trail has never reached.</td>
+                    <td>The ancient Silk Route highway in its full autumn glory. Cross the Dolon Pass at 3,030m — ringed by nomadic camps and golden valleys — descending to the regional capital of Naryn, a town the
+                      tourist trail has never reached.</td>
                     <td>220 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 5</span></td>
                     <td>—</td>
                     <td>Naryn + Tash Rabat</td>
-                    <td>A rest morning in Naryn. Afternoon: drive to Tash Rabat caravanserai on the old Chinese trading road — a 15th-century stone inn still standing in near-perfect condition, surrounded by autumn steppe and absolute silence. An unmissable Silk Route moment.</td>
+                    <td>A rest morning in Naryn. Afternoon: drive to Tash Rabat caravanserai on the old Chinese trading road — a 15th-century stone inn still standing in near-perfect condition, surrounded by autumn
+                      steppe and absolute silence. An unmissable Silk Route moment.</td>
                     <td>60 km return</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 6</span></td>
                     <td>—</td>
                     <td>Naryn → Torugart area → Sary-Chelek</td>
-                    <td>Drive toward the legendary Torugart Pass and its views of the Chinese border, then turn south for the descent to Sary-Chelek. The UNESCO-protected walnut forest biosphere reserve in October is one of the most beautiful places on the Silk Route.</td>
+                    <td>Drive toward the legendary Torugart Pass and its views of the Chinese border, then turn south for the descent to Sary-Chelek. The UNESCO-protected walnut forest biosphere reserve in October is one
+                      of the most beautiful places on the Silk Route.</td>
                     <td>260 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 7</span></td>
                     <td>—</td>
                     <td>Sary-Chelek</td>
-                    <td>A full day at Sary-Chelek lake. Walk through walnut and fruit tree forests ablaze in autumn reds and golds. The lake's reflections are simply extraordinary at this time of year. Evening in a local homestay — the most intimate accommodation of the tour.</td>
+                    <td>A full day at Sary-Chelek lake. Walk through walnut and fruit tree forests ablaze in autumn reds and golds. The lake's reflections are simply extraordinary at this time of year. Evening in a local
+                      homestay — the most intimate accommodation of the tour.</td>
                     <td>— km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 8</span></td>
                     <td>—</td>
                     <td>Sary-Chelek → Bishkek</td>
-                    <td>The long return drive through the Chuy valley in harvest season — fields of gold, roadside stalls piled with walnuts and apples, the capital coming slowly back into view. Farewell dinner in Bishkek.</td>
+                    <td>The long return drive through the Chuy valley in harvest season — fields of gold, roadside stalls piled with walnuts and apples, the capital coming slowly back into view. Farewell dinner in
+                      Bishkek.</td>
                     <td>350 km</td>
                   </tr>
                   <tr>
@@ -346,12 +489,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Issyk-Kul lake in autumn colours Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Tash Rabat Silk Road caravanserai Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Sary-Chelek UNESCO walnut forest lake autumn" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Nomadic yurt camp autumn Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Tian Shan mountains autumn Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Bishkek autumn Osh Bazaar Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Issyk-Kul lake in autumn colours Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Tash Rabat Silk Road caravanserai Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Sary-Chelek UNESCO walnut forest lake autumn" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Nomadic yurt camp autumn Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Tian Shan mountains autumn Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Bishkek autumn Osh Bazaar Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -435,7 +590,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -483,5 +640,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

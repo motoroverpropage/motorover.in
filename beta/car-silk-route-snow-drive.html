@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Silk Route Snow Drive — Kyrgyzstan Winter | MotoRover</title>
-  <meta name="description" content="8-day winter self-drive car tour through Kyrgyzstan — snow-covered Naryn steppe, frozen Kegeti gorge waterfalls, felt-making with nomads, 4WD adventure. Toyota Sequoia with winter tyres. USD 2,490 per person." />
+  <meta name="description"
+    content="8-day winter self-drive car tour through Kyrgyzstan — snow-covered Naryn steppe, frozen Kegeti gorge waterfalls, felt-making with nomads, 4WD adventure. Toyota Sequoia with winter tyres. USD 2,490 per person." />
   <meta name="keywords" content="Kyrgyzstan winter car tour, Silk Route snow drive, Kegeti gorge frozen waterfall, Naryn winter, Suusamyr plateau snow, MotoRover Kyrgyzstan winter, Tian Shan winter road trip India" />
   <meta property="og:title" content="Silk Route Snow Drive — Kyrgyzstan Winter | MotoRover" />
   <meta property="og:description" content="8 days through winter Kyrgyzstan — frozen Kegeti gorge, Naryn in deep snow, felt-making with nomads, and the vast Suusamyr plateau blanketed in white." />
@@ -24,70 +26,200 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout{display:grid;grid-template-columns:1fr 360px;gap:var(--sp-8);align-items:start}
-    .tour-sidebar{position:sticky;top:calc(var(--nav-height) + 24px)}
-    .booking-card{background-color:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .booking-card__header{background:linear-gradient(135deg,var(--accent) 0%,#c04d00 100%);padding:var(--sp-4);text-align:center}
-    .booking-card__price{font-family:var(--font-display);font-size:var(--text-4xl);font-weight:800;color:var(--white);line-height:1}
-    .booking-card__price-note{font-size:var(--text-sm);color:rgba(255,255,255,0.8);margin-top:4px}
-    .booking-card__body{padding:var(--sp-4)}
-    .booking-card__facts{display:flex;flex-direction:column;gap:12px;margin-bottom:var(--sp-4);padding-bottom:var(--sp-4);border-bottom:1px solid var(--border)}
-    .booking-fact{display:flex;align-items:center;gap:10px;font-size:var(--text-sm);color:var(--text-muted)}
-    .booking-fact i{color:var(--accent);width:16px;text-align:center}
-    .booking-fact strong{color:var(--text);margin-left:auto}
-    .booking-card__actions{display:flex;flex-direction:column;gap:var(--sp-2)}
-    .booking-card__actions .btn{width:100%;justify-content:center}
-    .booking-card__note{font-size:var(--text-xs);color:var(--text-faint);text-align:center;margin-top:var(--sp-2)}
-    .highlights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);margin-bottom:var(--sp-6)}
-    .highlight-item{display:flex;align-items:flex-start;gap:10px;font-size:var(--text-base);color:var(--text-muted)}
-    .highlight-item i{color:var(--accent);flex-shrink:0;margin-top:3px}
-    @media(max-width:1024px){.tour-layout{grid-template-columns:1fr}.tour-sidebar{position:static}}
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px)
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4)
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted)
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2)
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2)
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6)
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted)
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px
+    }
+
+    @media(max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr
+      }
+
+      .tour-sidebar {
+        position: static
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="car-silk-route-snow-drive.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Silk Route Snow Drive</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -95,7 +227,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -137,10 +271,13 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Kyrgyzstan under snow is a country that almost no one has seen. The steppe becomes an infinite white canvas, the mountains rise even higher above the frozen valleys, and the nomadic culture that retreats in winter reveals its most intimate, fire-warmed side. This 8-day MotoRover snow convoy is the most adventurous thing in our catalogue — and arguably the most memorable.
+              Kyrgyzstan under snow is a country that almost no one has seen. The steppe becomes an infinite white canvas, the mountains rise even higher above the frozen valleys, and the nomadic culture that retreats in
+              winter reveals its most intimate, fire-warmed side. This 8-day MotoRover snow convoy is the most adventurous thing in our catalogue — and arguably the most memorable.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              You travel in a Toyota Sequoia fitted with snow chains and winter tyres, supported by our most experienced mountain guide who has driven these roads in every season. The itinerary covers the Kegeti gorge's frozen waterfalls, the highland town of Naryn in deep winter silence, a felt-making workshop with a nomadic family, and the vast Suusamyr plateau — 2,000m of unbroken snow with the Tian Shan on every horizon.
+              You travel in a Toyota Sequoia fitted with snow chains and winter tyres, supported by our most experienced mountain guide who has driven these roads in every season. The itinerary covers the Kegeti gorge's
+              frozen waterfalls, the highland town of Naryn in deep winter silence, a felt-making workshop with a nomadic family, and the vast Suusamyr plateau — 2,000m of unbroken snow with the Tian Shan on every
+              horizon.
             </p>
           </section>
 
@@ -182,49 +319,56 @@
                     <td><span class="day-badge">Day 1</span></td>
                     <td>Dec/Jan TBA</td>
                     <td>Bishkek</td>
-                    <td>Arrival. Dordoi Bazaar winter market — Central Asia's largest market in its deep-winter incarnation. Welcome beshbarmak feast: hand-pulled noodles, slow-boiled lamb, and the warmth of Kyrgyz hospitality. Tour briefing and vehicle handover.</td>
+                    <td>Arrival. Dordoi Bazaar winter market — Central Asia's largest market in its deep-winter incarnation. Welcome beshbarmak feast: hand-pulled noodles, slow-boiled lamb, and the warmth of Kyrgyz
+                      hospitality. Tour briefing and vehicle handover.</td>
                     <td>— km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 2</span></td>
                     <td>—</td>
                     <td>Bishkek → Chunkurchak → Kegeti Gorge</td>
-                    <td>Morning optional ski run at Chunkurchak resort, just 40 minutes from Bishkek. Afternoon: drive into the Kegeti Gorge where the waterfalls have frozen into vast ice formations — a natural sculpture gallery carved by winter. Camp or guesthouse in the gorge area.</td>
+                    <td>Morning optional ski run at Chunkurchak resort, just 40 minutes from Bishkek. Afternoon: drive into the Kegeti Gorge where the waterfalls have frozen into vast ice formations — a natural sculpture
+                      gallery carved by winter. Camp or guesthouse in the gorge area.</td>
                     <td>80 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 3</span></td>
                     <td>—</td>
                     <td>Bishkek → Kochkor</td>
-                    <td>Drive east through the frozen Chuy valley — snow-covered steppe rolling to the mountains, frozen streams running alongside the road, the silence total. Kochkor is a small highland town that has changed little in a century. Overnight in a local guesthouse.</td>
+                    <td>Drive east through the frozen Chuy valley — snow-covered steppe rolling to the mountains, frozen streams running alongside the road, the silence total. Kochkor is a small highland town that has
+                      changed little in a century. Overnight in a local guesthouse.</td>
                     <td>270 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 4</span></td>
                     <td>—</td>
                     <td>Kochkor → Naryn</td>
-                    <td>Cross the Dolon Pass in full winter condition — snow chains on, the Toyota Sequoia climbing through a white world of absolute stillness. Descend to the frozen Naryn River and the remote highland capital of Naryn, as quiet and beautiful in winter as anywhere on the Silk Route.</td>
+                    <td>Cross the Dolon Pass in full winter condition — snow chains on, the Toyota Sequoia climbing through a white world of absolute stillness. Descend to the frozen Naryn River and the remote highland
+                      capital of Naryn, as quiet and beautiful in winter as anywhere on the Silk Route.</td>
                     <td>170 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 5</span></td>
                     <td>—</td>
                     <td>Naryn → Jumgal Valley → At-Bashy</td>
-                    <td>Drive into the remote Jumgal Valley where a nomadic family has agreed to share their winter. A full felt-making workshop — watching raw wool become intricate patterns through techniques unchanged for a thousand years. Tea by the fire. Overnight in At-Bashy.</td>
+                    <td>Drive into the remote Jumgal Valley where a nomadic family has agreed to share their winter. A full felt-making workshop — watching raw wool become intricate patterns through techniques unchanged
+                      for a thousand years. Tea by the fire. Overnight in At-Bashy.</td>
                     <td>130 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 6</span></td>
                     <td>—</td>
                     <td>At-Bashy → Kara-Keche → Chaek</td>
-                    <td>Cross the high Coal Field plateau at Kara-Keche — an extraordinary Soviet-era industrial landscape sitting atop an ancient steppe. Wide open winter skies, a road that goes nowhere tourists go, and the strange beauty of a working highland in deep freeze. Overnight Chaek.</td>
+                    <td>Cross the high Coal Field plateau at Kara-Keche — an extraordinary Soviet-era industrial landscape sitting atop an ancient steppe. Wide open winter skies, a road that goes nowhere tourists go, and
+                      the strange beauty of a working highland in deep freeze. Overnight Chaek.</td>
                     <td>120 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 7</span></td>
                     <td>—</td>
                     <td>Chaek → Suusamyr Plateau → Bishkek</td>
-                    <td>The final, climactic drive. Climb to the Suusamyr Plateau at 2,000m — a vast highland basin blanketed in metres of snow, the Tian Shan visible in every direction. This is why you came. Descend through the dramatic Too-Ashuu Pass to Bishkek. Farewell dinner.</td>
+                    <td>The final, climactic drive. Climb to the Suusamyr Plateau at 2,000m — a vast highland basin blanketed in metres of snow, the Tian Shan visible in every direction. This is why you came. Descend
+                      through the dramatic Too-Ashuu Pass to Bishkek. Farewell dinner.</td>
                     <td>320 km</td>
                   </tr>
                   <tr>
@@ -341,12 +485,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Kegeti gorge frozen waterfall Kyrgyzstan winter" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Suusamyr plateau snow Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Naryn winter highland town Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Nomadic felt-making workshop Kyrgyzstan winter" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Bishkek winter market Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Tian Shan mountains winter Kyrgyzstan" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Kegeti gorge frozen waterfall Kyrgyzstan winter" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Suusamyr plateau snow Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Naryn winter highland town Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Nomadic felt-making workshop Kyrgyzstan winter" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Bishkek winter market Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Tian Shan mountains winter Kyrgyzstan" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -369,7 +525,8 @@
                 <div class="booking-fact"><i class="fa-solid fa-flag-checkered"></i> To <strong>Bishkek, Kyrgyzstan</strong></div>
               </div>
               <div class="booking-card__actions">
-                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Route%20Snow%20Drive%20%E2%80%94%20Winter%20Edition." class="btn btn--primary" target="_blank" rel="noopener">
+                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Route%20Snow%20Drive%20%E2%80%94%20Winter%20Edition." class="btn btn--primary" target="_blank"
+                  rel="noopener">
                   <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
                 </a>
                 <a href="contact.html" class="btn btn--outline">
@@ -414,7 +571,8 @@
         <h2 class="cta-strip__title">The Silk Route in <em>Winter.</em></h2>
         <p class="cta-strip__sub">Frozen waterfalls. Snow-covered steppe. Nomadic felt-makers. The Kyrgyzstan zero tourists have seen. WhatsApp us.</p>
         <div class="cta-strip__actions">
-          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Route%20Snow%20Drive%20%E2%80%94%20Winter%20Edition." class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Route%20Snow%20Drive%20%E2%80%94%20Winter%20Edition." class="btn btn--primary btn--lg" target="_blank"
+            rel="noopener">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp to Book
           </a>
           <a href="tours.html#car-tours" class="btn btn--outline btn--lg">
@@ -430,7 +588,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -478,5 +638,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

@@ -32,7 +32,8 @@
     });
   });
 
-  /* === ACCENT PICKER: Orange / Gold === */
+  /* === ACCENT PICKER: Yellow / Gold === */
+  const ENABLE_ACCENT_PICKER = false;
   const ACCENT_KEY = 'mr-accent';
 
   const applyAccent = (accent) => {
@@ -49,18 +50,20 @@
     });
   };
 
-  // Load saved accent preference; default to orange
-  const savedAccent = localStorage.getItem(ACCENT_KEY) || 'orange';
-  applyAccent(savedAccent);
+  // Load saved accent preference; default to yellow
+  const savedAccent = localStorage.getItem(ACCENT_KEY) || 'yellow';
+  if (ENABLE_ACCENT_PICKER) {
+    applyAccent(savedAccent);
+  }
 
   // Inject picker UI into .nav__cta (before hamburger)
   const navCta = document.querySelector('.nav__cta');
-  if (navCta) {
+  if (ENABLE_ACCENT_PICKER && navCta) {
     const picker = document.createElement('div');
     picker.className = 'accent-picker';
     picker.setAttribute('aria-label', 'Accent colour');
     picker.innerHTML = `
-      <button class="accent-swatch" data-accent-value="orange" aria-label="Orange accent" aria-pressed="false" title="Orange"></button>
+      <button class="accent-swatch" data-accent-value="yellow" aria-label="Yellow accent" aria-pressed="false" title="Yellow"></button>
       <button class="accent-swatch" data-accent-value="gold"   aria-label="Gold accent"   aria-pressed="false" title="Gold"></button>
     `;
     // Insert before hamburger (last child)
@@ -93,18 +96,28 @@
   const hamburger = document.querySelector('.nav__hamburger');
   const mobileMenu = document.querySelector('.nav__mobile');
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
+    const setOpen = (isOpen) => {
+      hamburger.classList.toggle('open', isOpen);
       mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', () => {
+      setOpen(!hamburger.classList.contains('open'));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && hamburger.classList.contains('open')) {
+        setOpen(false);
+      }
     });
 
     // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
+        setOpen(false);
       });
     });
   }
@@ -203,8 +216,8 @@
       });
     });
 
-    // Scroll: auto-open with cascade stagger as items enter viewport
-    if ('IntersectionObserver' in window) {
+    // Scroll: auto-open with cascade — only on the full FAQ page (not homepage preview)
+    if (document.body.classList.contains('page-faq') && 'IntersectionObserver' in window) {
       const faqObserver = new IntersectionObserver((entries) => {
         const visible = entries.filter(e => e.isIntersecting);
         visible.forEach((entry, i) => {
@@ -220,8 +233,7 @@
 
       faqItems.forEach(item => faqObserver.observe(item));
 
-    } else {
-      // Fallback: open all immediately (no IntersectionObserver support)
+    } else if (document.body.classList.contains('page-faq') && !('IntersectionObserver' in window)) {
       faqItems.forEach(item => openFaq(item));
     }
   }
@@ -397,7 +409,7 @@
       font-size: 1rem;
     }
     .lb-close:hover, .lb-prev:hover, .lb-next:hover {
-      background: #E05A00; border-color: #E05A00; color: #fff;
+      background: #ffc512; border-color: #ffc512; color: #fff;
     }
     .lb-close { top: -20px; right: -20px; }
     .lb-prev  { left: -60px; top: 50%; transform: translateY(-50%); }
@@ -432,7 +444,7 @@
       outline: none;
       flex-shrink: 0;
     }
-    .accent-swatch[data-accent-value="orange"] { background: #E05A00; }
+    .accent-swatch[data-accent-value="yellow"] { background: #ffc512; }
     .accent-swatch[data-accent-value="gold"]   { background: #ffc512; }
     .accent-swatch:hover {
       transform: scale(1.25);

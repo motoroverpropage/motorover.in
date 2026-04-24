@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
@@ -23,14 +24,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .page-hero { padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-8); border-bottom: 1px solid var(--border); }
-    .media-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: var(--sp-6); }
-    .filter-btn { padding: 8px 20px; border-radius: var(--radius-pill); font-size: var(--text-sm); font-weight: 600; border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer; transition: all var(--t-fast); }
-    .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    .page-hero {
+      padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .media-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-6);
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--t-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
     .masonry-grid {
       columns: 4;
       column-gap: 6px;
     }
+
     .masonry-item {
       break-inside: avoid;
       margin-bottom: 6px;
@@ -39,76 +68,209 @@
       cursor: pointer;
       position: relative;
     }
-    .masonry-item img { width: 100%; display: block; transition: transform var(--t-slow); }
-    .masonry-item:hover img { transform: scale(1.04); }
-    .masonry-item__overlay {
-      position: absolute; inset: 0;
-      background: rgba(8,8,8,0.5);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity var(--t);
+
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform var(--t-slow);
     }
-    .masonry-item:hover .masonry-item__overlay { opacity: 1; }
-    .masonry-item__overlay i { color: #fff; font-size: 2rem; }
-    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
-    .video-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--t), transform var(--t); }
-    .video-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-    .video-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-    .video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow); }
-    .video-card:hover .video-thumb img { transform: scale(1.04); }
-    .video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); }
-    .video-play i { font-size: 3rem; color: #fff; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); transition: transform var(--t-spring); }
-    .video-card:hover .video-play i { transform: scale(1.15); }
-    .video-card__body { padding: var(--sp-3); }
-    .video-card__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .video-card__meta { font-size: var(--text-sm); color: var(--text-muted); }
-    @media(max-width:1024px){ .masonry-grid { columns: 3; } .video-grid { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:768px){ .masonry-grid { columns: 2; } .video-grid { grid-template-columns: 1fr; } }
-    @media(max-width:480px){ .masonry-grid { columns: 2; } }
+
+    .masonry-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .masonry-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--t);
+    }
+
+    .masonry-item:hover .masonry-item__overlay {
+      opacity: 1;
+    }
+
+    .masonry-item__overlay i {
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--t), transform var(--t);
+    }
+
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--t-slow);
+    }
+
+    .video-card:hover .video-thumb img {
+      transform: scale(1.04);
+    }
+
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .video-play i {
+      font-size: 3rem;
+      color: #fff;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+      transition: transform var(--t-spring);
+    }
+
+    .video-card:hover .video-play i {
+      transform: scale(1.15);
+    }
+
+    .video-card__body {
+      padding: var(--sp-3);
+    }
+
+    .video-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .video-card__meta {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    @media(max-width:1024px) {
+      .masonry-grid {
+        columns: 3;
+      }
+
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .masonry-grid {
+        columns: 2;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:480px) {
+      .masonry-grid {
+        columns: 2;
+      }
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" /></a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+        <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link active">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link active" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -116,14 +278,17 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <header class="page-hero section--dark">
     <div class="container">
       <p class="section-eyebrow reveal">Photography &amp; Film</p>
       <h1 class="section-title reveal reveal-delay-1" style="font-size:var(--text-5xl);">Media <em>Gallery</em></h1>
-      <p class="section-header__sub reveal reveal-delay-2">A visual journey through the roads, landscapes, and moments that make MotoRover tours unforgettable. Photographed and filmed by our Creative Head, Kaustubh Joshi.</p>
+      <p class="section-header__sub reveal reveal-delay-2">A visual journey through the roads, landscapes, and moments that make MotoRover tours unforgettable. Photographed and filmed by our Creative Head, Kaustubh
+        Joshi.</p>
       <div class="media-filter reveal reveal-delay-3" role="group" aria-label="Filter media">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="kyrgyzstan">Kyrgyzstan</button>
@@ -142,32 +307,72 @@
         <h2 id="photos-heading" class="section-title">Tour <em>Photos</em></h2>
       </div>
       <div class="masonry-grid" role="list" aria-label="Photo gallery">
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-10.webp" alt="Silk Route mountain road Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-11.webp" alt="Spain Pyrenees motorcycle ride" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-20.webp" alt="Kyrgyzstan alpine lake drive" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-12.webp" alt="Balkan mountain road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-30.webp" alt="Rider on Kyrgyzstan mountain pass" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-22.webp" alt="Morocco Sahara desert road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-31.webp" alt="Song Kul lake sunset Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="georgia"><img src="../imgs/image-21.webp" alt="Georgia winter mountain drive" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-32.webp" alt="MotoRover group ride Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-50.webp" alt="South Africa coastal road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-33.webp" alt="Kyrgyz yurt camp nomadic life" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-52.webp" alt="Morocco Atlas mountains motorcycle" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-34.webp" alt="Eagle hunting cultural experience Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="georgia"><img src="../imgs/image-53.webp" alt="Caucasus mountains Georgia road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-35.webp" alt="Kyrgyzstan hairpin mountain road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-51.webp" alt="New Zealand South Island road" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-40.webp" alt="Toyota Sequoia off road Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-41.webp" alt="Issyk-Kul lake panorama" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-54.webp" alt="Northern Africa landscape drive" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-42.webp" alt="MotoRover car convoy Kyrgyzstan" loading="lazy" /><div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-10.webp" alt="Silk Route mountain road Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-11.webp" alt="Spain Pyrenees motorcycle ride" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-20.webp" alt="Kyrgyzstan alpine lake drive" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-12.webp" alt="Balkan mountain road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-30.webp" alt="Rider on Kyrgyzstan mountain pass" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-22.webp" alt="Morocco Sahara desert road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-31.webp" alt="Song Kul lake sunset Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="georgia"><img src="../imgs/image-21.webp" alt="Georgia winter mountain drive" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-32.webp" alt="MotoRover group ride Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-50.webp" alt="South Africa coastal road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-33.webp" alt="Kyrgyz yurt camp nomadic life" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-52.webp" alt="Morocco Atlas mountains motorcycle" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-34.webp" alt="Eagle hunting cultural experience Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="georgia"><img src="../imgs/image-53.webp" alt="Caucasus mountains Georgia road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-35.webp" alt="Kyrgyzstan hairpin mountain road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="europe"><img src="../imgs/image-51.webp" alt="New Zealand South Island road" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-40.webp" alt="Toyota Sequoia off road Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-41.webp" alt="Issyk-Kul lake panorama" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="morocco"><img src="../imgs/image-54.webp" alt="Northern Africa landscape drive" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="masonry-item" role="listitem" data-filter="kyrgyzstan"><img src="../imgs/image-42.webp" alt="MotoRover car convoy Kyrgyzstan" loading="lazy" />
+          <div class="masonry-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- VIDEO SECTION -->
-  <section class="section section--surface" aria-labelledby="videos-heading">
+  <section class="section section--surface" id="traveller-stories" aria-labelledby="videos-heading">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-eyebrow">Films &amp; Highlights</p>
@@ -263,7 +468,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company — guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -319,4 +526,5 @@
     });
   </script>
 </body>
+
 </html>

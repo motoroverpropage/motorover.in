@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
@@ -23,61 +24,151 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .page-hero { padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10); border-bottom: 1px solid var(--border); }
-    .faq-layout { display: grid; grid-template-columns: 240px 1fr; gap: var(--sp-10); align-items: start; }
-    .faq-nav { position: sticky; top: calc(var(--nav-height) + 24px); }
-    .faq-nav__list { display: flex; flex-direction: column; gap: 2px; }
-    .faq-nav__link { display: block; padding: 10px 14px; font-size: var(--text-sm); font-weight: 500; color: var(--text-muted); border-radius: var(--radius); border-left: 2px solid transparent; transition: all var(--t-fast); }
-    .faq-nav__link:hover, .faq-nav__link.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-dim); }
-    .faq-category { margin-bottom: var(--sp-8); }
-    .faq-category__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--text); margin-bottom: var(--sp-3); display: flex; align-items: center; gap: 12px; }
-    .faq-category__title i { color: var(--accent); font-size: 1rem; }
-    @media(max-width:768px){ .faq-layout { grid-template-columns: 1fr; } .faq-nav { position: static; display: none; } }
+    .page-hero {
+      padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+
+    .faq-nav {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .faq-nav__list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .faq-nav__link {
+      display: block;
+      padding: 10px 14px;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: var(--radius);
+      border-left: 2px solid transparent;
+      transition: all var(--t-fast);
+    }
+
+    .faq-nav__link:hover,
+    .faq-nav__link.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .faq-category {
+      margin-bottom: var(--sp-8);
+    }
+
+    .faq-category__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--sp-3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-category__title i {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    @media(max-width:768px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-nav {
+        position: static;
+        display: none;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body class="page-faq">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" /></a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+        <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link active">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link active" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -85,7 +176,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <header class="page-hero section--dark">
@@ -124,35 +217,49 @@
                   <span class="faq-question__text">How do I book a MotoRover tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">The easiest way is to WhatsApp us at +91-8390345646 or use the enquiry form on our Contact page. We'll confirm availability, walk you through the tour details, and send you the booking form and payment instructions.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">The easiest way is to WhatsApp us at +91-8390345646 or use the enquiry form on our Contact page. We'll confirm availability, walk you through the tour details, and send
+                    you the booking form and payment instructions.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What currency do I pay in?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Tour prices are listed in USD but payment is made in INR at the exchange rate on the date of transfer. This is convenient for Indian travellers and GST + TCS are already included in the price.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Tour prices are listed in USD but payment is made in INR at the exchange rate on the date of transfer. This is convenient for Indian travellers and GST + TCS are already
+                    included in the price.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Is there a booking deposit?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes, a deposit is required at the time of booking to confirm your seat. The remaining balance is due closer to the departure date. Full details are shared in the booking confirmation email.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes, a deposit is required at the time of booking to confirm your seat. The remaining balance is due closer to the departure date. Full details are shared in the booking
+                    confirmation email.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Are GST and TCS included in the tour price?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes. All tour prices include GST and TCS. There are no surprise taxes added at checkout. What you see is what you pay (in INR at exchange rate).</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes. All tour prices include GST and TCS. There are no surprise taxes added at checkout. What you see is what you pay (in INR at exchange rate).</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Can I book a private or custom group tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Absolutely. We arrange custom private tours and group expeditions to any of our destinations — and beyond. Contact us with your requirements and we'll design the perfect itinerary for your group.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Absolutely. We arrange custom private tours and group expeditions to any of our destinations — and beyond. Contact us with your requirements and we'll design the perfect
+                    itinerary for your group.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -166,28 +273,39 @@
                   <span class="faq-question__text">Do I need prior international riding experience?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">No. We welcome all skill levels — from first-time international riders to experienced tourers. Our tours are designed to be manageable for intermediates with daily distances of 4–5 hours. What you do need is a valid international driving licence and the willingness to follow safety guidelines.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">No. We welcome all skill levels — from first-time international riders to experienced tourers. Our tours are designed to be manageable for intermediates with daily
+                    distances of 4–5 hours. What you do need is a valid international driving licence and the willingness to follow safety guidelines.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What motorcycle will I ride?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Varies by destination. For the Kyrgyzstan Silk Route, we use Honda CRF 250 — ideal for mixed paved and off-road terrain. For European tours, we typically use BMW or KTM adventure bikes. Full details are in each tour's description.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Varies by destination. For the Kyrgyzstan Silk Route, we use Honda CRF 250 — ideal for mixed paved and off-road terrain. For European tours, we typically use BMW or KTM
+                    adventure bikes. Full details are in each tour's description.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What vehicle do I drive on car tours?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Toyota Sequoia SUV with automatic transmission — powerful, comfortable, and capable on all terrain types from highways to mountain dirt tracks. One vehicle is typically shared between 2–3 participants.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Toyota Sequoia SUV with automatic transmission — powerful, comfortable, and capable on all terrain types from highways to mountain dirt tracks. One vehicle is typically
+                    shared between 2–3 participants.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Can I join a car tour if I don't ride motorcycles?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes — that's exactly what our self-drive car tours are for. You only need a valid international driving licence. No motorcycle experience needed at all.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes — that's exactly what our self-drive car tours are for. You only need a valid international driving licence. No motorcycle experience needed at all.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -201,21 +319,29 @@
                   <span class="faq-question__text">Do I need to bring my own motorcycle gear?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes — riding gear and helmet are your responsibility and must be brought from India. This includes jacket, pants, gloves, boots, and a certified helmet. Protective gear is mandatory on all motorcycle tours — no exceptions. This is for your safety.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes — riding gear and helmet are your responsibility and must be brought from India. This includes jacket, pants, gloves, boots, and a certified helmet. Protective gear is
+                    mandatory on all motorcycle tours — no exceptions. This is for your safety.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Is there luggage storage on tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes. A dedicated luggage van travels with all motorcycle tours, so you only carry a small day bag on the bike. For car tours, luggage travels in your vehicle.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes. A dedicated luggage van travels with all motorcycle tours, so you only carry a small day bag on the bike. For car tours, luggage travels in your vehicle.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What happens if the motorcycle breaks down?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Every group tour includes a mechanic and support vehicle. Minor repairs are handled on the road. For major issues, a replacement motorcycle will be arranged. Breakdown assistance is fully included in the tour price.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Every group tour includes a mechanic and support vehicle. Minor repairs are handled on the road. For major issues, a replacement motorcycle will be arranged. Breakdown
+                    assistance is fully included in the tour price.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -229,28 +355,40 @@
                   <span class="faq-question__text">Do I need a visa for Kyrgyzstan?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Indian passport holders require an e-visa for Kyrgyzstan, which costs approximately INR 5,000. We provide a visa support letter to assist your application. The visa is not included in the tour price.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Indian passport holders require an e-visa for Kyrgyzstan, which costs approximately INR 5,000. We provide a visa support letter to assist your application. The visa is not
+                    included in the tour price.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Do I need travel insurance?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Travel insurance is strongly recommended and is your responsibility. A good policy covering adventure activities, medical evacuation, and trip cancellation costs approximately INR 2,000–3,000. We can suggest coverage types but do not arrange it on your behalf.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Travel insurance is strongly recommended and is your responsibility. A good policy covering adventure activities, medical evacuation, and trip cancellation costs
+                    approximately INR 2,000–3,000. We can suggest coverage types but do not arrange it on your behalf.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Do I need an International Driving Permit?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes — for both motorcycle and car tours, an International Driving Permit (IDP) is required in most destinations. Obtain this from your local RTO before departure. Cost and processing time vary by state.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes — for both motorcycle and car tours, an International Driving Permit (IDP) is required in most destinations. Obtain this from your local RTO before departure. Cost and
+                    processing time vary by state.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Are flights included in the tour price?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">No — international flights are not included. We provide the start and end city of each tour, and you book your own flights. We recommend specific flight windows and routes during the booking process. For reference, flights to Bishkek typically cost INR 45,000–50,000.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">No — international flights are not included. We provide the start and end city of each tour, and you book your own flights. We recommend specific flight windows and routes
+                    during the booking process. For reference, flights to Bishkek typically cost INR 45,000–50,000.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -264,28 +402,40 @@
                   <span class="faq-question__text">How many people are on a typical tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">We keep groups deliberately small — typically 8–14 people — to ensure a personal experience and manageable convoy sizes. Larger custom groups can be arranged on request.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">We keep groups deliberately small — typically 8–14 people — to ensure a personal experience and manageable convoy sizes. Larger custom groups can be arranged on request.
+                  </div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What kind of accommodation can I expect?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Comfortable twin-sharing hotels, guesthouses, or lodges — all personally inspected by Piyush before inclusion. Some tours include a night in an authentic yurt camp (e.g., Song-Kul, Kyrgyzstan), which is a highlight in itself. Single room upgrades are available at additional cost.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Comfortable twin-sharing hotels, guesthouses, or lodges — all personally inspected by Piyush before inclusion. Some tours include a night in an authentic yurt camp (e.g.,
+                    Song-Kul, Kyrgyzstan), which is a highlight in itself. Single room upgrades are available at additional cost.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Are vegetarian meals available?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Yes — vegetarian and non-vegetarian options are available on all tours. We communicate dietary requirements to all hotels and restaurants in advance. Please inform us at the time of booking.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Yes — vegetarian and non-vegetarian options are available on all tours. We communicate dietary requirements to all hotels and restaurants in advance. Please inform us at
+                    the time of booking.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Is there a mobile/internet connection on tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">On car tours (e.g., Kyrgyzstan), a local SIM card is included. For motorcycle tours, we recommend purchasing a local SIM on arrival. Signal can be intermittent in remote mountain areas — but that's part of the adventure.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">On car tours (e.g., Kyrgyzstan), a local SIM card is included. For motorcycle tours, we recommend purchasing a local SIM on arrival. Signal can be intermittent in remote
+                    mountain areas — but that's part of the adventure.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -299,21 +449,30 @@
                   <span class="faq-question__text">What is the cancellation policy?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">Our detailed cancellation and refund policy is available at the booking stage and on our full Terms &amp; Conditions page. In general, cancellations made well in advance receive a higher refund. Cancellations close to departure may forfeit the deposit. We recommend travel insurance to cover unforeseen circumstances.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">Our detailed cancellation and refund policy is available at the booking stage and on our full Terms &amp; Conditions page. In general, cancellations made well in advance
+                    receive a higher refund. Cancellations close to departure may forfeit the deposit. We recommend travel insurance to cover unforeseen circumstances.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">What if MotoRover cancels or reschedules a tour?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">If we cancel a tour due to circumstances within our control, a full refund or credit towards a future tour will be offered. For force majeure events (natural disasters, political unrest, pandemics), our force majeure policy applies — full details in the Terms &amp; Conditions.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">If we cancel a tour due to circumstances within our control, a full refund or credit towards a future tour will be offered. For force majeure events (natural disasters,
+                    political unrest, pandemics), our force majeure policy applies — full details in the Terms &amp; Conditions.</div>
+                </div>
               </div>
               <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                   <span class="faq-question__text">Can I transfer my booking to someone else?</span>
                   <i class="fa-solid fa-plus faq-question__icon"></i>
                 </button>
-                <div class="faq-answer"><div class="faq-answer__inner">In most cases yes — seat transfers to another person are allowed subject to our approval and an administration fee. Contact us as early as possible if you need to make a transfer.</div></div>
+                <div class="faq-answer">
+                  <div class="faq-answer__inner">In most cases yes — seat transfers to another person are allowed subject to our approval and an administration fee. Contact us as early as possible if you need to make a
+                    transfer.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -341,7 +500,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company — guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -397,4 +558,5 @@
     }, { passive: true });
   </script>
 </body>
+
 </html>

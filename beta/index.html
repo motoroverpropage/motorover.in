@@ -38,6 +38,166 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 
+  <!-- Visual hero (ported from index-v3) -->
+  <style>
+    .v-hero {
+      position: relative;
+      /* Sit above the fold so a sliver of the next section peeks through */
+      height: 85vh;
+      min-height: 520px;
+      max-height: 820px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .v-hero__bg {
+      position: absolute;
+      inset: 0;
+      background: url('../imgs/image-1.webp') center / cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 7s ease;
+    }
+
+    .v-hero__bg.loaded {
+      transform: scale(1);
+    }
+
+    .v-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.62) 100%);
+    }
+
+    .v-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 0 var(--sp-4);
+      max-width: 720px;
+    }
+
+    .v-hero__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: var(--sp-3);
+    }
+
+    .v-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+    }
+
+    .v-hero__title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .v-hero__tagline {
+      font-size: clamp(var(--text-base), 2vw, var(--text-xl));
+      color: rgba(255, 255, 255, 0.68);
+      margin-bottom: var(--sp-6);
+      font-weight: 400;
+    }
+
+    .v-hero__actions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Uniform yellow-on-black CTAs in the hero */
+    .v-hero__actions .btn {
+      background-color: #FFC512;
+      border-color: #FFC512;
+      color: #111;
+      min-width: 240px;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .v-hero__actions .btn:hover,
+    .v-hero__actions .btn:focus-visible {
+      background-color: #FFD53D;
+      border-color: #FFD53D;
+      color: #111;
+      box-shadow: 0 0 24px rgba(255, 197, 18, 0.35);
+    }
+
+    .v-hero__actions .btn i {
+      color: #111;
+    }
+
+    .v-hero__scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      color: rgba(255, 255, 255, 0.40);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .v-hero__scroll i {
+      animation: vbounce 2s ease-in-out infinite;
+    }
+
+    @keyframes vbounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+    }
+  </style>
+
+  <!-- Auto light/dark mode based on IST (7am–7pm = light, 7pm–7am = dark).
+       Runs before main.js so the theme is set prior to paint and main.js picks up
+       the correct preference from localStorage. -->
+  <script>
+    (function () {
+      function getISTHour() {
+        try {
+          var fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit',
+            hour12: false,
+            timeZone: 'Asia/Kolkata'
+          });
+          return parseInt(fmt.format(new Date()), 10);
+        } catch (e) {
+          return new Date().getHours();
+        }
+      }
+      function applyAutoTheme() {
+        var h = getISTHour();
+        var theme = (h >= 7 && h < 19) ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        try { localStorage.setItem('mr-theme', theme); } catch (e) { }
+      }
+      applyAutoTheme();
+      // Re-check every 10 minutes so the site flips at 7am / 7pm without a reload.
+      setInterval(applyAutoTheme, 10 * 60 * 1000);
+    })();
+  </script>
+
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -142,7 +302,7 @@
             <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
             <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
             <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" role="menuitem" style="color: var(--accent); margin-top:4px;">View All Tours →</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
 
@@ -156,7 +316,7 @@
             <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
             <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
             <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" role="menuitem" style="color: var(--accent); margin-top:4px;">View All Tours →</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
 
@@ -168,24 +328,28 @@
       </div>
 
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
-          <i class="fa-solid fa-moon icon-moon"></i>
-          <i class="fa-solid fa-sun icon-sun"></i>
-        </button>
-        <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
 
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -201,34 +365,23 @@
   <!-- ============================================================
        HERO
   ============================================================ -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero__bg" style="background-image: url('../imgs/image-1.webp');"></div>
-    <div class="hero__overlay"></div>
-
-    <div class="hero__content container">
-      <p class="hero__eyebrow reveal">Adventure Travel since 2013</p>
-      <h1 class="hero__title reveal reveal-delay-1">
-        Ride the World.<br>
-        Drive the <em>Unknown.</em>
-      </h1>
-      <p class="hero__subtitle reveal reveal-delay-2">
-        Guided motorcycle tours &amp; self-drive car road trips across Europe, Central Asia, Africa &amp; beyond — curated by a former auto journalist for the Indian adventurer.
-      </p>
-      <div class="hero__actions reveal reveal-delay-3">
-        <a href="tours.html" class="btn btn--primary btn--lg">
-          <i class="fa-solid fa-compass"></i> Explore Tours
-        </a>
-        <a href="contact.html" class="btn btn--outline btn--lg">
-          <i class="fa-solid fa-paper-plane"></i> Plan My Trip
-        </a>
+  <div class="v-hero" aria-label="MotoRover visual hero">
+    <div class="v-hero__bg" id="vHeroBg"></div>
+    <div class="v-hero__overlay"></div>
+    <div class="v-hero__content">
+      <p class="v-hero__eyebrow">Since 2013 &nbsp;·&nbsp; 30+ Countries &nbsp;·&nbsp; 1,000+ Riders</p>
+      <h1 class="v-hero__title">Ride the <em>World</em></h1>
+      <p class="v-hero__tagline">Guided motorcycle tours &amp; self-drive car adventures</p>
+      <div class="v-hero__actions">
+        <a href="#motorcycle-tours" class="btn btn--primary btn--lg"><i class="fa-solid fa-motorcycle"></i> Motorcycle Tours</a>
+        <a href="#car-tours" class="btn btn--primary btn--lg"><i class="fa-solid fa-car-side"></i> Car Tours</a>
       </div>
     </div>
-
-    <div class="hero__scroll" aria-hidden="true">
+    <div class="v-hero__scroll" aria-hidden="true">
       <span>Scroll</span>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
-  </section>
+  </div>
 
   <!-- ============================================================
        STATS BAR
@@ -268,7 +421,7 @@
       </div>
 
       <div class="tours-grid">
-        <article class="tour-card reveal">
+        <a href="motorcycle-silk-route.html" class="tour-card tour-card--link reveal">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-10.webp" alt="Silk Route Motorcycle Tour — Kyrgyzstan mountain roads" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">Jul 2025</span>
@@ -283,12 +436,12 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">USD 2,300 <span>per person</span></div>
-              <a href="motorcycle-silk-route.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="tour-card reveal reveal-delay-1">
+        <a href="motorcycle-spain-and-france.html" class="tour-card tour-card--link reveal reveal-delay-1">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-11.webp" alt="Spain and France Motorcycle Tour — Pyrenees mountain roads" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">Sep 2025</span>
@@ -303,12 +456,12 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">€3,860 <span>per person</span></div>
-              <a href="motorcycle-spain-and-france.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="tour-card reveal reveal-delay-2">
+        <a href="motorcycle-balkan.html" class="tour-card tour-card--link reveal reveal-delay-2">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-12.webp" alt="Balkan Motorcycle Tour — Coastal and mountain roads" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">Apr 2026</span>
@@ -323,10 +476,10 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">€4,160 <span>per person</span></div>
-              <a href="motorcycle-balkan.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
       </div>
 
       <div class="section-footer" style="text-align:center; margin-top: var(--sp-8);">
@@ -336,17 +489,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============================================================
-       DIVIDER IMAGE BREAK
-  ============================================================ -->
-  <div style="position: relative; height: 320px; overflow: hidden;" role="img" aria-label="Adventure road trip landscape">
-    <img src="../imgs/image-13.webp" alt="Open mountain road — adventure awaits" style="width:100%; height:100%; object-fit:cover; object-position:center;" loading="lazy" />
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,0.7) 0%,rgba(8,8,8,0.3) 50%,rgba(8,8,8,0.7) 100%); display:flex; align-items:center; justify-content:center;">
-      <p style="font-family: var(--font-display); font-size: var(--text-4xl); font-weight:700; color:var(--white); font-style:italic; text-align:center; text-shadow:0 2px 20px rgba(0,0,0,0.6);">"Not all those who wander
-        are lost"</p>
-    </div>
-  </div>
 
   <!-- ============================================================
        CAR TOURS
@@ -360,7 +502,7 @@
       </div>
 
       <div class="tours-grid">
-        <article class="tour-card reveal">
+        <a href="car-silk-route.html" class="tour-card tour-card--link reveal">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-20.webp" alt="Silk Road Drive — Kyrgyzstan alpine lakes and mountain passes" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">Aug 2025</span>
@@ -375,12 +517,12 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">USD 2,439 <span>per person</span></div>
-              <a href="car-silk-route.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="tour-card reveal reveal-delay-1">
+        <a href="car-georgia-winter-adventure.html" class="tour-card tour-card--link reveal reveal-delay-1">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-21.webp" alt="Georgia Winter Adventure — snow covered mountain roads" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">Feb 2026</span>
@@ -395,12 +537,12 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">On Request <span>per person</span></div>
-              <a href="car-georgia-winter-adventure.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="tour-card reveal reveal-delay-2">
+        <a href="car-morocco.html" class="tour-card tour-card--link reveal reveal-delay-2">
           <div class="tour-card__image-wrap">
             <img src="../imgs/image-22.webp" alt="Morocco Car Tour — Sahara desert and Atlas mountains" class="tour-card__image" loading="lazy" />
             <span class="tour-card__badge">May 2026</span>
@@ -415,10 +557,10 @@
             </div>
             <div class="tour-card__footer">
               <div class="tour-card__price">On Request <span>per person</span></div>
-              <a href="car-morocco.html" class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="tour-card__link">Details <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
-        </article>
+        </a>
       </div>
 
       <div style="text-align:center; margin-top: var(--sp-8);">
@@ -430,115 +572,19 @@
   </section>
 
   <!-- ============================================================
-       WHY MOTOROVER
+       DIVIDER — full-width link
   ============================================================ -->
-  <section class="section section--dark" aria-labelledby="why-heading">
-    <div class="container">
-      <div class="section-header section-header--center reveal">
-        <p class="section-eyebrow">Why Choose Us</p>
-        <h2 class="section-title" id="why-heading">The MotoRover <em>Difference</em></h2>
-        <p class="section-header__sub">Every decision we make is built around one thing — giving you the best possible adventure experience.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-plane-arrival"></i></div>
-          <h3 class="feature-card__title">Arrive &amp; Ride</h3>
-          <p class="feature-card__text">Step off the plane and straight onto your adventure. Motorcycles, SUVs, accommodation, meals — everything is pre-arranged and personally vetted by our founder.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3 class="feature-card__title">Safety First</h3>
-          <p class="feature-card__text">All routes are thoroughly scouted before launch. Protective gear is mandatory. Support vehicles, a mechanic, and a first-aid kit accompany every group tour.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
-          <h3 class="feature-card__title">Expert Leadership</h3>
-          <p class="feature-card__text">Tours are led by founder Piyush Sonsale — former motorcycle performance tester &amp; auto journalist with 6 years at Bike India and Car India.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-earth-asia"></i></div>
-          <h3 class="feature-card__title">Cultural Immersion</h3>
-          <p class="feature-card__text">Routes traverse off-the-beaten-track landscapes emphasising local culture, regional cuisine, traditional horse games, eagle hunting, and nomadic experiences.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
-          <h3 class="feature-card__title">Community of Riders</h3>
-          <p class="feature-card__text">Meet fellow adventure lovers from India and around the world. Our tours build friendships that last well beyond the final day of riding.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-3">
-          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-door-open"></i></div>
-          <h3 class="feature-card__title">Open to All Levels</h3>
-          <p class="feature-card__text">Amateur or experienced, young or seasoned — our tours welcome all riders and drivers. Only requirement: a valid international licence and the spirit of adventure.</p>
-        </div>
-      </div>
-
-      <div style="text-align:center; margin-top:var(--sp-8);">
-        <a href="why-us.html" class="btn btn--accent-outline reveal">
-          Full Story — Why MotoRover <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
+  <a href="tours.html" class="home-break--link" aria-label="Browse all MotoRover tours">
+    <img src="../imgs/image-13.webp" alt="" loading="lazy" />
+    <div class="home-break--link__overlay">
+      <p class="home-break--link__quote">"Not all those who wander are lost"</p>
     </div>
-  </section>
-
-  <!-- ============================================================
-       TEAM SECTION
-  ============================================================ -->
-  <section class="section section--surface" aria-labelledby="team-heading">
-    <div class="container">
-      <div class="section-header section-header--center reveal">
-        <p class="section-eyebrow">The People Behind the Wheel</p>
-        <h2 class="section-title" id="team-heading">Meet the <em>Team</em></h2>
-        <p class="section-header__sub">Passionate adventurers who have been there, ridden that — and can't wait to take you along.</p>
-      </div>
-
-      <div class="team-grid">
-        <div class="team-card reveal">
-          <div class="team-card__image-wrap">
-            <img src="../imgs/piyush-sonsale.webp" style="object-position: 0 40%;" alt="Piyush Sonsale — Founder of MotoRover" class="team-card__image" loading="lazy" />
-          </div>
-          <div class="team-card__content">
-            <h3 class="team-card__name">Piyush Sonsale</h3>
-            <p class="team-card__role">Founder &amp; Tour Leader</p>
-            <p class="team-card__bio">Former auto journalist at Bike India &amp; Car India. Motorcycle racing champion, road trip pioneer, and the visionary who brings every MotoRover adventure to life.</p>
-          </div>
-        </div>
-
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-card__image-wrap">
-            <img src="../imgs/kaustubh-joshi.webp" alt="Kaustubh Joshi — Creative Head at MotoRover" class="team-card__image img-bottom" loading="lazy" />
-          </div>
-          <div class="team-card__content">
-            <h3 class="team-card__name">Kaustubh Joshi</h3>
-            <p class="team-card__role">Creative Head</p>
-            <p class="team-card__bio">Self-taught photographer, cinematographer &amp; music composer. The artist who captures the soul of every journey through his lens and storytelling.</p>
-          </div>
-        </div>
-
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-card__image-wrap">
-            <img src="../imgs/kabir-akhilesh.webp" alt="Kabir Akhilesh — Business Head at MotoRover" class="team-card__image img-top" loading="lazy" />
-          </div>
-          <div class="team-card__content">
-            <h3 class="team-card__name">Kabir Akhilesh</h3>
-            <p class="team-card__role">Business Head</p>
-            <p class="team-card__bio">Former BMW Motorrad &amp; Triumph Motorcycles veteran. California Superbike School alumnus with a passion for off-road experiences and making every client feel at home.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center; margin-top:var(--sp-8);">
-        <a href="about.html" class="btn btn--accent-outline reveal">
-          Full Team Story <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+  </a>
 
   <!-- ============================================================
        TESTIMONIALS
   ============================================================ -->
-  <section class="section section--dark" aria-labelledby="testimonials-heading">
+  <section class="section section--dark" id="testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header section-header--center reveal">
         <p class="section-eyebrow">Stories from the Road</p>
@@ -627,6 +673,187 @@
           </button>
         </div>
       </div>
+
+      <div style="text-align:center; margin-top:var(--sp-6);">
+        <a href="media.html#traveller-stories" class="btn btn--accent-outline reveal">
+          View all testimonials <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY MOTOROVER
+  ============================================================ -->
+  <section class="section section--dark" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <p class="section-eyebrow">Why Choose Us</p>
+        <h2 class="section-title" id="why-heading">The MotoRover <em>Difference</em></h2>
+        <p class="section-header__sub">Every decision we make is built around one thing — giving you the best possible adventure experience.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-plane-arrival"></i></div>
+          <h3 class="feature-card__title">Arrive &amp; Ride</h3>
+          <p class="feature-card__text">Step off the plane and straight onto your adventure. Motorcycles, SUVs, accommodation, meals — everything is pre-arranged and personally vetted by our founder.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="feature-card__title">Safety First</h3>
+          <p class="feature-card__text">All routes are thoroughly scouted before launch. Protective gear is mandatory. Support vehicles, a mechanic, and a first-aid kit accompany every group tour.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
+          <h3 class="feature-card__title">Expert Leadership</h3>
+          <p class="feature-card__text">Tours are led by founder Piyush Sonsale — former motorcycle performance tester &amp; auto journalist with 6 years at Bike India and Car India.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-earth-asia"></i></div>
+          <h3 class="feature-card__title">Cultural Immersion</h3>
+          <p class="feature-card__text">Routes traverse off-the-beaten-track landscapes emphasising local culture, regional cuisine, traditional horse games, eagle hunting, and nomadic experiences.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
+          <h3 class="feature-card__title">Community of Riders</h3>
+          <p class="feature-card__text">Meet fellow adventure lovers from India and around the world. Our tours build friendships that last well beyond the final day of riding.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-card__icon" aria-hidden="true"><i class="fa-solid fa-door-open"></i></div>
+          <h3 class="feature-card__title">Open to All Levels</h3>
+          <p class="feature-card__text">Amateur or experienced, young or seasoned — our tours welcome all riders and drivers. Only requirement: a valid international licence and the spirit of adventure.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:var(--sp-8);">
+        <a href="why-us.html" class="btn btn--accent-outline reveal">
+          Full Story — Why MotoRover <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TEAM SECTION
+  ============================================================ -->
+  <section class="section section--surface" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <p class="section-eyebrow">The People Behind the Wheel</p>
+        <h2 class="section-title" id="team-heading">Meet the <em>Team</em></h2>
+        <p class="section-header__sub">Passionate adventurers who have been there, ridden that — and can't wait to take you along.</p>
+      </div>
+
+      <div class="team-grid">
+        <a href="about.html" class="team-card team-card--link reveal">
+          <div class="team-card__image-wrap">
+            <img src="../imgs/piyush-sonsale.webp" style="object-position: 0 40%;" alt="Piyush Sonsale — Founder of MotoRover" class="team-card__image" loading="lazy" />
+          </div>
+          <div class="team-card__content">
+            <h3 class="team-card__name">Piyush Sonsale</h3>
+            <p class="team-card__role">Founder &amp; Tour Leader</p>
+            <p class="team-card__bio">Former auto journalist at Bike India &amp; Car India. Motorcycle racing champion, road trip pioneer, and the visionary who brings every MotoRover adventure to life.</p>
+          </div>
+        </a>
+
+        <a href="about.html" class="team-card team-card--link reveal reveal-delay-1">
+          <div class="team-card__image-wrap">
+            <img src="../imgs/kaustubh-joshi.webp" alt="Kaustubh Joshi — Creative Head at MotoRover" class="team-card__image img-bottom" loading="lazy" />
+          </div>
+          <div class="team-card__content">
+            <h3 class="team-card__name">Kaustubh Joshi</h3>
+            <p class="team-card__role">Creative Head</p>
+            <p class="team-card__bio">Self-taught photographer, cinematographer &amp; music composer. The artist who captures the soul of every journey through his lens and storytelling.</p>
+          </div>
+        </a>
+
+        <a href="about.html" class="team-card team-card--link reveal reveal-delay-2">
+          <div class="team-card__image-wrap">
+            <img src="../imgs/kabir-akhilesh.webp" alt="Kabir Akhilesh — Business Head at MotoRover" class="team-card__image img-top" loading="lazy" />
+          </div>
+          <div class="team-card__content">
+            <h3 class="team-card__name">Kabir Akhilesh</h3>
+            <p class="team-card__role">Business Head</p>
+            <p class="team-card__bio">Former BMW Motorrad &amp; Triumph Motorcycles veteran. California Superbike School alumnus with a passion for off-road experiences and making every client feel at home.</p>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align:center; margin-top:var(--sp-8);">
+        <a href="about.html" class="btn btn--accent-outline reveal">
+          Full Team Story <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT (HOME TEASER)
+  ============================================================ -->
+  <section class="section section--surface" id="about-home" aria-labelledby="about-home-heading">
+    <div class="container">
+      <div class="home-about reveal">
+        <div class="home-about__img">
+          <img src="../imgs/image-100.webp" alt="MotoRover convoy on a mountain road" loading="lazy" />
+        </div>
+        <div>
+          <p class="section-eyebrow">Since 2013</p>
+          <h2 class="section-title" id="about-home-heading">About <em>MotoRover</em></h2>
+          <p class="section-header__sub" style="text-align:left; max-width: none;">
+            We're India's go-to for guided motorcycle tours and self-drive car road trips across Europe, Central Asia, Africa, and beyond — led by a former auto journalist and a crew obsessed with the details: routes,
+            safety, and real cultural depth.
+          </p>
+          <a href="about.html" class="btn btn--accent-outline" style="margin-top: var(--sp-4); display: inline-flex;">
+            About us <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ PREVIEW
+  ============================================================ -->
+  <section class="section section--dark home-faq-preview" aria-labelledby="home-faq-heading">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <p class="section-eyebrow">Common Questions</p>
+        <h2 class="section-title" id="home-faq-heading">Quick <em>Answers</em></h2>
+      </div>
+      <div class="faq-list reveal" style="max-width: 720px; margin: 0 auto;">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question__text">How do I book a MotoRover tour?</span>
+            <i class="fa-solid fa-plus faq-question__icon" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">The easiest way is to WhatsApp us or use the enquiry form. We'll confirm availability, walk you through the tour, and share booking and payment details.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question__text">What currency do I pay in?</span>
+            <i class="fa-solid fa-plus faq-question__icon" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">Tours are priced in foreign currency on the page; payment is made in INR at the rate on the date of your transfer, with GST and TCS as applicable.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question__text">Do I need prior international riding experience?</span>
+            <i class="fa-solid fa-plus faq-question__icon" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">We welcome a range of skill levels. You need a valid international licence, protective gear, and a willingness to follow safety briefings — daily rides are designed to be
+              manageable.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: var(--sp-6);">
+        <a href="faq.html" class="btn btn--accent-outline reveal">View all FAQ <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
     </div>
   </section>
 
@@ -661,7 +888,9 @@
       <div class="footer__grid">
 
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="MotoRover on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -740,6 +969,13 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+    /* === Hero Ken Burns === */
+    (function () {
+      const bg = document.getElementById('vHeroBg');
+      if (bg) setTimeout(() => bg.classList.add('loaded'), 100);
+    })();
+  </script>
 
 </body>
 

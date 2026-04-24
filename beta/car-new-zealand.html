@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Zealand Self-Drive Car Tour | MotoRover</title>
-  <meta name="description" content="13-day self-drive car tour across both islands of New Zealand — South Island alpine roads, Milford Sound, Queenstown, Cook Strait ferry, Rotorua geothermal. Mitsubishi Pajero Sport. NZD 9,770 per person." />
+  <meta name="description"
+    content="13-day self-drive car tour across both islands of New Zealand — South Island alpine roads, Milford Sound, Queenstown, Cook Strait ferry, Rotorua geothermal. Mitsubishi Pajero Sport. NZD 9,770 per person." />
   <meta name="keywords" content="New Zealand self-drive car tour, New Zealand road trip India, Milford Sound drive, South Island car tour, Queenstown road trip, MotoRover New Zealand" />
   <meta property="og:title" content="New Zealand Self-Drive Car Tour | MotoRover" />
-  <meta property="og:description" content="13 days across both islands — Milford Sound, Crown Range, Franz Josef Glacier, Rotorua, and the Cook Strait crossing. New Zealand's greatest roads in a Mitsubishi Pajero Sport." />
+  <meta property="og:description"
+    content="13 days across both islands — Milford Sound, Crown Range, Franz Josef Glacier, Rotorua, and the Cook Strait crossing. New Zealand's greatest roads in a Mitsubishi Pajero Sport." />
   <meta property="og:image" content="../imgs/image-25.webp" />
   <meta property="og:url" content="https://www.motorover.in/beta/car-new-zealand.html" />
   <meta property="og:type" content="website" />
@@ -24,77 +27,199 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout{display:grid;grid-template-columns:1fr 360px;gap:var(--sp-8);align-items:start}
-    .tour-sidebar{position:sticky;top:calc(var(--nav-height) + 24px)}
-    .booking-card{background-color:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .booking-card__header{background:linear-gradient(135deg,var(--accent) 0%,#c04d00 100%);padding:var(--sp-4);text-align:center}
-    .booking-card__price{font-family:var(--font-display);font-size:var(--text-4xl);font-weight:800;color:var(--white);line-height:1}
-    .booking-card__price-note{font-size:var(--text-sm);color:rgba(255,255,255,0.8);margin-top:4px}
-    .booking-card__body{padding:var(--sp-4)}
-    .booking-card__facts{display:flex;flex-direction:column;gap:12px;margin-bottom:var(--sp-4);padding-bottom:var(--sp-4);border-bottom:1px solid var(--border)}
-    .booking-fact{display:flex;align-items:center;gap:10px;font-size:var(--text-sm);color:var(--text-muted)}
-    .booking-fact i{color:var(--accent);width:16px;text-align:center}
-    .booking-fact strong{color:var(--text);margin-left:auto}
-    .booking-card__actions{display:flex;flex-direction:column;gap:var(--sp-2)}
-    .booking-card__actions .btn{width:100%;justify-content:center}
-    .booking-card__note{font-size:var(--text-xs);color:var(--text-faint);text-align:center;margin-top:var(--sp-2)}
-    .highlights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);margin-bottom:var(--sp-6)}
-    .highlight-item{display:flex;align-items:flex-start;gap:10px;font-size:var(--text-base);color:var(--text-muted)}
-    .highlight-item i{color:var(--accent);flex-shrink:0;margin-top:3px}
-    @media(max-width:1024px){.tour-layout{grid-template-columns:1fr}.tour-sidebar{position:static}}
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px)
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4)
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted)
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2)
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2)
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6)
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted)
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px
+    }
+
+    @media(max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr
+      }
+
+      .tour-sidebar {
+        position: static
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
             Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
             Car Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item" style="color:var(--accent);">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -102,7 +227,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -144,10 +271,13 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              New Zealand is motorcycling and road-tripping royalty — but most visitors only scratch the surface. This 13-day MotoRover convoy covers both the South and North Islands, connecting the country's greatest roads: the epic Milford Road, the Haast Pass rainforest gorge, Crown Range (New Zealand's highest sealed road), the volcanic plateau of Rotorua, and the wine country of Hawke's Bay. All in a Mitsubishi Pajero Sport, built for these roads.
+              New Zealand is motorcycling and road-tripping royalty — but most visitors only scratch the surface. This 13-day MotoRover convoy covers both the South and North Islands, connecting the country's greatest
+              roads: the epic Milford Road, the Haast Pass rainforest gorge, Crown Range (New Zealand's highest sealed road), the volcanic plateau of Rotorua, and the wine country of Hawke's Bay. All in a Mitsubishi
+              Pajero Sport, built for these roads.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              What makes this tour special is the Cook Strait crossing — an InterIslander ferry from Picton to Wellington, where the landscape transforms completely from alpine drama to volcanic heat. Two islands, two personalities, one seamless journey curated by MotoRover's team.
+              What makes this tour special is the Cook Strait crossing — an InterIslander ferry from Picton to Wellington, where the landscape transforms completely from alpine drama to volcanic heat. Two islands, two
+              personalities, one seamless journey curated by MotoRover's team.
             </p>
           </section>
 
@@ -196,14 +326,16 @@
                     <td><span class="day-badge">Day 2</span></td>
                     <td>—</td>
                     <td>Christchurch → Franz Josef</td>
-                    <td>Arthur's Pass Trans-Alpine rail bridge and gorge, then west across the Southern Alps to the West Coast's ancient temperate rainforest. Twin glaciers — Franz Josef and Fox — descend to within metres of the jungle floor.</td>
+                    <td>Arthur's Pass Trans-Alpine rail bridge and gorge, then west across the Southern Alps to the West Coast's ancient temperate rainforest. Twin glaciers — Franz Josef and Fox — descend to within
+                      metres of the jungle floor.</td>
                     <td>320 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 3</span></td>
                     <td>—</td>
                     <td>Franz Josef → Wanaka</td>
-                    <td>Drive the Haast Pass — a primeval gorge where waterfalls crash into jade pools beside the road. Blue Pools walk. The landscape opens dramatically into the turquoise expanse of Lake Hawea as you approach Wanaka.</td>
+                    <td>Drive the Haast Pass — a primeval gorge where waterfalls crash into jade pools beside the road. Blue Pools walk. The landscape opens dramatically into the turquoise expanse of Lake Hawea as you
+                      approach Wanaka.</td>
                     <td>250 km</td>
                   </tr>
                   <tr>
@@ -217,56 +349,64 @@
                     <td><span class="day-badge">Day 5</span></td>
                     <td>—</td>
                     <td>Queenstown (rest day)</td>
-                    <td>Adventure capital at leisure. Remarkables Ski Area views, Shotover Canyon, lake cruises. Optional: bungee jumping, jet boating, paragliding. Or simply sit on the waterfront and absorb one of the world's finest town settings.</td>
+                    <td>Adventure capital at leisure. Remarkables Ski Area views, Shotover Canyon, lake cruises. Optional: bungee jumping, jet boating, paragliding. Or simply sit on the waterfront and absorb one of the
+                      world's finest town settings.</td>
                     <td>— km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 6</span></td>
                     <td>—</td>
                     <td>Queenstown → Milford Sound return</td>
-                    <td>The Milford Road is arguably New Zealand's finest drive — 120 km of lakes, beech forest, and the Homer Tunnel blasted through solid rock. Arrive at Milford Sound for a 2-hour cruise beneath 1,200m cliff walls and cascading waterfalls.</td>
+                    <td>The Milford Road is arguably New Zealand's finest drive — 120 km of lakes, beech forest, and the Homer Tunnel blasted through solid rock. Arrive at Milford Sound for a 2-hour cruise beneath 1,200m
+                      cliff walls and cascading waterfalls.</td>
                     <td>350 km return</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 7</span></td>
                     <td>—</td>
                     <td>Queenstown → Invercargill → Catlins</td>
-                    <td>Drive deep south to the Catlins coast — New Zealand's most remote and rewarding shoreline. Sea lions on the beach at Cannibal Bay. Nugget Point lighthouse at the continent's edge. Petrified forest at low tide.</td>
+                    <td>Drive deep south to the Catlins coast — New Zealand's most remote and rewarding shoreline. Sea lions on the beach at Cannibal Bay. Nugget Point lighthouse at the continent's edge. Petrified forest
+                      at low tide.</td>
                     <td>280 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 8</span></td>
                     <td>—</td>
                     <td>Catlins → Dunedin → Moeraki</td>
-                    <td>Historic Otago goldfields, the Victorian streetscapes of Dunedin — New Zealand's Edinburgh. The famous Moeraki Boulders, enormous spherical concretions scattered across a wild beach. Overnight in a lodge overlooking the Pacific.</td>
+                    <td>Historic Otago goldfields, the Victorian streetscapes of Dunedin — New Zealand's Edinburgh. The famous Moeraki Boulders, enormous spherical concretions scattered across a wild beach. Overnight in
+                      a lodge overlooking the Pacific.</td>
                     <td>320 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 9</span></td>
                     <td>—</td>
                     <td>Dunedin → Christchurch → Ferry</td>
-                    <td>Drive back through the Canterbury Plains to Christchurch. Board the InterIslander ferry at Picton — a 3.5-hour crossing through the Marlborough Sounds, one of the world's most scenic harbour passages. Arrive in Wellington.</td>
+                    <td>Drive back through the Canterbury Plains to Christchurch. Board the InterIslander ferry at Picton — a 3.5-hour crossing through the Marlborough Sounds, one of the world's most scenic harbour
+                      passages. Arrive in Wellington.</td>
                     <td>380 km + ferry</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 10</span></td>
                     <td>—</td>
                     <td>Wellington</td>
-                    <td>New Zealand's compact, culture-rich capital. The Beehive Parliament, Te Papa Museum of New Zealand, Cuba Street's cafés and galleries, the harbour cable car. Wellington is a city that surprises every visitor.</td>
+                    <td>New Zealand's compact, culture-rich capital. The Beehive Parliament, Te Papa Museum of New Zealand, Cuba Street's cafés and galleries, the harbour cable car. Wellington is a city that surprises
+                      every visitor.</td>
                     <td>— km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 11</span></td>
                     <td>—</td>
                     <td>Wellington → Napier</td>
-                    <td>Drive north through the Hawke's Bay wine region to Napier — one of the world's great Art Deco cities, rebuilt after the 1931 earthquake in a single remarkable decade of architectural vision. Wine estate visit in the afternoon.</td>
+                    <td>Drive north through the Hawke's Bay wine region to Napier — one of the world's great Art Deco cities, rebuilt after the 1931 earthquake in a single remarkable decade of architectural vision. Wine
+                      estate visit in the afternoon.</td>
                     <td>320 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 12</span></td>
                     <td>—</td>
                     <td>Napier → Rotorua</td>
-                    <td>Drive to the geothermal heartland. Wai-O-Tapu thermal wonderland — boiling mud pools, the Lady Knox Geyser, the vivid Champagne Pool. Evening: traditional Māori haka performance and hangi feast cooked in the earth.</td>
+                    <td>Drive to the geothermal heartland. Wai-O-Tapu thermal wonderland — boiling mud pools, the Lady Knox Geyser, the vivid Champagne Pool. Evening: traditional Māori haka performance and hangi feast
+                      cooked in the earth.</td>
                     <td>280 km</td>
                   </tr>
                   <tr>
@@ -382,12 +522,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Milford Sound fjord New Zealand sheer cliff walls" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Queenstown Wakatipu Basin Remarkables New Zealand" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Franz Josef Glacier West Coast New Zealand rainforest" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Crown Range Road highest sealed highway New Zealand" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-29.webp" alt="Rotorua Wai-O-Tapu geothermal geysers New Zealand" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-30.webp" alt="Napier Art Deco architecture Hawke's Bay New Zealand" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Milford Sound fjord New Zealand sheer cliff walls" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Queenstown Wakatipu Basin Remarkables New Zealand" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Franz Josef Glacier West Coast New Zealand rainforest" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Crown Range Road highest sealed highway New Zealand" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-29.webp" alt="Rotorua Wai-O-Tapu geothermal geysers New Zealand" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-30.webp" alt="Napier Art Deco architecture Hawke's Bay New Zealand" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -468,7 +620,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -516,5 +670,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

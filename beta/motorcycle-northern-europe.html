@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Northern Europe Motorcycle Tour — Baltic States | MotoRover</title>
-  <meta name="description" content="8-day guided motorcycle tour through the Baltic States — Tallinn, Riga, Vilnius. Coastal roads, medieval cities, Gauja National Park. Yamaha MT-09 / BMW R1300 GS. €3,010 per person." />
+  <meta name="description"
+    content="8-day guided motorcycle tour through the Baltic States — Tallinn, Riga, Vilnius. Coastal roads, medieval cities, Gauja National Park. Yamaha MT-09 / BMW R1300 GS. €3,010 per person." />
   <meta name="keywords" content="Northern Europe motorcycle tour, Baltic States bike tour India, Tallinn Riga Vilnius motorcycle, Estonia Latvia Lithuania tour, MotoRover Baltic" />
   <meta property="og:title" content="Northern Europe Motorcycle Tour — Baltic States | MotoRover" />
   <meta property="og:description" content="8 days, 1,600 km through 3 Baltic capitals — UNESCO old towns, Art Nouveau Riga, Baltic coast and Hill of Crosses. Midsummer light and empty forest roads." />
@@ -18,77 +20,200 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout { display:grid; grid-template-columns:1fr 360px; gap:var(--sp-8); align-items:start; }
-    .tour-sidebar { position:sticky; top:calc(var(--nav-height) + 24px); }
-    .booking-card { background-color:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .booking-card__header { background:linear-gradient(135deg, var(--accent) 0%, #c04d00 100%); padding:var(--sp-4); text-align:center; }
-    .booking-card__price { font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; color:var(--white); line-height:1; }
-    .booking-card__price-note { font-size:var(--text-sm); color:rgba(255,255,255,0.8); margin-top:4px; }
-    .booking-card__body { padding:var(--sp-4); }
-    .booking-card__facts { display:flex; flex-direction:column; gap:12px; margin-bottom:var(--sp-4); padding-bottom:var(--sp-4); border-bottom:1px solid var(--border); }
-    .booking-fact { display:flex; align-items:center; gap:10px; font-size:var(--text-sm); color:var(--text-muted); }
-    .booking-fact i { color:var(--accent); width:16px; text-align:center; }
-    .booking-fact strong { color:var(--text); margin-left:auto; }
-    .booking-card__actions { display:flex; flex-direction:column; gap:var(--sp-2); }
-    .booking-card__actions .btn { width:100%; justify-content:center; }
-    .booking-card__note { font-size:var(--text-xs); color:var(--text-faint); text-align:center; margin-top:var(--sp-2); }
-    .highlights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-3); margin-bottom:var(--sp-6); }
-    .highlight-item { display:flex; align-items:flex-start; gap:10px; font-size:var(--text-base); color:var(--text-muted); }
-    .highlight-item i { color:var(--accent); flex-shrink:0; margin-top:3px; }
-    @media (max-width:1024px) { .tour-layout { grid-template-columns:1fr; } .tour-sidebar { position:static; } }
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center;
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4);
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center;
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    @media (max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-sidebar {
+        position: static;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle active">
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
             Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="motorcycle-northern-europe.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Northern Europe</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
             Car Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -96,7 +221,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -138,10 +265,13 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Three countries, three UNESCO-listed capital old towns, one Baltic coastline — and the kind of wide, forested roads that make a Yamaha MT-09 or BMW R1300 GS feel like they were built specifically for this journey. Northern Europe's Baltic States are among the most underrated motorcycle destinations in the world: cultured, affordable, and utterly free of tourist crowds.
+              Three countries, three UNESCO-listed capital old towns, one Baltic coastline — and the kind of wide, forested roads that make a Yamaha MT-09 or BMW R1300 GS feel like they were built specifically for this
+              journey. Northern Europe's Baltic States are among the most underrated motorcycle destinations in the world: cultured, affordable, and utterly free of tourist crowds.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              August in the Baltics means long evenings that barely darken, perfect road temperatures and the quiet satisfaction of riding between medieval cities that most of the world hasn't discovered yet. Tallinn's perfectly preserved old town gives way to Jurmala's pine-fringed Soviet beach resort, then Riga's extraordinary Art Nouveau streetscapes, the forested gorges of Gauja National Park, the surreal Hill of Crosses in Lithuania, and finally the Baroque grandeur of Vilnius. This is Europe at its most unhurried — and most rewarding.
+              August in the Baltics means long evenings that barely darken, perfect road temperatures and the quiet satisfaction of riding between medieval cities that most of the world hasn't discovered yet. Tallinn's
+              perfectly preserved old town gives way to Jurmala's pine-fringed Soviet beach resort, then Riga's extraordinary Art Nouveau streetscapes, the forested gorges of Gauja National Park, the surreal Hill of
+              Crosses in Lithuania, and finally the Baroque grandeur of Vilnius. This is Europe at its most unhurried — and most rewarding.
             </p>
           </section>
 
@@ -331,12 +461,24 @@
           <section aria-labelledby="photos-heading" class="reveal">
             <h2 id="photos-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-17.webp" alt="Tallinn Old Town Estonia motorcycle tour" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-18.webp" alt="Riga Art Nouveau architecture Latvia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-19.webp" alt="Baltic coast Cape Kolka Latvia motorcycle" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-20.webp" alt="Gauja National Park gorge motorcycle Latvia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-21.webp" alt="Hill of Crosses Siauliai Lithuania pilgrimage" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Vilnius Baroque old city Lithuania" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-17.webp" alt="Tallinn Old Town Estonia motorcycle tour" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-18.webp" alt="Riga Art Nouveau architecture Latvia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-19.webp" alt="Baltic coast Cape Kolka Latvia motorcycle" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-20.webp" alt="Gauja National Park gorge motorcycle Latvia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-21.webp" alt="Hill of Crosses Siauliai Lithuania pilgrimage" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Vilnius Baroque old city Lithuania" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -417,7 +559,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -463,5 +607,7 @@
     </div>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

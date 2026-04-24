@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
@@ -23,74 +24,250 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .page-hero { padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10); border-bottom: 1px solid var(--border); }
-    .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--sp-10); align-items: start; }
-    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--sp-6); }
-    .contact-method { display: flex; align-items: flex-start; gap: var(--sp-3); padding: var(--sp-4) 0; border-bottom: 1px solid var(--border); }
-    .contact-method:last-child { border-bottom: none; padding-bottom: 0; }
-    .contact-method__icon { width: 52px; height: 52px; border-radius: var(--radius); background: var(--accent-dim); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.3rem; flex-shrink: 0; }
-    .contact-method__label { font-size: var(--text-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
-    .contact-method__value { font-size: var(--text-lg); font-weight: 600; color: var(--text); margin-bottom: 2px; }
-    .contact-method__note { font-size: var(--text-sm); color: var(--text-muted); }
-    .contact-method__value a { color: inherit; transition: color var(--t-fast); }
-    .contact-method__value a:hover { color: var(--accent); }
-    .whatsapp-btn { display: flex; align-items: center; gap: 10px; background: #25D366; color: #fff; font-weight: 700; font-size: var(--text-base); padding: 14px 24px; border-radius: var(--radius-pill); margin-top: var(--sp-3); transition: opacity var(--t-fast), transform var(--t-fast); width: fit-content; }
-    .whatsapp-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-    .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--sp-6); }
-    .form-card__title { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .form-card__sub { font-size: var(--text-base); color: var(--text-muted); margin-bottom: var(--sp-5); }
-    .tours-map { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 16/7; display: flex; align-items: center; justify-content: center; margin-top: var(--sp-10); }
-    .tours-map__placeholder { text-align: center; color: var(--text-muted); }
-    .tours-map__placeholder i { font-size: 3rem; color: var(--accent); opacity: 0.4; margin-bottom: var(--sp-2); display: block; }
-    .response-badges { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-4); }
-    .response-badge { display: flex; align-items: center; gap: 6px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 6px 14px; font-size: var(--text-xs); font-weight: 600; color: var(--text-muted); }
-    .response-badge i { color: var(--accent); }
-    @media(max-width:900px){ .contact-layout { grid-template-columns: 1fr; } }
+    .page-hero {
+      padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-method:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-method__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius);
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .contact-method__label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-method__value {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .contact-method__note {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .contact-method__value a {
+      color: inherit;
+      transition: color var(--t-fast);
+    }
+
+    .contact-method__value a:hover {
+      color: var(--accent);
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--text-base);
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      margin-top: var(--sp-3);
+      transition: opacity var(--t-fast), transform var(--t-fast);
+      width: fit-content;
+    }
+
+    .whatsapp-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-6);
+    }
+
+    .form-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-card__sub {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      margin-bottom: var(--sp-5);
+    }
+
+    .tours-map {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 16/7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: var(--sp-10);
+    }
+
+    .tours-map__placeholder {
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .tours-map__placeholder i {
+      font-size: 3rem;
+      color: var(--accent);
+      opacity: 0.4;
+      margin-bottom: var(--sp-2);
+      display: block;
+    }
+
+    .response-badges {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      margin-top: var(--sp-4);
+    }
+
+    .response-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .response-badge i {
+      color: var(--accent);
+    }
+
+    @media(max-width:900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" /></a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+        <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link active">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link active" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -98,7 +275,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <header class="page-hero section--dark">
@@ -121,7 +300,8 @@
         <!-- LEFT: Contact details -->
         <div class="reveal">
           <div class="contact-card">
-            <h2 style="font-family:var(--font-display); font-size:var(--text-2xl); font-weight:700; color:var(--text); margin-bottom:var(--sp-4);">Contact <em style="font-style:italic; color:var(--accent);">Details</em></h2>
+            <h2 style="font-family:var(--font-display); font-size:var(--text-2xl); font-weight:700; color:var(--text); margin-bottom:var(--sp-4);">Contact <em style="font-style:italic; color:var(--accent);">Details</em>
+            </h2>
 
             <div class="contact-method">
               <div class="contact-method__icon"><i class="fa-brands fa-whatsapp"></i></div>
@@ -170,10 +350,12 @@
           <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-xl); padding:var(--sp-5); margin-top:var(--sp-4);">
             <h3 style="font-family:var(--font-display); font-size:var(--text-xl); font-weight:700; color:var(--text); margin-bottom:var(--sp-3);">Quick <em style="font-style:italic;color:var(--accent);">Links</em></h3>
             <div style="display:flex; flex-direction:column; gap:8px;">
-              <a href="tours.html" style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-muted); font-size:var(--text-sm); transition:color var(--t-fast);">
+              <a href="tours.html"
+                style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-muted); font-size:var(--text-sm); transition:color var(--t-fast);">
                 <i class="fa-solid fa-compass" style="color:var(--accent);"></i> Browse all upcoming tours
               </a>
-              <a href="faq.html" style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-muted); font-size:var(--text-sm); transition:color var(--t-fast);">
+              <a href="faq.html"
+                style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); color:var(--text-muted); font-size:var(--text-sm); transition:color var(--t-fast);">
                 <i class="fa-solid fa-circle-question" style="color:var(--accent);"></i> Read our FAQ
               </a>
               <a href="../privacy-terms-refund-pricing.html" style="display:flex; align-items:center; gap:10px; padding:10px 0; color:var(--text-muted); font-size:var(--text-sm); transition:color var(--t-fast);">
@@ -260,7 +442,8 @@
             </div>
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:var(--sp-3);">
               <input type="checkbox" id="contact-consent" name="consent" required style="width:16px; height:16px; accent-color:var(--accent);" />
-              <label for="contact-consent" style="font-size:var(--text-sm); color:var(--text-muted);">I agree to MotoRover's <a href="../privacy-terms-refund-pricing.html" style="color:var(--accent);">Privacy Policy</a> and consent to being contacted about this enquiry.</label>
+              <label for="contact-consent" style="font-size:var(--text-sm); color:var(--text-muted);">I agree to MotoRover's <a href="../privacy-terms-refund-pricing.html" style="color:var(--accent);">Privacy Policy</a>
+                and consent to being contacted about this enquiry.</label>
             </div>
             <button type="submit" class="btn btn--primary btn--lg" style="width:100%; justify-content:center;">
               <i class="fa-solid fa-paper-plane"></i> Send Enquiry
@@ -310,7 +493,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company — guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -357,4 +542,5 @@
   </footer>
   <script src="js/main.js"></script>
 </body>
+
 </html>

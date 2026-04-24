@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,72 +28,207 @@
       gap: var(--sp-8);
       align-items: start;
     }
-    .tour-sidebar { position: sticky; top: calc(var(--nav-height) + 24px); }
-    .booking-card { background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-    .booking-card__header { background: linear-gradient(135deg, #1a6b3c 0%, #0d4526 100%); padding: var(--sp-4); text-align: center; }
-    .booking-card__price { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 800; color: var(--white); line-height: 1; }
-    .booking-card__price-note { font-size: var(--text-sm); color: rgba(255,255,255,0.8); margin-top: 4px; }
-    .booking-card__body { padding: var(--sp-4); }
-    .booking-card__facts { display: flex; flex-direction: column; gap: 12px; margin-bottom: var(--sp-4); padding-bottom: var(--sp-4); border-bottom: 1px solid var(--border); }
-    .booking-fact { display: flex; align-items: center; gap: 10px; font-size: var(--text-sm); color: var(--text-muted); }
-    .booking-fact i { color: var(--accent); width: 16px; text-align: center; }
-    .booking-fact strong { color: var(--text); margin-left: auto; }
-    .booking-card__actions { display: flex; flex-direction: column; gap: var(--sp-2); }
-    .booking-card__actions .btn { width: 100%; justify-content: center; }
-    .booking-card__note { font-size: var(--text-xs); color: var(--text-faint); text-align: center; margin-top: var(--sp-2); }
-    .highlights-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: var(--sp-3); margin-bottom: var(--sp-6); }
-    .highlight-item { display: flex; align-items: flex-start; gap: 10px; font-size: var(--text-base); color: var(--text-muted); }
-    .highlight-item i { color: var(--accent); flex-shrink: 0; margin-top: 3px; }
-    .car-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(26,107,60,0.15); border: 1px solid rgba(26,107,60,0.35); color: #4ade80; font-size: var(--text-xs); font-weight: 600; padding: 5px 14px; border-radius: var(--radius-pill); letter-spacing: .06em; }
-    @media (max-width: 1024px) { .tour-layout { grid-template-columns: 1fr; } .tour-sidebar { position: static; } }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, #1a6b3c 0%, #0d4526 100%);
+      padding: var(--sp-4);
+      text-align: center;
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4);
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center;
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .car-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 107, 60, 0.15);
+      border: 1px solid rgba(26, 107, 60, 0.35);
+      color: #4ade80;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      letter-spacing: .06em;
+    }
+
+    @media (max-width: 1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-sidebar {
+        position: static;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
             Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="../motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
             Car Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item" style="color:var(--accent);">Silk Route — Kyrgyzstan</a>
-            <a href="../car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="../car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -100,7 +236,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -142,10 +280,12 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Kyrgyzstan — one of the best-kept secrets of Central Asia. This self-drive expedition puts you behind the wheel of a Toyota Sequoia as you navigate snow-capped mountains, glacial rivers, turquoise alpine lakes, deep gorges, and endless grasslands along the ancient Silk Road.
+              Kyrgyzstan — one of the best-kept secrets of Central Asia. This self-drive expedition puts you behind the wheel of a Toyota Sequoia as you navigate snow-capped mountains, glacial rivers, turquoise alpine
+              lakes, deep gorges, and endless grasslands along the ancient Silk Road.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              Drive in a guided convoy with a lead car, sweep car, and a mechanic on standby. Experience traditional horse games, eagle hunting demonstrations, and nights in authentic yurt camps under a sky unpolluted by city light. This is road tripping as it was meant to be.
+              Drive in a guided convoy with a lead car, sweep car, and a mechanic on standby. Experience traditional horse games, eagle hunting demonstrations, and nights in authentic yurt camps under a sky unpolluted by
+              city light. This is road tripping as it was meant to be.
             </p>
           </section>
 
@@ -345,12 +485,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-40.webp" alt="Toyota Sequoia on Kyrgyzstan mountain road" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-41.webp" alt="Issyk-Kul lake from mountain road" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-42.webp" alt="Kyrgyzstan road trip convoy" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-43.webp" alt="Yurt camp at Song-Kul plateau" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-44.webp" alt="Eagle hunting Kyrgyzstan cultural experience" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-45.webp" alt="Grigorievka Gorge scenic view" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-40.webp" alt="Toyota Sequoia on Kyrgyzstan mountain road" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-41.webp" alt="Issyk-Kul lake from mountain road" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-42.webp" alt="Kyrgyzstan road trip convoy" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-43.webp" alt="Yurt camp at Song-Kul plateau" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-44.webp" alt="Eagle hunting Kyrgyzstan cultural experience" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-45.webp" alt="Grigorievka Gorge scenic view" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -373,7 +525,8 @@
                 <div class="booking-fact"><i class="fa-solid fa-users"></i> Format <strong>Guided Convoy</strong></div>
               </div>
               <div class="booking-card__actions">
-                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Road%20Drive%20Car%20Tour%20to%20Kyrgyzstan%20(Aug%209-16,%202025)." class="btn btn--primary" target="_blank" rel="noopener">
+                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Silk%20Road%20Drive%20Car%20Tour%20to%20Kyrgyzstan%20(Aug%209-16,%202025)." class="btn btn--primary"
+                  target="_blank" rel="noopener">
                   <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
                 </a>
                 <a href="../car-silk-route-brochure.html" class="btn btn--outline" target="_blank" rel="noopener">
@@ -434,7 +587,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -479,5 +634,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

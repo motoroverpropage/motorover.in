@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
@@ -23,74 +24,229 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .page-hero { padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10); border-bottom: 1px solid var(--border); }
-    .reason-block { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-10); align-items: center; padding: var(--sp-10) 0; border-bottom: 1px solid var(--border); }
-    .reason-block:last-child { border-bottom: none; }
-    .reason-block--reverse { direction: rtl; }
-    .reason-block--reverse > * { direction: ltr; }
-    .reason-block__img { border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 4/3; }
-    .reason-block__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow); }
-    .reason-block__img:hover img { transform: scale(1.04); }
-    .reason-block__num { font-family: var(--font-display); font-size: clamp(4rem,8vw,7rem); font-weight: 800; color: var(--accent); opacity: 0.15; line-height: 1; margin-bottom: -16px; }
-    .reason-block__title { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 800; color: var(--text); margin-bottom: var(--sp-3); line-height: 1.15; }
-    .reason-block__title em { font-style: italic; color: var(--accent); }
-    .reason-block__text { font-size: var(--text-lg); color: var(--text-muted); line-height: 1.75; margin-bottom: var(--sp-3); }
-    .reason-block__list { display: flex; flex-direction: column; gap: 10px; }
-    .reason-block__list li { display: flex; align-items: flex-start; gap: 10px; font-size: var(--text-base); color: var(--text-muted); }
-    .reason-block__list li i { color: var(--accent); flex-shrink: 0; margin-top: 3px; }
-    .compare-table { width: 100%; border-collapse: collapse; }
-    .compare-table th, .compare-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: var(--text-sm); text-align: left; }
-    .compare-table thead th { background: var(--surface-2); color: var(--text-muted); font-weight: 700; font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; }
-    .compare-table thead th:nth-child(2) { background: var(--accent); color: var(--white); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
-    .compare-table tbody td { color: var(--text-muted); }
-    .compare-table tbody td:nth-child(2) { background: rgba(224,90,0,0.06); color: var(--text); font-weight: 600; }
-    .compare-table .check { color: #4CAF50; } .compare-table .cross { color: #FF5252; }
-    @media(max-width:768px) { .reason-block { grid-template-columns: 1fr; } .reason-block--reverse { direction: ltr; } }
+    .page-hero {
+      padding: calc(var(--nav-height) + var(--sp-10)) 0 var(--sp-10);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reason-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+      padding: var(--sp-10) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reason-block:last-child {
+      border-bottom: none;
+    }
+
+    .reason-block--reverse {
+      direction: rtl;
+    }
+
+    .reason-block--reverse>* {
+      direction: ltr;
+    }
+
+    .reason-block__img {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .reason-block__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--t-slow);
+    }
+
+    .reason-block__img:hover img {
+      transform: scale(1.04);
+    }
+
+    .reason-block__num {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: -16px;
+    }
+
+    .reason-block__title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: var(--sp-3);
+      line-height: 1.15;
+    }
+
+    .reason-block__title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .reason-block__text {
+      font-size: var(--text-lg);
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--sp-3);
+    }
+
+    .reason-block__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .reason-block__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .reason-block__list li i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--text-sm);
+      text-align: left;
+    }
+
+    .compare-table thead th {
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: var(--text-xs);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .compare-table thead th:nth-child(2) {
+      background: var(--accent);
+      color: var(--white);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+
+    .compare-table tbody td {
+      color: var(--text-muted);
+    }
+
+    .compare-table tbody td:nth-child(2) {
+      background: rgba(224, 90, 0, 0.06);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .compare-table .check {
+      color: #4CAF50;
+    }
+
+    .compare-table .cross {
+      color: #FF5252;
+    }
+
+    @media(max-width:768px) {
+      .reason-block {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-block--reverse {
+        direction: ltr;
+      }
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" /></a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+        <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link active">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link active" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -98,7 +254,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <header class="page-hero section--dark">
@@ -147,7 +305,8 @@
         <div>
           <div class="reason-block__num">03</div>
           <h2 class="reason-block__title">Expert <em>Leadership</em></h2>
-          <p class="reason-block__text">You're not being guided by a travel agent who has read a brochure. You're riding with a former motorcycle performance tester and auto journalist who has ridden the world's greatest roads professionally.</p>
+          <p class="reason-block__text">You're not being guided by a travel agent who has read a brochure. You're riding with a former motorcycle performance tester and auto journalist who has ridden the world's greatest
+            roads professionally.</p>
           <ul class="reason-block__list">
             <li><i class="fa-solid fa-check"></i><span>Founder Piyush Sonsale leads or personally supervises every tour</span></li>
             <li><i class="fa-solid fa-check"></i><span>6 years at Bike India &amp; Car India as a performance tester</span></li>
@@ -162,7 +321,8 @@
         <div>
           <div class="reason-block__num">04</div>
           <h2 class="reason-block__title">Real Cultural <em>Immersion</em></h2>
-          <p class="reason-block__text">We don't just take you through beautiful places — we take you into them. Off-the-beaten-track routes, authentic local stays, and cultural experiences you won't find in any package tour catalogue.</p>
+          <p class="reason-block__text">We don't just take you through beautiful places — we take you into them. Off-the-beaten-track routes, authentic local stays, and cultural experiences you won't find in any package
+            tour catalogue.</p>
           <ul class="reason-block__list">
             <li><i class="fa-solid fa-check"></i><span>Overnight yurt camps with nomadic Kyrgyz families</span></li>
             <li><i class="fa-solid fa-check"></i><span>Traditional horse games &amp; eagle hunting displays</span></li>
@@ -177,7 +337,8 @@
         <div>
           <div class="reason-block__num">05</div>
           <h2 class="reason-block__title">Open to <em>All Levels</em></h2>
-          <p class="reason-block__text">You don't need to be an experienced international rider to join us. We've taken first-timers on international rides, 60-year-olds on mountain trails, and non-riders on car tours. One requirement: the spirit of adventure.</p>
+          <p class="reason-block__text">You don't need to be an experienced international rider to join us. We've taken first-timers on international rides, 60-year-olds on mountain trails, and non-riders on car tours.
+            One requirement: the spirit of adventure.</p>
           <ul class="reason-block__list">
             <li><i class="fa-solid fa-check"></i><span>Amateur to experienced — all riding levels welcomed</span></li>
             <li><i class="fa-solid fa-check"></i><span>Age &amp; gender are no barriers</span></li>
@@ -209,13 +370,41 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Routes personally scouted</td><td><i class="fa-solid fa-check check"></i> Yes — every single one</td><td><i class="fa-solid fa-xmark cross"></i> Rarely</td></tr>
-            <tr><td>Mechanic on every tour</td><td><i class="fa-solid fa-check check"></i> Included</td><td><i class="fa-solid fa-xmark cross"></i> Extra cost or unavailable</td></tr>
-            <tr><td>Cultural experiences built-in</td><td><i class="fa-solid fa-check check"></i> Eagle hunting, yurts, horse games</td><td><i class="fa-solid fa-xmark cross"></i> Generic sightseeing</td></tr>
-            <tr><td>Led by ex-auto journalist &amp; racer</td><td><i class="fa-solid fa-check check"></i> Founder leads tours</td><td><i class="fa-solid fa-xmark cross"></i> Unknown guides</td></tr>
-            <tr><td>India-specific logistics</td><td><i class="fa-solid fa-check check"></i> GST, TCS, INR payments</td><td><i class="fa-solid fa-xmark cross"></i> Complex foreign payments</td></tr>
-            <tr><td>All meals arranged</td><td><i class="fa-solid fa-check check"></i> Vegetarian &amp; non-veg options</td><td><i class="fa-solid fa-xmark cross"></i> You figure it out</td></tr>
-            <tr><td>24/7 support</td><td><i class="fa-solid fa-check check"></i> WhatsApp always on</td><td><i class="fa-solid fa-xmark cross"></i> Limited or none</td></tr>
+            <tr>
+              <td>Routes personally scouted</td>
+              <td><i class="fa-solid fa-check check"></i> Yes — every single one</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Rarely</td>
+            </tr>
+            <tr>
+              <td>Mechanic on every tour</td>
+              <td><i class="fa-solid fa-check check"></i> Included</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Extra cost or unavailable</td>
+            </tr>
+            <tr>
+              <td>Cultural experiences built-in</td>
+              <td><i class="fa-solid fa-check check"></i> Eagle hunting, yurts, horse games</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Generic sightseeing</td>
+            </tr>
+            <tr>
+              <td>Led by ex-auto journalist &amp; racer</td>
+              <td><i class="fa-solid fa-check check"></i> Founder leads tours</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Unknown guides</td>
+            </tr>
+            <tr>
+              <td>India-specific logistics</td>
+              <td><i class="fa-solid fa-check check"></i> GST, TCS, INR payments</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Complex foreign payments</td>
+            </tr>
+            <tr>
+              <td>All meals arranged</td>
+              <td><i class="fa-solid fa-check check"></i> Vegetarian &amp; non-veg options</td>
+              <td><i class="fa-solid fa-xmark cross"></i> You figure it out</td>
+            </tr>
+            <tr>
+              <td>24/7 support</td>
+              <td><i class="fa-solid fa-check check"></i> WhatsApp always on</td>
+              <td><i class="fa-solid fa-xmark cross"></i> Limited or none</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -240,7 +429,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company — guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -282,4 +473,5 @@
   </footer>
   <script src="js/main.js"></script>
 </body>
+
 </html>

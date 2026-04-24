@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spain &amp; France Motorcycle Tour | MotoRover</title>
-  <meta name="description" content="8-day guided motorcycle tour through Spain and France — Costa Brava, Pyrenees alpine passes, Andorra, and the iconic Tour de France climbs. BMW GS adventure bikes. €3,860 per person." />
+  <meta name="description"
+    content="8-day guided motorcycle tour through Spain and France — Costa Brava, Pyrenees alpine passes, Andorra, and the iconic Tour de France climbs. BMW GS adventure bikes. €3,860 per person." />
   <meta name="keywords" content="Spain France motorcycle tour, Pyrenees bike tour India, guided motorcycle tour Europe, BMW GS tour Spain, MotoRover Spain" />
   <meta property="og:title" content="Spain &amp; France Motorcycle Tour | MotoRover" />
   <meta property="og:description" content="8 days, ~1,200 km of legendary European roads — Costa Brava, Pyrenees passes and Andorra on a BMW GS." />
@@ -18,77 +20,199 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout { display:grid; grid-template-columns:1fr 360px; gap:var(--sp-8); align-items:start; }
-    .tour-sidebar { position:sticky; top:calc(var(--nav-height) + 24px); }
-    .booking-card { background-color:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .booking-card__header { background:linear-gradient(135deg, var(--accent) 0%, #c04d00 100%); padding:var(--sp-4); text-align:center; }
-    .booking-card__price { font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; color:var(--white); line-height:1; }
-    .booking-card__price-note { font-size:var(--text-sm); color:rgba(255,255,255,0.8); margin-top:4px; }
-    .booking-card__body { padding:var(--sp-4); }
-    .booking-card__facts { display:flex; flex-direction:column; gap:12px; margin-bottom:var(--sp-4); padding-bottom:var(--sp-4); border-bottom:1px solid var(--border); }
-    .booking-fact { display:flex; align-items:center; gap:10px; font-size:var(--text-sm); color:var(--text-muted); }
-    .booking-fact i { color:var(--accent); width:16px; text-align:center; }
-    .booking-fact strong { color:var(--text); margin-left:auto; }
-    .booking-card__actions { display:flex; flex-direction:column; gap:var(--sp-2); }
-    .booking-card__actions .btn { width:100%; justify-content:center; }
-    .booking-card__note { font-size:var(--text-xs); color:var(--text-faint); text-align:center; margin-top:var(--sp-2); }
-    .highlights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-3); margin-bottom:var(--sp-6); }
-    .highlight-item { display:flex; align-items:flex-start; gap:10px; font-size:var(--text-base); color:var(--text-muted); }
-    .highlight-item i { color:var(--accent); flex-shrink:0; margin-top:3px; }
-    @media (max-width:1024px) { .tour-layout { grid-template-columns:1fr; } .tour-sidebar { position:static; } }
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center;
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4);
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center;
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    @media (max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-sidebar {
+        position: static;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle active">
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
             Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" style="color:var(--accent);">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle">
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
             Car Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -96,7 +220,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -138,10 +264,12 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Europe's most captivating riding corridor awaits — eight days of pure motorcycle bliss through two of the continent's most iconic countries. From the golden streets of Barcelona to the soaring Pyrenean passes shared by Tour de France legends, this tour delivers a perfect blend of Mediterranean warmth, alpine drama, and cultural richness.
+              Europe's most captivating riding corridor awaits — eight days of pure motorcycle bliss through two of the continent's most iconic countries. From the golden streets of Barcelona to the soaring Pyrenean
+              passes shared by Tour de France legends, this tour delivers a perfect blend of Mediterranean warmth, alpine drama, and cultural richness.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              Aboard a BMW GS adventure machine, you'll carve through the medieval lanes of Girona, hug the clifftop roads of the Costa Brava, climb into Andorra at 2,408 metres, and descend through the French Pyrenees on the very cols that define cycling mythology. Small group, expert guide, and flawless logistics — this is European motorcycling at its finest.
+              Aboard a BMW GS adventure machine, you'll carve through the medieval lanes of Girona, hug the clifftop roads of the Costa Brava, climb into Andorra at 2,408 metres, and descend through the French Pyrenees
+              on the very cols that define cycling mythology. Small group, expert guide, and flawless logistics — this is European motorcycling at its finest.
             </p>
           </section>
 
@@ -339,12 +467,24 @@
           <section aria-labelledby="photos-heading" class="reveal">
             <h2 id="photos-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-11.webp" alt="Motorcycle on Spain Pyrenees mountain pass" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-12.webp" alt="Costa Brava coastal clifftop roads" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-13.webp" alt="BMW GS on Col du Tourmalet France" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-14.webp" alt="Medieval Girona old town Catalonia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-15.webp" alt="Andorra Col d'Envalira highest pass" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-16.webp" alt="Val d'Aran valley lush Pyrenees" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-11.webp" alt="Motorcycle on Spain Pyrenees mountain pass" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-12.webp" alt="Costa Brava coastal clifftop roads" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-13.webp" alt="BMW GS on Col du Tourmalet France" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-14.webp" alt="Medieval Girona old town Catalonia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-15.webp" alt="Andorra Col d'Envalira highest pass" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-16.webp" alt="Val d'Aran valley lush Pyrenees" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -367,7 +507,8 @@
                 <div class="booking-fact"><i class="fa-solid fa-users"></i> Group <strong>Small Group Tour</strong></div>
               </div>
               <div class="booking-card__actions">
-                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Spain%20%26%20France%20Motorcycle%20Tour%20(Sep%207-14%2C%202025)." class="btn btn--primary" target="_blank" rel="noopener">
+                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Spain%20%26%20France%20Motorcycle%20Tour%20(Sep%207-14%2C%202025)." class="btn btn--primary" target="_blank"
+                  rel="noopener">
                   <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
                 </a>
                 <a href="contact.html" class="btn btn--outline">
@@ -412,7 +553,8 @@
         <h2 class="cta-strip__title">Ready to Ride the <em style="font-style:italic; color:var(--accent);">Pyrenees?</em></h2>
         <p class="cta-strip__sub">Limited seats for September 2025. WhatsApp us now to reserve your spot or ask any questions.</p>
         <div class="cta-strip__actions">
-          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Spain%20%26%20France%20Motorcycle%20Tour%20(Sep%207-14%2C%202025)." class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Spain%20%26%20France%20Motorcycle%20Tour%20(Sep%207-14%2C%202025)." class="btn btn--primary btn--lg" target="_blank"
+            rel="noopener">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp to Book
           </a>
           <a href="tours.html" class="btn btn--outline btn--lg">
@@ -428,7 +570,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -474,5 +618,7 @@
     </div>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

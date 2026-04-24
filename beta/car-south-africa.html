@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,77 +19,200 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout { display:grid; grid-template-columns:1fr 360px; gap:var(--sp-8); align-items:start; }
-    .tour-sidebar { position:sticky; top:calc(var(--nav-height) + 24px); }
-    .booking-card { background-color:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .booking-card__header { background:linear-gradient(135deg, var(--accent) 0%, #c04d00 100%); padding:var(--sp-4); text-align:center; }
-    .booking-card__price { font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; color:var(--white); line-height:1; }
-    .booking-card__price-note { font-size:var(--text-sm); color:rgba(255,255,255,0.8); margin-top:4px; }
-    .booking-card__body { padding:var(--sp-4); }
-    .booking-card__facts { display:flex; flex-direction:column; gap:12px; margin-bottom:var(--sp-4); padding-bottom:var(--sp-4); border-bottom:1px solid var(--border); }
-    .booking-fact { display:flex; align-items:center; gap:10px; font-size:var(--text-sm); color:var(--text-muted); }
-    .booking-fact i { color:var(--accent); width:16px; text-align:center; }
-    .booking-fact strong { color:var(--text); margin-left:auto; }
-    .booking-card__actions { display:flex; flex-direction:column; gap:var(--sp-2); }
-    .booking-card__actions .btn { width:100%; justify-content:center; }
-    .booking-card__note { font-size:var(--text-xs); color:var(--text-faint); text-align:center; margin-top:var(--sp-2); }
-    .highlights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-3); margin-bottom:var(--sp-6); }
-    .highlight-item { display:flex; align-items:flex-start; gap:10px; font-size:var(--text-base); color:var(--text-muted); }
-    .highlight-item i { color:var(--accent); flex-shrink:0; margin-top:3px; }
-    @media (max-width:1024px) { .tour-layout { grid-template-columns:1fr; } .tour-sidebar { position:static; } }
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center;
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4);
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center;
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    @media (max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-sidebar {
+        position: static;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
             Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="motorcycle-south-africa.html" class="nav__dropdown-item">South Africa</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
             Car Tours <i class="fa-solid fa-chevron-down"></i>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="car-south-africa.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">South Africa</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-        </a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -96,7 +220,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -138,10 +264,13 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              South Africa is one of those rare countries where a single road trip can take you from penguin colonies on a rocky Atlantic shore to a Big Five game drive on the same afternoon — and somehow still leave you breathless by sunrise the next morning. This 10-day loop from Cape Town is Africa's most iconic self-drive route, elevated.
+              South Africa is one of those rare countries where a single road trip can take you from penguin colonies on a rocky Atlantic shore to a Big Five game drive on the same afternoon — and somehow still leave you
+              breathless by sunrise the next morning. This 10-day loop from Cape Town is Africa's most iconic self-drive route, elevated.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              Behind the wheel of a Toyota Land Cruiser 200 or Ford Ranger, you'll carve Chapman's Peak Drive with the Atlantic crashing below, drift through the lush Garden Route from Mossel Bay to Knysna, enter Addo Elephant National Park for a full Big Five encounter, traverse the wild semi-desert Karoo, and then conquer the legendary Swartberg Pass — a mountain dirt road so dramatic it barely feels real. This is South Africa on your terms: vast, wild, and absolutely unforgettable.
+              Behind the wheel of a Toyota Land Cruiser 200 or Ford Ranger, you'll carve Chapman's Peak Drive with the Atlantic crashing below, drift through the lush Garden Route from Mossel Bay to Knysna, enter Addo
+              Elephant National Park for a full Big Five encounter, traverse the wild semi-desert Karoo, and then conquer the legendary Swartberg Pass — a mountain dirt road so dramatic it barely feels real. This is
+              South Africa on your terms: vast, wild, and absolutely unforgettable.
             </p>
           </section>
 
@@ -190,56 +319,64 @@
                     <td><span class="day-badge">Day 2</span></td>
                     <td>TBA</td>
                     <td>Cape Town → Cape Peninsula</td>
-                    <td>The Cape Peninsula loop — Chapman's Peak Drive with sheer Atlantic cliff drops, Cape of Good Hope (southernmost tip of Africa), and the impossibly charming Boulders Beach African penguin colony.</td>
+                    <td>The Cape Peninsula loop — Chapman's Peak Drive with sheer Atlantic cliff drops, Cape of Good Hope (southernmost tip of Africa), and the impossibly charming Boulders Beach African penguin colony.
+                    </td>
                     <td>180 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 3</span></td>
                     <td>TBA</td>
                     <td>Cape Town → Hermanus</td>
-                    <td>Drive the coastal R44 to Hermanus — the world's whale-watching capital. Walk the famous cliff path for Southern Right whale sightings (in season). Wine estates of the Hemel-en-Aarde valley beckon.</td>
+                    <td>Drive the coastal R44 to Hermanus — the world's whale-watching capital. Walk the famous cliff path for Southern Right whale sightings (in season). Wine estates of the Hemel-en-Aarde valley beckon.
+                    </td>
                     <td>130 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 4</span></td>
                     <td>TBA</td>
                     <td>Hermanus → Mossel Bay</td>
-                    <td>The Garden Route begins. Coastal highway through the De Hoop Nature Reserve, past rolling fynbos headlands and picture-book fishing villages. Mossel Bay — where the Indian Ocean first warms your toes.</td>
+                    <td>The Garden Route begins. Coastal highway through the De Hoop Nature Reserve, past rolling fynbos headlands and picture-book fishing villages. Mossel Bay — where the Indian Ocean first warms your
+                      toes.</td>
                     <td>280 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 5</span></td>
                     <td>TBA</td>
                     <td>Mossel Bay → George → Knysna</td>
-                    <td>Cross the Outeniqua Pass and drop into the Garden of Eden forest. The Wilderness lagoon mirrors the sky. Then, the Knysna Heads — the most iconic view in the Garden Route, two ancient sandstone cliffs standing sentinel over a shimmering lagoon.</td>
+                    <td>Cross the Outeniqua Pass and drop into the Garden of Eden forest. The Wilderness lagoon mirrors the sky. Then, the Knysna Heads — the most iconic view in the Garden Route, two ancient sandstone
+                      cliffs standing sentinel over a shimmering lagoon.</td>
                     <td>200 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 6</span></td>
                     <td>TBA</td>
                     <td>Knysna → Tsitsikamma → Port Elizabeth</td>
-                    <td>Storms River Mouth — ancient Afromontane forest meets crashing surf. The Bloukrans Bridge bungee jump (world's highest, optional). Dense green tunnels through the Tsitsikamma Forest. Arrive Port Elizabeth (Gqeberha) on the edge of the Eastern Cape.</td>
+                    <td>Storms River Mouth — ancient Afromontane forest meets crashing surf. The Bloukrans Bridge bungee jump (world's highest, optional). Dense green tunnels through the Tsitsikamma Forest. Arrive Port
+                      Elizabeth (Gqeberha) on the edge of the Eastern Cape.</td>
                     <td>250 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 7</span></td>
                     <td>TBA</td>
                     <td>Port Elizabeth → Addo Elephant National Park</td>
-                    <td>Full day immersed in the Big Five. Addo is South Africa's third-largest national park — and one of its finest. Elephants at the waterhole, Cape buffalo in the thickets, and, if fortune smiles, a lion in the golden afternoon light.</td>
+                    <td>Full day immersed in the Big Five. Addo is South Africa's third-largest national park — and one of its finest. Elephants at the waterhole, Cape buffalo in the thickets, and, if fortune smiles, a
+                      lion in the golden afternoon light.</td>
                     <td>80 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 8</span></td>
                     <td>TBA</td>
                     <td>Addo → Graaff-Reinet → Karoo</td>
-                    <td>The landscape changes entirely — red Karoo earth, dolerite columns, and infinite silence. Valley of Desolation lookout. Graaff-Reinet, South Africa's fourth oldest town, frozen beautifully in time. Overnight in the Great Karoo.</td>
+                    <td>The landscape changes entirely — red Karoo earth, dolerite columns, and infinite silence. Valley of Desolation lookout. Graaff-Reinet, South Africa's fourth oldest town, frozen beautifully in
+                      time. Overnight in the Great Karoo.</td>
                     <td>280 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 9</span></td>
                     <td>TBA</td>
                     <td>Karoo → Swartberg Pass → Oudtshoorn → Cape Town</td>
-                    <td>The day everyone talks about. The Swartberg Pass — a 27 km unpaved National Monument winding through raw mountain wilderness — is the highlight of the entire loop. Ostrich farms at Oudtshoorn. Long, glorious drive back to Cape Town.</td>
+                    <td>The day everyone talks about. The Swartberg Pass — a 27 km unpaved National Monument winding through raw mountain wilderness — is the highlight of the entire loop. Ostrich farms at Oudtshoorn.
+                      Long, glorious drive back to Cape Town.</td>
                     <td>480 km</td>
                   </tr>
                   <tr>
@@ -352,12 +489,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Cape Town and Table Mountain South Africa" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Garden Route coastal drive South Africa" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Addo Elephant National Park game drive" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Swartberg Pass mountain dirt road South Africa" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Knysna Heads lagoon South Africa" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-29.webp" alt="Cape of Good Hope South Africa" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Cape Town and Table Mountain South Africa" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Garden Route coastal drive South Africa" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Addo Elephant National Park game drive" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-27.webp" alt="Swartberg Pass mountain dirt road South Africa" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-28.webp" alt="Knysna Heads lagoon South Africa" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-29.webp" alt="Cape of Good Hope South Africa" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -438,7 +587,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -486,5 +637,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>

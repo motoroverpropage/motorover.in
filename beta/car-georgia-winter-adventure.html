@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="imgs/logo.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Georgia Winter Adventure Car Tour | MotoRover</title>
-  <meta name="description" content="8-day winter self-drive car tour through Georgia — Tbilisi snowy streets, Gudauri ski resort, Gergeti Trinity Church in snow, Prometheus Cave, Batumi Black Sea. Toyota 4Runner / Mitsubishi Pajero 4WD. USD 2,180 per person." />
+  <meta name="description"
+    content="8-day winter self-drive car tour through Georgia — Tbilisi snowy streets, Gudauri ski resort, Gergeti Trinity Church in snow, Prometheus Cave, Batumi Black Sea. Toyota 4Runner / Mitsubishi Pajero 4WD. USD 2,180 per person." />
   <meta name="keywords" content="Georgia winter car tour, Georgia self-drive winter, Gergeti Trinity Church snow, Gudauri ski road trip, MotoRover Georgia winter, Caucasus winter drive India" />
   <meta property="og:title" content="Georgia Winter Adventure Car Tour | MotoRover" />
   <meta property="og:description" content="8 days through winter Georgia — Gergeti Trinity Church in snow, Gudauri slopes, Tbilisi sulfur baths, Prometheus Cave, and the Black Sea in winter." />
@@ -24,70 +26,200 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .tour-layout{display:grid;grid-template-columns:1fr 360px;gap:var(--sp-8);align-items:start}
-    .tour-sidebar{position:sticky;top:calc(var(--nav-height) + 24px)}
-    .booking-card{background-color:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .booking-card__header{background:linear-gradient(135deg,var(--accent) 0%,#c04d00 100%);padding:var(--sp-4);text-align:center}
-    .booking-card__price{font-family:var(--font-display);font-size:var(--text-4xl);font-weight:800;color:var(--white);line-height:1}
-    .booking-card__price-note{font-size:var(--text-sm);color:rgba(255,255,255,0.8);margin-top:4px}
-    .booking-card__body{padding:var(--sp-4)}
-    .booking-card__facts{display:flex;flex-direction:column;gap:12px;margin-bottom:var(--sp-4);padding-bottom:var(--sp-4);border-bottom:1px solid var(--border)}
-    .booking-fact{display:flex;align-items:center;gap:10px;font-size:var(--text-sm);color:var(--text-muted)}
-    .booking-fact i{color:var(--accent);width:16px;text-align:center}
-    .booking-fact strong{color:var(--text);margin-left:auto}
-    .booking-card__actions{display:flex;flex-direction:column;gap:var(--sp-2)}
-    .booking-card__actions .btn{width:100%;justify-content:center}
-    .booking-card__note{font-size:var(--text-xs);color:var(--text-faint);text-align:center;margin-top:var(--sp-2)}
-    .highlights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);margin-bottom:var(--sp-6)}
-    .highlight-item{display:flex;align-items:flex-start;gap:10px;font-size:var(--text-base);color:var(--text-muted)}
-    .highlight-item i{color:var(--accent);flex-shrink:0;margin-top:3px}
-    @media(max-width:1024px){.tour-layout{grid-template-columns:1fr}.tour-sidebar{position:static}}
+    .tour-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--sp-8);
+      align-items: start
+    }
+
+    .tour-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px)
+    }
+
+    .booking-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden
+    }
+
+    .booking-card__header {
+      background: linear-gradient(135deg, var(--accent) 0%, #c04d00 100%);
+      padding: var(--sp-4);
+      text-align: center
+    }
+
+    .booking-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .booking-card__price-note {
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px
+    }
+
+    .booking-card__body {
+      padding: var(--sp-4)
+    }
+
+    .booking-card__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .booking-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--text-muted)
+    }
+
+    .booking-fact i {
+      color: var(--accent);
+      width: 16px;
+      text-align: center
+    }
+
+    .booking-fact strong {
+      color: var(--text);
+      margin-left: auto
+    }
+
+    .booking-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2)
+    }
+
+    .booking-card__actions .btn {
+      width: 100%;
+      justify-content: center
+    }
+
+    .booking-card__note {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      text-align: center;
+      margin-top: var(--sp-2)
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6)
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-base);
+      color: var(--text-muted)
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 3px
+    }
+
+    @media(max-width:1024px) {
+      .tour-layout {
+        grid-template-columns: 1fr
+      }
+
+      .tour-sidebar {
+        position: static
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
+
       <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
         <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70" />
       </a>
-      <div class="nav__links">
-        <div class="nav__dropdown">
-          <a href="tours.html" class="nav__link nav__dropdown-toggle">Motorcycle Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="motorcycle-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item">Spain &amp; France</a>
-            <a href="motorcycle-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="motorcycle-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="tours.html" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+      <div class="nav__links" role="menubar">
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html" class="nav__link nav__dropdown-toggle" role="menuitem" aria-haspopup="true">
+            Motorcycle Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Motorcycle tours">
+            <a href="motorcycle-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="motorcycle-spain-and-france.html" class="nav__dropdown-item" role="menuitem">Spain &amp; France</a>
+            <a href="motorcycle-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="motorcycle-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="motorcycle-south-africa.html" class="nav__dropdown-item" role="menuitem">South Africa</a>
+            <a href="motorcycle-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="tours.html" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <div class="nav__dropdown">
-          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active">Car Tours <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="nav__dropdown-menu">
-            <a href="car-silk-route.html" class="nav__dropdown-item">Silk Route — Kyrgyzstan</a>
-            <a href="car-georgia.html" class="nav__dropdown-item">Georgia</a>
-            <a href="car-morocco.html" class="nav__dropdown-item">Morocco</a>
-            <a href="car-balkan.html" class="nav__dropdown-item">Balkan</a>
-            <a href="car-new-zealand.html" class="nav__dropdown-item">New Zealand</a>
-            <a href="tours.html#car-tours" class="nav__dropdown-item" style="color:var(--accent);">View All →</a>
+
+        <div class="nav__dropdown" role="none">
+          <a href="tours.html#car-tours" class="nav__link nav__dropdown-toggle active" role="menuitem" aria-haspopup="true">
+            Car Tours <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="nav__dropdown-menu" role="menu" aria-label="Car tours">
+            <a href="car-silk-route.html" class="nav__dropdown-item" role="menuitem">Silk Route — Kyrgyzstan</a>
+            <a href="car-georgia.html" class="nav__dropdown-item" role="menuitem">Georgia</a>
+            <a href="car-morocco.html" class="nav__dropdown-item" role="menuitem">Morocco</a>
+            <a href="car-balkan.html" class="nav__dropdown-item" role="menuitem">Balkan</a>
+            <a href="car-new-zealand.html" class="nav__dropdown-item" role="menuitem">New Zealand</a>
+            <a href="car-georgia-winter-adventure.html" class="nav__dropdown-item" role="menuitem" style="color:var(--accent);">Georgia Winter Adventure</a>
+            <a href="tours.html#car-tours" class="nav__dropdown-item is-view-all" role="menuitem">View all tours —></a>
           </div>
         </div>
-        <a href="about.html" class="nav__link">About</a>
-        <a href="why-us.html" class="nav__link">Why Us</a>
-        <a href="media.html" class="nav__link">Media</a>
-        <a href="faq.html" class="nav__link">FAQ</a>
-        <a href="contact.html" class="nav__link">Contact</a>
+
+        <a href="about.html" class="nav__link" role="menuitem">About</a>
+        <a href="why-us.html" class="nav__link" role="menuitem">Why Us</a>
+        <a href="media.html" class="nav__link" role="menuitem">Media</a>
+        <a href="faq.html" class="nav__link" role="menuitem">FAQ</a>
+        <a href="contact.html" class="nav__link" role="menuitem">Contact</a>
       </div>
+
       <div class="nav__cta">
-        <a href="https://wa.me/918390345646" class="nav__whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
-        <button class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
-        <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav__socials" aria-label="MotoRover on social media">
+          <a href="https://wa.me/918390345646" class="nav__social-link is-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Instagram" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on Facebook" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@motorover" class="nav__social-link" target="_blank" rel="noopener" aria-label="MotoRover on YouTube" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
       </div>
+
     </div>
   </nav>
-  <div class="nav__mobile">
+
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
     <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
     <a href="about.html" class="nav__mobile-link">About</a>
@@ -95,7 +227,9 @@
     <a href="media.html" class="nav__mobile-link">Media</a>
     <a href="faq.html" class="nav__mobile-link">FAQ</a>
     <a href="contact.html" class="nav__mobile-link">Contact</a>
-    <a href="https://wa.me/918390345646" class="nav__mobile-link" style="color:#25D366;" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="https://wa.me/918390345646" class="nav__mobile-link" target="_blank" rel="noopener" style="color: #25D366;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 
   <!-- TOUR HERO -->
@@ -137,10 +271,13 @@
           <section aria-labelledby="overview-heading" class="reveal">
             <h2 id="overview-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-3);">Tour <em>Overview</em></h2>
             <p style="font-size:var(--text-lg); color:var(--text-muted); line-height:1.75; margin-bottom:var(--sp-3);">
-              Georgia in winter is a completely different country to the Georgia that summer tourists see. The sulfur bathhouses of Tbilisi steam in the cold air, Gergeti Trinity Church rises above the snowline like a medieval apparition, and Gudauri transforms into one of the Caucasus' best ski resorts. This 8-day MotoRover winter convoy is the anti-peak-season adventure — fewer tourists, warmer hospitality, and landscapes that are simply unforgettable.
+              Georgia in winter is a completely different country to the Georgia that summer tourists see. The sulfur bathhouses of Tbilisi steam in the cold air, Gergeti Trinity Church rises above the snowline like a
+              medieval apparition, and Gudauri transforms into one of the Caucasus' best ski resorts. This 8-day MotoRover winter convoy is the anti-peak-season adventure — fewer tourists, warmer hospitality, and
+              landscapes that are simply unforgettable.
             </p>
             <p style="font-size:var(--text-base); color:var(--text-muted); line-height:1.75;">
-              All driving is done in Toyota 4Runner or Mitsubishi Pajero — serious 4WD vehicles fitted with snow tyres and chains for mountain sections. Prices are significantly lower than summer, accommodation quality is identical, and the experience is entirely unique. If you've already done Georgia in summer, this will feel like a completely new country.
+              All driving is done in Toyota 4Runner or Mitsubishi Pajero — serious 4WD vehicles fitted with snow tyres and chains for mountain sections. Prices are significantly lower than summer, accommodation quality
+              is identical, and the experience is entirely unique. If you've already done Georgia in summer, this will feel like a completely new country.
             </p>
           </section>
 
@@ -182,49 +319,56 @@
                     <td><span class="day-badge">Day 1</span></td>
                     <td>Jan/Feb TBA</td>
                     <td>Tbilisi</td>
-                    <td>Arrival. Old Town snowy streets, Narikala fortress views over the mist-hung city, famous sulfur bathhouses of Abanotubani steaming in the winter air. Welcome dinner in a traditional wine cellar.</td>
+                    <td>Arrival. Old Town snowy streets, Narikala fortress views over the mist-hung city, famous sulfur bathhouses of Abanotubani steaming in the winter air. Welcome dinner in a traditional wine cellar.
+                    </td>
                     <td>— km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 2</span></td>
                     <td>—</td>
                     <td>Tbilisi → Gudauri</td>
-                    <td>Drive the Georgian Military Highway in winter conditions — a dramatic corridor of frozen gorges and snow-capped ridgelines. Arrive at Gudauri ski resort. Optional skiing and snowboarding on Caucasus slopes this afternoon.</td>
+                    <td>Drive the Georgian Military Highway in winter conditions — a dramatic corridor of frozen gorges and snow-capped ridgelines. Arrive at Gudauri ski resort. Optional skiing and snowboarding on
+                      Caucasus slopes this afternoon.</td>
                     <td>120 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 3</span></td>
                     <td>—</td>
                     <td>Gudauri → Stepantsminda</td>
-                    <td>The day the itinerary was built around. Drive to Kazbegi village and hike or 4WD to Gergeti Trinity Church at 2,170m — suspended above the snowline with Mt. Kazbek behind it. One of the world's iconic winter photographs, and you are in it.</td>
+                    <td>The day the itinerary was built around. Drive to Kazbegi village and hike or 4WD to Gergeti Trinity Church at 2,170m — suspended above the snowline with Mt. Kazbek behind it. One of the world's
+                      iconic winter photographs, and you are in it.</td>
                     <td>40 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 4</span></td>
                     <td>—</td>
                     <td>Stepantsminda → Gori → Kutaisi</td>
-                    <td>Descend the Military Highway, stopping at the Stalin Museum in Gori for a fascinating slice of Soviet history. Continue west to Kutaisi, Georgia's second city and ancient capital, through wide winter valleys.</td>
+                    <td>Descend the Military Highway, stopping at the Stalin Museum in Gori for a fascinating slice of Soviet history. Continue west to Kutaisi, Georgia's second city and ancient capital, through wide
+                      winter valleys.</td>
                     <td>300 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 5</span></td>
                     <td>—</td>
                     <td>Kutaisi</td>
-                    <td>Morning visit to UNESCO Gelati Monastery — the 12th-century crown jewel of Georgian Christendom, its golden mosaics luminous in winter light. Afternoon: the extraordinary Prometheus Cave, its vast illuminated chambers even more atmospheric in winter stillness. Local feast.</td>
+                    <td>Morning visit to UNESCO Gelati Monastery — the 12th-century crown jewel of Georgian Christendom, its golden mosaics luminous in winter light. Afternoon: the extraordinary Prometheus Cave, its vast
+                      illuminated chambers even more atmospheric in winter stillness. Local feast.</td>
                     <td>60 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 6</span></td>
                     <td>—</td>
                     <td>Kutaisi → Borjomi</td>
-                    <td>Drive to Borjomi, the famous mineral spa resort town nestled in the Borjomi Gorge. Sample the legendary mineral water at source. Winter walk through the snow-dusted Borjomi-Kharagauli National Park — Georgia's largest protected wilderness.</td>
+                    <td>Drive to Borjomi, the famous mineral spa resort town nestled in the Borjomi Gorge. Sample the legendary mineral water at source. Winter walk through the snow-dusted Borjomi-Kharagauli National
+                      Park — Georgia's largest protected wilderness.</td>
                     <td>100 km</td>
                   </tr>
                   <tr>
                     <td><span class="day-badge">Day 7</span></td>
                     <td>—</td>
                     <td>Borjomi → Batumi</td>
-                    <td>The Black Sea coast run. Batumi sits in a subtropical micro-climate where even January is mild and green. Arrive on the boulevard, explore the Botanical Garden's winter colours, and celebrate the journey with a farewell dinner by the sea.</td>
+                    <td>The Black Sea coast run. Batumi sits in a subtropical micro-climate where even January is mild and green. Arrive on the boulevard, explore the Botanical Garden's winter colours, and celebrate the
+                      journey with a farewell dinner by the sea.</td>
                     <td>200 km</td>
                   </tr>
                   <tr>
@@ -339,12 +483,24 @@
           <section aria-labelledby="gallery-heading" class="reveal">
             <h2 id="gallery-heading" class="section-title" style="font-size:var(--text-3xl); margin-bottom:var(--sp-4);">Tour <em>Gallery</em></h2>
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-21.webp" alt="Gergeti Trinity Church in winter snow Georgia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Gudauri ski slopes Caucasus Georgia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Tbilisi old city in winter" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Prometheus Cave illuminated Georgia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Batumi Black Sea coast in winter" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Borjomi spa valley winter Georgia" class="gallery-item__img" loading="lazy" /><div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-21.webp" alt="Gergeti Trinity Church in winter snow Georgia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-22.webp" alt="Gudauri ski slopes Caucasus Georgia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-23.webp" alt="Tbilisi old city in winter" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-24.webp" alt="Prometheus Cave illuminated Georgia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-25.webp" alt="Batumi Black Sea coast in winter" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <div class="gallery-item" style="aspect-ratio:4/3;"><img src="../imgs/image-26.webp" alt="Borjomi spa valley winter Georgia" class="gallery-item__img" loading="lazy" />
+                <div class="gallery-item__overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
             </div>
           </section>
 
@@ -367,7 +523,8 @@
                 <div class="booking-fact"><i class="fa-solid fa-flag-checkered"></i> To <strong>Batumi, Georgia</strong></div>
               </div>
               <div class="booking-card__actions">
-                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Georgia%20Winter%20Adventure%20Car%20Tour%20(Jan%2FFeb%202026)." class="btn btn--primary" target="_blank" rel="noopener">
+                <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Georgia%20Winter%20Adventure%20Car%20Tour%20(Jan%2FFeb%202026)." class="btn btn--primary" target="_blank"
+                  rel="noopener">
                   <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
                 </a>
                 <a href="contact.html" class="btn btn--outline">
@@ -412,7 +569,8 @@
         <h2 class="cta-strip__title">Ready for Georgia in <em>Winter?</em></h2>
         <p class="cta-strip__sub">Gergeti in snow. Gudauri slopes. Tbilisi sulfur baths. The off-season secret. WhatsApp us to reserve your spot.</p>
         <div class="cta-strip__actions">
-          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Georgia%20Winter%20Adventure%20Car%20Tour%20(Jan%2FFeb%202026)." class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          <a href="https://wa.me/918390345646?text=Hi%20MotoRover!%20I'm%20interested%20in%20the%20Georgia%20Winter%20Adventure%20Car%20Tour%20(Jan%2FFeb%202026)." class="btn btn--primary btn--lg" target="_blank"
+            rel="noopener">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp to Book
           </a>
           <a href="tours.html#car-tours" class="btn btn--outline btn--lg">
@@ -428,7 +586,9 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-logo">Moto<span>Rover</span></div>
+          <a href="index.html" class="nav__logo" aria-label="MotoRover Home">
+            <img src="imgs/logo.png" alt="MotoRover" class="nav__logo-img" width="132" height="70">
+          </a>
           <p class="footer__brand-tagline">India's premier adventure travel company offering guided motorcycle tours and self-drive car road trips across 30+ countries.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -476,5 +636,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/tour-page.js" defer></script>
 </body>
+
 </html>
