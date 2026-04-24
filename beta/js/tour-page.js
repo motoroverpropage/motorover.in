@@ -106,6 +106,57 @@
     return null;
   }
 
+  function fetchInrRate(baseCurrency) {
+    var sources = [
+      function () {
+        return fetch('https://open.er-api.com/v6/latest/' + encodeURIComponent(baseCurrency))
+          .then(function (r) {
+            if (!r.ok) {
+              throw new Error('rate');
+            }
+            return r.json();
+          })
+          .then(function (d) {
+            var rate = d && d.rates && d.rates.INR;
+            if (typeof rate !== 'number') {
+              throw new Error('rate');
+            }
+            return rate;
+          });
+      },
+      function () {
+        return fetch('https://api.exchangerate-api.com/v4/latest/' + encodeURIComponent(baseCurrency))
+          .then(function (r) {
+            if (!r.ok) {
+              throw new Error('rate');
+            }
+            return r.json();
+          })
+          .then(function (d) {
+            var rate = d && d.rates && d.rates.INR;
+            if (typeof rate !== 'number') {
+              throw new Error('rate');
+            }
+            return rate;
+          });
+      }
+    ];
+    var index = 0;
+
+    function tryNext() {
+      var source = sources[index];
+      if (!source) {
+        return Promise.reject(new Error('rate'));
+      }
+      index += 1;
+      return source().catch(function () {
+        return tryNext();
+      });
+    }
+
+    return tryNext();
+  }
+
   function buildCurrencyUI(priceEl) {
     if (priceEl.dataset.currencyBind === '1') {
       return;
@@ -123,7 +174,7 @@
     }
     var foot = document.createElement('p');
     foot.className = 'tour-currency-foot';
-    foot.textContent = 'Live rate via Frankfurter (ECB). You pay in INR at the rate on the date of transfer.';
+    foot.textContent = 'Live FX estimate. You pay in INR at the rate on the date of transfer.';
 
     var group = document.createElement('div');
     group.className = 'tour-currency-toggle';
@@ -171,18 +222,8 @@
       btnTour.setAttribute('aria-pressed', 'false');
     }
 
-    fetch('https://api.frankfurter.app/latest?from=' + parsed.currency + '&to=INR')
-      .then(function (r) {
-        if (!r.ok) {
-          throw new Error('rate');
-        }
-        return r.json();
-      })
-      .then(function (d) {
-        var rate = d && d.rates && d.rates.INR;
-        if (typeof rate !== 'number') {
-          throw new Error('rate');
-        }
+    fetchInrRate(parsed.currency)
+      .then(function (rate) {
         var inr = Math.round(parsed.amount * rate);
         var fmt = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(inr);
         inrText = '≈ ₹ ' + fmt;

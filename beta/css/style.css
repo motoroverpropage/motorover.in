@@ -4,6 +4,8 @@
    Strictly: Plain CSS only, no frameworks
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+
 /* === RESET & BASE === */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -18,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -75,6 +77,7 @@ input, textarea, select {
   /* Typography */
   --font-display:  'Playfair Display', Georgia, serif;
   --font-body:     'Inter', system-ui, sans-serif;
+  --font-currency: 'Noto Sans', system-ui, -apple-system, sans-serif;
 
   /* Type Scale */
   --text-xs:   clamp(0.7rem,   1vw,   0.75rem);
@@ -805,17 +808,25 @@ a.tour-card.tour-card--link:hover .tour-card__image {
 }
 
 .tour-card__price {
-  font-family: var(--font-display);
+  font-family: var(--font-currency);
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
+  font-variant-numeric: tabular-nums;
 }
 
 .tour-card__price span {
-  font-family: var(--font-body);
+  font-family: var(--font-currency);
   font-size: var(--text-xs);
   font-weight: 400;
   color: var(--text-muted);
+}
+
+.booking-card__price,
+[data-currency-bind],
+[data-price-original] {
+  font-family: var(--font-currency);
+  font-variant-numeric: tabular-nums;
 }
 
 .tour-card__link {
