@@ -182,12 +182,12 @@ input, textarea, select {
   gap: var(--sp-2);
   flex-shrink: 0;
   background-color: black;
-  border-radius: 9999px;
+  border-radius: 24px 0px 24px 0px;
   padding: 0 24px;
 }
 
 .nav__logo img {
-  height: 44px;
+  height: 72px;
   width: auto;
 }
 .footer__grid .nav__logo{
@@ -1481,6 +1481,21 @@ a.team-card.team-card--link:hover .team-card__image {
 .breadcrumb a { color: var(--text-muted); transition: color var(--t-fast); }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb i { font-size: 0.65em; color: var(--text-faint); }
+
+/* Ensure breadcrumb remains legible over hero photography */
+.tour-hero .breadcrumb {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  backdrop-filter: blur(2px);
+}
+
+.tour-hero .breadcrumb a,
+.tour-hero .breadcrumb i {
+  color: inherit;
+}
 
 /* === TOUR HERO (inner pages) === */
 .tour-hero {
