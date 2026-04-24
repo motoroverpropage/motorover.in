@@ -24,7 +24,7 @@
 }
 
 .booking-card__price {
-  font-family: var(--font-display);
+  font-family: var(--font-currency);
   font-size: var(--text-4xl);
   font-weight: 800;
   color: var(--white);
