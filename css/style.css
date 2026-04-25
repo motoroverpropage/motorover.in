@@ -2235,6 +2235,30 @@ a.team-card.team-card--link {
   .highlights-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* Keep primary booking actions earlier in the mobile flow */
+  .booking-card__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .booking-card__facts {
+    order: 1;
+  }
+
+  .booking-card__actions {
+    order: 2;
+  }
+
+  .tour-type-legend {
+    order: 3;
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-3);
+  }
+
+  .booking-card__note {
+    order: 4;
+  }
 }
 
 .tour-page-main {

@@ -57,14 +57,14 @@
     el.setAttribute('aria-label', 'Tour formats we offer');
     el.innerHTML =
       '<p class="tour-type-legend__title">Types of tours</p>' +
-      '<ol class="tour-type-legend__list">' +
+      '<ul class="tour-type-legend__list">' +
       '<li><span class="tour-type-legend__name">Bespoke tours</span> ' +
       '<span class="tour-type-legend__desc">Private groups, custom dates &amp; routing.</span></li>' +
       '<li><span class="tour-type-legend__name">Self-drive tours</span> ' +
       '<span class="tour-type-legend__desc">Guided convoy self-drive road trips in our SUV programmes.</span></li>' +
       '<li><span class="tour-type-legend__name">Fixed departure guided road trips</span> ' +
       '<span class="tour-type-legend__desc">Scheduled group departures &mdash; dates as listed in this tour.</span></li>' +
-      '</ol>';
+      '</ul>';
     facts.parentNode.insertBefore(el, facts.nextSibling);
   }
 
