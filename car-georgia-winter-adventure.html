@@ -103,14 +103,51 @@
     </div>
   </nav>
 
-  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <a href="tours.html" class="nav__mobile-link">Motorcycle Tours</a>
-    <a href="tours.html#car-tours" class="nav__mobile-link">Car Tours</a>
-    <a href="about.html" class="nav__mobile-link">About</a>
-    <a href="why-us.html" class="nav__mobile-link">Why Us</a>
-    <a href="media.html" class="nav__mobile-link">Media</a>
-    <a href="faq.html" class="nav__mobile-link">FAQ</a>
-    <a href="contact.html" class="nav__mobile-link">Contact</a>
+  <div id="nav-mobile-menu" class="nav__mobile" role="dialog" aria-label="Main menu" aria-modal="true">
+    <div class="nav__mobile-scroll">
+      <div class="nav__mobile-group">
+        <button type="button" class="nav__mobile-accordion" id="mm-moto-btn" aria-expanded="false" aria-controls="mm-moto-panel">
+          <span class="nav__mobile-accordion__label"><i class="fa-solid fa-motorcycle" aria-hidden="true"></i> Motorcycle tours</span>
+          <span class="nav__mobile-accordion__chev" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="nav__mobile-panel" id="mm-moto-panel" role="region" aria-labelledby="mm-moto-btn" hidden>
+          <a href="motorcycle-silk-route.html" class="nav__mobile-sublink">Silk Route — Kyrgyzstan</a>
+          <a href="motorcycle-spain-and-france.html" class="nav__mobile-sublink">Spain &amp; France</a>
+          <a href="motorcycle-balkan.html" class="nav__mobile-sublink">Balkan</a>
+          <a href="motorcycle-morocco.html" class="nav__mobile-sublink">Morocco</a>
+          <a href="motorcycle-south-africa.html" class="nav__mobile-sublink">South Africa</a>
+          <a href="motorcycle-new-zealand.html" class="nav__mobile-sublink">New Zealand</a>
+          <a href="motorcycle-georgia.html" class="nav__mobile-sublink">Georgia</a>
+          <a href="motorcycle-northern-europe.html" class="nav__mobile-sublink">Northern Europe</a>
+          <a href="motorcycle-ultimate-alps.html" class="nav__mobile-sublink">Ultimate Alps</a>
+          <a href="tours.html" class="nav__mobile-sublink nav__mobile-sublink--all">View all motorcycle tours</a>
+        </div>
+      </div>
+      <div class="nav__mobile-group">
+        <button type="button" class="nav__mobile-accordion" id="mm-car-btn" aria-expanded="false" aria-controls="mm-car-panel">
+          <span class="nav__mobile-accordion__label"><i class="fa-solid fa-car-side" aria-hidden="true"></i> Car tours</span>
+          <span class="nav__mobile-accordion__chev" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+        </button>
+        <div class="nav__mobile-panel" id="mm-car-panel" role="region" aria-labelledby="mm-car-btn" hidden>
+          <a href="car-silk-route.html" class="nav__mobile-sublink">Silk Route — Kyrgyzstan</a>
+          <a href="car-georgia.html" class="nav__mobile-sublink">Georgia</a>
+          <a href="car-morocco.html" class="nav__mobile-sublink">Morocco</a>
+          <a href="car-balkan.html" class="nav__mobile-sublink">Balkan</a>
+          <a href="car-new-zealand.html" class="nav__mobile-sublink">New Zealand</a>
+          <a href="car-northern-europe.html" class="nav__mobile-sublink">Northern Europe</a>
+          <a href="car-south-africa.html" class="nav__mobile-sublink">South Africa</a>
+          <a href="car-georgia-winter-adventure.html" class="nav__mobile-sublink">Georgia Winter Adventure</a>
+          <a href="car-silk-route-autumn-edition.html" class="nav__mobile-sublink">Silk Route Autumn Edition</a>
+          <a href="car-silk-route-snow-drive.html" class="nav__mobile-sublink">Silk Route Snow Drive</a>
+          <a href="tours.html#car-tours" class="nav__mobile-sublink nav__mobile-sublink--all">View all car tours</a>
+        </div>
+      </div>
+      <a href="about.html" class="nav__mobile-link">About</a>
+      <a href="why-us.html" class="nav__mobile-link">Why Us</a>
+      <a href="media.html" class="nav__mobile-link">Media</a>
+      <a href="faq.html" class="nav__mobile-link">FAQ</a>
+      <a href="contact.html" class="nav__mobile-link">Contact</a>
+    </div>
   </div>
 
   <!-- TOUR HERO -->

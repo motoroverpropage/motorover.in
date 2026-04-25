@@ -122,6 +122,40 @@
     });
   }
 
+  /* === NAV: Mobile / tablet tour accordions (match desktop flyouts) === */
+  const mobileAccordions = document.querySelectorAll('.nav__mobile-accordion');
+  if (mobileAccordions.length) {
+    mobileAccordions.forEach((btn) => {
+      const panelId = btn.getAttribute('aria-controls');
+      if (!panelId) {
+        return;
+      }
+      const panel = document.getElementById(panelId);
+      if (!panel) {
+        return;
+      }
+      btn.addEventListener('click', () => {
+        const willOpen = btn.getAttribute('aria-expanded') !== 'true';
+        const menu = btn.closest('.nav__mobile');
+        if (menu && willOpen) {
+          menu.querySelectorAll('.nav__mobile-accordion[aria-expanded="true"]').forEach((other) => {
+            if (other === btn) {
+              return;
+            }
+            other.setAttribute('aria-expanded', 'false');
+            const otherId = other.getAttribute('aria-controls');
+            const otherPanel = otherId ? document.getElementById(otherId) : null;
+            if (otherPanel) {
+              otherPanel.hidden = true;
+            }
+          });
+        }
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        panel.hidden = !willOpen;
+      });
+    });
+  }
+
   /* === HERO: Ken Burns effect === */
   const heroBg = document.querySelector('.hero__bg');
   if (heroBg) {

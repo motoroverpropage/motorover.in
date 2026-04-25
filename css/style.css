@@ -417,6 +417,121 @@ input, textarea, select {
 .nav__mobile-link:last-child { border-bottom: none; }
 .nav__mobile-link:hover { color: var(--text); }
 
+/* Mobile + tablet: scrollable area when tour accordions are long */
+.nav__mobile-scroll {
+  max-height: min(72vh, calc(100dvh - var(--nav-height) - 24px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding-bottom: 4px;
+  margin: 0 calc(-1 * var(--container-padding));
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  scrollbar-gutter: stable;
+}
+
+/* Tour accordions: mirror desktop flyouts, optimized for touch */
+.nav__mobile-group {
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__mobile-group:last-of-type { border-bottom: 1px solid var(--border); }
+
+.nav__mobile-accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 14px 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.nav__mobile-accordion:hover { color: var(--text); }
+
+.nav__mobile-accordion:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  color: var(--text);
+}
+
+.nav__mobile-accordion__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__mobile-accordion__label i { color: var(--accent); font-size: 1.05em; }
+
+.nav__mobile-accordion__chev {
+  display: inline-flex;
+  color: rgba(240, 237, 232, 0.5);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav__mobile-accordion[aria-expanded="true"] { color: var(--text); }
+.nav__mobile-accordion[aria-expanded="true"] .nav__mobile-accordion__chev {
+  color: var(--accent);
+  transform: rotate(180deg);
+}
+
+.nav__mobile-panel {
+  padding: 0 0 6px 4px;
+  border-left: 1px solid rgba(255, 197, 18, 0.35);
+  margin-left: 6px;
+}
+
+.nav__mobile-panel[hidden] {
+  display: none !important;
+}
+
+.nav__mobile-sublink {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: rgba(240, 237, 232, 0.72);
+  padding: 9px 0 9px 10px;
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.nav__mobile-sublink:last-child { border-bottom: none; }
+/* “View all” already has a top rule — avoid a double line under the last tour link */
+.nav__mobile-sublink:has(+ .nav__mobile-sublink--all) {
+  border-bottom: none;
+}
+.nav__mobile-sublink:hover { color: var(--text); }
+
+.nav__mobile-sublink:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+  color: var(--text);
+  border-radius: 2px;
+}
+
+/* “View all” in sheet menu */
+.nav__mobile-sublink--all {
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 2px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: none;
+}
+
 /* === HERO === */
 .hero {
   position: relative;
@@ -1648,22 +1763,23 @@ a.team-card.team-card--link:hover .team-card__image {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
   .inclusions-grid { grid-template-columns: 1fr; }
-}
 
-@media (max-width: 768px) {
-  :root { --nav-height: 60px; }
-
+  /* Tablet + small laptop: hamburger (hover dropdowns are poor on touch) */
   .nav__links { display: none; }
-  .nav__logo { padding: 0 14px; border-radius: 18px 0px 18px 0px; }
-  .nav__logo img,
-  .nav__logo-img { height: 36px; }
-  
   .nav__hamburger { display: flex; }
   .nav__mobile.open {
     display: block;
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-height: 60px; }
+
+  .nav__logo { padding: 0 14px; border-radius: 18px 0px 18px 0px; }
+  .nav__logo img,
+  .nav__logo-img { height: 36px; }
   .hero__title { max-width: 100%; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
 
@@ -1804,6 +1920,15 @@ a.team-card.team-card--link:hover .team-card__image {
   border-color: var(--border);
 }
 [data-theme="light"] .nav__mobile-link { color: var(--text-muted); border-bottom-color: var(--border); }
+[data-theme="light"] .nav__mobile-accordion { color: var(--text-muted); }
+[data-theme="light"] .nav__mobile-accordion[aria-expanded="true"] { color: var(--text); }
+[data-theme="light"] .nav__mobile-accordion__chev { color: rgba(26, 25, 22, 0.4); }
+[data-theme="light"] .nav__mobile-accordion[aria-expanded="true"] .nav__mobile-accordion__chev { color: var(--accent); }
+[data-theme="light"] .nav__mobile-sublink { color: #5c574f; border-bottom-color: rgba(0, 0, 0, 0.06); }
+[data-theme="light"] .nav__mobile-sublink:hover { color: var(--text); }
+[data-theme="light"] .nav__mobile-group { border-bottom-color: var(--border); }
+[data-theme="light"] .nav__mobile-group:last-of-type { border-bottom-color: var(--border); }
+[data-theme="light"] .nav__mobile-panel { border-left-color: rgba(200, 150, 10, 0.45); }
 
 /* Light mode — CTA strip */
 [data-theme="light"] .cta-strip {
