@@ -187,8 +187,10 @@ input, textarea, select {
 }
 
 .nav__logo img {
-  height: 72px;
+  height: 44px;
   width: auto;
+  max-width: 100%;
+  display: block;
 }
 .footer__grid .nav__logo{
   width: fit-content;
@@ -1485,7 +1487,8 @@ a.team-card.team-card--link:hover .team-card__image {
 /* Ensure breadcrumb remains legible over hero photography */
 .tour-hero .breadcrumb {
   color: #fff;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   padding: 6px 10px;
   border-radius: var(--radius-pill);
   width: fit-content;
@@ -1493,8 +1496,15 @@ a.team-card.team-card--link:hover .team-card__image {
 }
 
 .tour-hero .breadcrumb a,
+.tour-hero .breadcrumb span {
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .tour-hero .breadcrumb i {
   color: inherit;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 /* === TOUR HERO (inner pages) === */
@@ -1548,6 +1558,26 @@ a.team-card.team-card--link:hover .team-card__image {
   padding: 4px 12px;
   border-radius: var(--radius-pill);
   letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.car-badge,
+.tour-tag--car {
+  background-color: rgba(18, 164, 255, 0.24);
+  border: 1px solid rgba(18, 164, 255, 0.55);
+  color: #d8efff;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .tour-hero__title {
@@ -1624,6 +1654,9 @@ a.team-card.team-card--link:hover .team-card__image {
   :root { --nav-height: 60px; }
 
   .nav__links { display: none; }
+  .nav__logo { padding: 0 14px; border-radius: 18px 0px 18px 0px; }
+  .nav__logo img,
+  .nav__logo-img { height: 36px; }
   
   .nav__hamburger { display: flex; }
   .nav__mobile.open {
@@ -1652,6 +1685,9 @@ a.team-card.team-card--link:hover .team-card__image {
 }
 
 @media (max-width: 480px) {
+  .nav__logo { padding: 0 10px; border-radius: 14px 0px 14px 0px; }
+  .nav__logo img,
+  .nav__logo-img { height: 32px; }
   .stats-bar__grid { grid-template-columns: repeat(2, 1fr); }
   .hero__actions .btn { width: 100%; justify-content: center; }
 }
